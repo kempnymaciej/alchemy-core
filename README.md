@@ -5,4 +5,4 @@ This version has been released for demonstration purposes. I'm going to release 
 ## Installation
 1. Clone the repository.
 2. Copy `AlchemyBow.Core` and `AlchemyBow.Core.meta` into the `Assets` folder of your project.
-3. Add a reference to `AlchemyBow.Core` to appropriate assembly definitions. (If you don't use assembly deffinitions in your project, remove `AlchemyBow.Core/AlchemyBow.Core.asmdef`.)
+3. Add a reference to `AlchemyBow.Core` to appropriate assembly definitions. (If you don't use assembly definitions in your project, remove `AlchemyBow.Core/AlchemyBow.Core.asmdef`.)
