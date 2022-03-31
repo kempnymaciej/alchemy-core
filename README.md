@@ -1,8 +1,4 @@
 # AlchemyBow.Core
-AlchemyBow.Core is a simple dependency injection framework for Unity that I am actively improving during the development of my current personal project.
-This version has been released for demonstration purposes. I'm going to release it as a documented package in the future.
+**AlchemyBow.Core** is a simple dependency injection framework for Unity projects. It is designed to help you manage dependencies and all aspects of the loading process.
 
-## Installation
-1. Clone the repository.
-2. Copy `AlchemyBow.Core` and `AlchemyBow.Core.meta` into the `Assets` folder of your project.
-3. Add a reference to `AlchemyBow.Core` to appropriate assembly definitions. (If you don't use assembly definitions in your project, remove `AlchemyBow.Core/AlchemyBow.Core.asmdef`.)
+To learn more about the package see [the documentation page](https://kempnymaciej.github.io/alchemy-core/)
