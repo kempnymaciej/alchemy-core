@@ -52,6 +52,12 @@
                       <li>
                           <a href="../../api/index.html" title="Scripting API">Scripting API</a>
                       </li>
+                      <li>
+                          <a href="../../changelog/CHANGELOG.html" title="Changelog">Changelog</a>
+                      </li>
+                      <li>
+                          <a href="../../license/LICENSE.html" title="License">License</a>
+                      </li>
                 </ul>    </div>
           </div>
         </nav>
@@ -141,18 +147,18 @@ Then, the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html"
 <p>This stage is dedicated to performing operations that are potentially time consuming. It consists of the following steps:</p>
 <ul>
 <li>Wait for realtime seconds defined by <code>CoreController.PreLoadingDelay</code>.</li>
-<li>The <a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadable.html">ICoreLoadable</a> returned by <code>CoreProjectContext.GetLoadables()</code> are loaded in order. *<em>(This step happens only during the first loading.)</em></li>
-<li>The <a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadable.html">ICoreLoadable</a> returned by <code>CoreController.GetLoadables()</code> are loaded in order.</li>
+<li>Loadables (<a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadable.html">ICoreLoadable</a>) returned by <code>CoreProjectContext.GetLoadables()</code> are loaded in order. *<em>(This step happens only during the first loading.)</em></li>
+<li>Loadables (<a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadable.html">ICoreLoadable</a>) returned by <code>CoreController.GetLoadables()</code> are loaded in order.</li>
 <li>Wait for realtime seconds defined by <code>CoreController.PostLoadingDelay</code>.</li>
 <li>Wait for the previous scene to finish unloading. *<em>(This step doesn't happen during the first loading.)</em></li>
 </ul>
 <p>At the end, <code>CoreController.OnLoadingFinished()</code> is called. The default implementation of this method triggers related callbacks from the <a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadingCallbacksHandler.html">ICoreLoadingCallbacksHandler</a>.</p>
 <p>For details on <a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadable.html">ICoreLoadable</a> and <a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadingCallbacksHandler.html">ICoreLoadingCallbacksHandler</a> see <a class="xref" href="loading.html">Loading</a>.</p>
 <h4 id="4-working-stage">4. Working stage</h4>
-<p>This stage defines what happens between loading and unloading. The default solution is to use the state machine pattern to control the game behavior (see <a class="xref" href="stateful_behaviour.html">Stateful Behaviour</a>). However, it is not mandatory, so you can use any method you like.</p>
+<p>This stage defines what happens between loading and unloading. The default solution is to use the state pattern to control the game behavior (see <a class="xref" href="stateful_behaviour.html">Stateful Behaviour</a>). However, it is not mandatory, so you can use any method you like.</p>
 <h4 id="5-unloading-stage">5. Unloading stage</h4>
 <p>This stage is the last phase of the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> life circle. It starts when you call <code>CoreController.ChangeScene(int)</code>.
-At this point, <code>CoreController.OnSceneChangeStarted()</code> is called. The default implementation of this method triggers related callbacks from the <a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadingCallbacksHandler.html">ICoreLoadingCallbacksHandler</a>. (see <a class="xref" href="loading.html">Loading</a> for more details).</p>
+At this point, <code>CoreController.OnSceneChangeStarted()</code> is called, the default implementation of this method triggers related callbacks from the <a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadingCallbacksHandler.html">ICoreLoadingCallbacksHandler</a> (see <a class="xref" href="loading.html">Loading</a> for more details).</p>
 <div class="IMPORTANT">
 <h5>Important</h5>
 <p>If you use the <code>UnityEngine.UI</code> package, add <code>UnityEngine.EventSystems.EventSystem.current.enabled = false;</code> to the <code>CoreController.OnSceneChangeStarted()</code> method. Otherwise, the event system may crash during the scene change process.</p>

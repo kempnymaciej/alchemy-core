@@ -67,6 +67,23 @@ references:
   fullName.vb: AlchemyBow.Core.CoreController(Of TProjectContext).Container
   nameWithType: CoreController<TProjectContext>.Container
   nameWithType.vb: CoreController(Of TProjectContext).Container
+- uid: AlchemyBow.Core.CoreController`1.DestroyProjectContext
+  name: DestroyProjectContext()
+  href: api/AlchemyBow.Core.CoreController-1.html#AlchemyBow_Core_CoreController_1_DestroyProjectContext
+  commentId: M:AlchemyBow.Core.CoreController`1.DestroyProjectContext
+  fullName: AlchemyBow.Core.CoreController<TProjectContext>.DestroyProjectContext()
+  fullName.vb: AlchemyBow.Core.CoreController(Of TProjectContext).DestroyProjectContext()
+  nameWithType: CoreController<TProjectContext>.DestroyProjectContext()
+  nameWithType.vb: CoreController(Of TProjectContext).DestroyProjectContext()
+- uid: AlchemyBow.Core.CoreController`1.DestroyProjectContext*
+  name: DestroyProjectContext
+  href: api/AlchemyBow.Core.CoreController-1.html#AlchemyBow_Core_CoreController_1_DestroyProjectContext_
+  commentId: Overload:AlchemyBow.Core.CoreController`1.DestroyProjectContext
+  isSpec: "True"
+  fullName: AlchemyBow.Core.CoreController<TProjectContext>.DestroyProjectContext
+  fullName.vb: AlchemyBow.Core.CoreController(Of TProjectContext).DestroyProjectContext
+  nameWithType: CoreController<TProjectContext>.DestroyProjectContext
+  nameWithType.vb: CoreController(Of TProjectContext).DestroyProjectContext
 - uid: AlchemyBow.Core.CoreController`1.GetLoadables
   name: GetLoadables()
   href: api/AlchemyBow.Core.CoreController-1.html#AlchemyBow_Core_CoreController_1_GetLoadables

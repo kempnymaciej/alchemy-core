@@ -52,6 +52,12 @@
                       <li>
                           <a href="../../api/index.html" title="Scripting API">Scripting API</a>
                       </li>
+                      <li>
+                          <a href="../../changelog/CHANGELOG.html" title="Changelog">Changelog</a>
+                      </li>
+                      <li>
+                          <a href="../../license/LICENSE.html" title="License">License</a>
+                      </li>
                 </ul>    </div>
           </div>
         </nav>
@@ -112,7 +118,7 @@
 
 <p>One of the most important aspects of the <strong>AlchemyBow.Core</strong> is to provide an easy and organized way to handle loading processes.</p>
 <h2 id="icoreloadable">ICoreLoadable</h2>
-<p><a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadable.html">ICoreLoadable</a> is an interface for objects that require a time-consuming loading process. It provides one method - <code>Load(OperationHandle)</code> that takes the <a class="xref" href="../../api/AlchemyBow.Core.OperationHandle.html">OperationHandle</a> as a parameter.
+<p><a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadable.html">ICoreLoadable</a> is an interface for objects that require time-consuming loading process. It provides one method - <code>Load(OperationHandle)</code> that takes the <a class="xref" href="../../api/AlchemyBow.Core.OperationHandle.html">OperationHandle</a> as a parameter.
 The loading process is considered complete when you call <code>OperationHandle.MarkDone()</code>.</p>
 <pre><code>public class SampleCoreLoadable : MonoBehaviour, ICoreLoadable
 {
@@ -148,20 +154,23 @@ public class MyCoreProjectContext : CoreProjectContext
     }
 }
 </code></pre>
-<p>For the <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> this solution is ok, but we don't recommend you to use it for the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> because it would make it tightly coupled with the contents of the scene. Technically, the best approach is the one that allows you to share your controller the most.</p>
-<p>For more dependency injection example, you can:</p>
+<p>For the <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> this solution is ok, but we don't recommend you to use it for the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> because it would make it tightly coupled with the contents of the scene.</p>
+<p>Technically, the best approach is the one that allows you to share your controller the most.
+One of the most interesting concepts is to use the dynamic collection binding feature - you can add your loadables to some collection with installers, and then use the collection in the <code>GetLoadables()</code> method. (This approach can be even better when you're using some kind of sorted collection.)
+On the other hand, if the order and transparency of loading is particularly important to you, you can consider the following method:</p>
 <ol>
 <li>Create an interface that provides <code>IEnumerable&lt;ICoreLoadable&gt; GetLoadables()</code> method.</li>
 <li>Create a class that implements the interface and uses <code>[Inject]</code> to get concrete loadables.</li>
 <li>Create an <a class="xref" href="../../api/AlchemyBow.Core.IoC.MonoInstaller.html">installer</a> that creates and binds the class to the interface.</li>
 <li>In your controller, have an <code>[Inject]</code> field of the interface type and use it to get loadables.</li>
 </ol>
-<p>For more Unity style example, you can:</p>
+<p>Or with more Unity style:</p>
 <ol>
 <li>Create an abstract class that inherits from MonoBehaviour and has <code>public abstract IEnumerable&lt;ICoreLoadable&gt; GetLoadables()</code> method.</li>
 <li>Create a class that inherits from the abstract class and uses <code>[Inject]</code> to get concrete loadables.</li>
 <li>In your controller, have a <code>[SerializeField]</code> field of the abstract class type, use <code>CoreController.InstallAdditionalBindings(IBindOnlyContainer)</code> to have it injected and use it to get loadables.</li>
 </ol>
+<p>Finally, you can use any combination of these or other methods.</p>
 <h2 id="icoreloadingcallbackshandler">ICoreLoadingCallbacksHandler</h2>
 <p><a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadingCallbacksHandler.html">ICoreLoadingCallbacksHandler</a> provides a mechanism for notifying objects when <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> finishes loading or starts unloading.</p>
 <pre><code>public class SampleCoreLoadingCallbacksHandler : ICoreLoadingCallbacksHandler
