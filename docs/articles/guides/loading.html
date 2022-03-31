@@ -156,8 +156,8 @@ public class MyCoreProjectContext : CoreProjectContext
 </code></pre>
 <p>For the <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> this solution is ok, but we don't recommend you to use it for the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> because it would make it tightly coupled with the contents of the scene.</p>
 <p>Technically, the best approach is the one that allows you to share your controller the most.
-One of the most interesting concepts is to use the dynamic collection binding feature - you can add your loadables to some collection with installers, and then use the collection in the <code>GetLoadables()</code> method. (This approach can be even better when you're using some kind of sorted collection.)
-On the other hand, if the order and transparency of loading is particularly important to you, you can consider the following method:</p>
+One of the most interesting concepts is to use the dynamic collection binding feature - you can add your loadables to some collection with installers, and then use the collection in the <code>GetLoadables()</code> method. (This approach can be even better when you're using some kind of sorted collection.)</p>
+<p>On the other hand, if the order and transparency of loading is particularly important to you, you can consider the following method:</p>
 <ol>
 <li>Create an interface that provides <code>IEnumerable&lt;ICoreLoadable&gt; GetLoadables()</code> method.</li>
 <li>Create a class that implements the interface and uses <code>[Inject]</code> to get concrete loadables.</li>
