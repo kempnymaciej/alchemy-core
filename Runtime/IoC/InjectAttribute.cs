@@ -6,7 +6,7 @@ namespace AlchemyBow.Core.IoC
     /// Indicates that a field should be injected.
     /// </summary>
     /// <remarks>
-    /// Only works for classes decorated with the <c>[InjectionTarget]</c> attribute.
+    /// Only works in classes decorated with the <c>[InjectionTarget]</c> attribute.
     /// </remarks>
     [AttributeUsage(AttributeTargets.Field)]
     public class InjectAttribute : Attribute

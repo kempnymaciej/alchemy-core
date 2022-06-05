@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.0] - 2022-06-05
+* Removed the `ICoreState` interface.
+* `CoreController` no longer has a built-in state machine.
+* Added a hierarchical finite state machine (`AlchemyBow.Core.States`).
+* Improved documentation comments.
+* Improved [the documentation page](https://kempnymaciej.github.io/alchemy-core/).
+
+
 ## [1.0.0] - 2022-03-31
 This is the first official release of the AlchemyBow.Core package.
 * Added reflection baking.
@@ -9,4 +17,4 @@ This is the first official release of the AlchemyBow.Core package.
 * Simplified container bind methods.
 * Removed update methods form the `ICoreState` interface.
 * Added documentation comments for all public and protected members.
-* Added the documentation [page](https://kempnymaciej.github.io/alchemy-core/).
+* Added [the documentation page](https://kempnymaciej.github.io/alchemy-core/).

@@ -13,6 +13,7 @@ namespace AlchemyBow.Core.IoC
         /// </summary>
         /// <typeparam name="T">The key.</typeparam>
         /// <param name="value">The instance of the value.</param>
+        /// <remarks>The dependencies are injected during the resolve process.</remarks>
         void Bind<T>(T value);
 
         /// <summary>
@@ -20,13 +21,14 @@ namespace AlchemyBow.Core.IoC
         /// </summary>
         /// <param name="key">The key.</param>
         /// <param name="value">The instance of the value.</param>
-        /// <remarks>Only use it if the generic overload of the method cannot be used.</remarks>
+        /// <remarks>The dependencies are injected during the resolve process.</remarks>
         void Bind(Type key, object value);
 
         /// <summary>
         /// Informs the container that it should inject dependencies to the instance.
         /// </summary>
         /// <param name="instance">The instance to inform about.</param>
+        /// <remarks>The dependencies are injected during the resolve process.</remarks>
         void BindInaccessible(object instance);
 
         /// <summary>
@@ -42,7 +44,7 @@ namespace AlchemyBow.Core.IoC
         /// <typeparam name="TItem">The type of items in the collection.</typeparam>
         /// <param name="item">The item to add.</param>
         /// <remarks>
-        /// Informs the container that it should inject dependencies to the instance of the collection but not into the item.
+        /// Informs the container that it should inject dependencies to the instance of the collection but not into the item. (The dependencies are injected during the resolve process.)
         /// </remarks>
         void AddToDynamicCollectionBinding<TCollection, TItem>(TItem item)
             where TCollection : ICollection<TItem>;
@@ -54,7 +56,7 @@ namespace AlchemyBow.Core.IoC
         /// <typeparam name="TItem">The type of items in the collection.</typeparam>
         /// <param name="items">The items to add.</param>
         /// <remarks>
-        /// Informs the container that it should inject dependencies to the instance of the collection but not into the items.
+        /// Informs the container that it should inject dependencies to the instance of the collection but not into the items. (The dependencies are injected during the resolve process.)
         /// </remarks>
         void AddRangeToDynamicCollectionBinding<TCollection, TItem>(IEnumerable<TItem> items)
             where TCollection : ICollection<TItem>;

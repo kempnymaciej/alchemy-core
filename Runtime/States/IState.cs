@@ -1,18 +1,18 @@
-﻿namespace AlchemyBow.Core
+﻿namespace AlchemyBow.Core.States
 {
     /// <summary>
     /// Provides the base interface for the abstraction of states.
     /// </summary>
-    public interface ICoreState
+    public interface IState
     {
         /// <summary>
-        /// Activates the object.
+        /// Activates the state.
         /// </summary>
-        void Initialize();
+        void Enter();
 
         /// <summary>
-        /// Deactivates the object.
+        /// Deactivates the state.
         /// </summary>
-        void Deinitialize();
+        void Exit();
     } 
 }

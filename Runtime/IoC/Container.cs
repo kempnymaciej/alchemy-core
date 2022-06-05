@@ -5,7 +5,7 @@ using AlchemyBow.Core.IoC.Elements;
 namespace AlchemyBow.Core.IoC
 {
     /// <summary>
-    /// The dependency injection container.
+    /// Represents a dependency injection container.
     /// </summary>
     public sealed class Container : IBindOnlyContainer
     {
@@ -15,7 +15,7 @@ namespace AlchemyBow.Core.IoC
         private readonly HashSet<Type> dynamicCollections;
 
         /// <summary>
-        /// Creates an instance of the dependency injection container.
+        /// Creates an instance of the class.
         /// </summary>
         public Container()
         {
@@ -30,6 +30,7 @@ namespace AlchemyBow.Core.IoC
         /// </summary>
         /// <typeparam name="T">The key.</typeparam>
         /// <param name="value">The instance of the value.</param>
+        /// <remarks>The dependencies are injected during the resolve process.</remarks>
         public void Bind<TKey>(TKey value)
         {
             bindings.Add(typeof(TKey), value);
@@ -40,7 +41,7 @@ namespace AlchemyBow.Core.IoC
         /// </summary>
         /// <param name="key">The key.</param>
         /// <param name="value">The instance of the value.</param>
-        /// <remarks>Only use it if the generic overload of the method cannot be used.</remarks>
+        /// <remarks>The dependencies are injected during the resolve process.</remarks>
         public void Bind(Type key, object value)
         {
             if (!key.IsAssignableFrom(value.GetType()))
@@ -54,6 +55,7 @@ namespace AlchemyBow.Core.IoC
         /// Informs the container that it should inject dependencies to the instance.
         /// </summary>
         /// <param name="instance">The instance to inform about.</param>
+        /// <remarks>The dependencies are injected during the resolve process.</remarks>
         public void BindInaccessible(object instance)
         {
             inaccessibleBindings.Add(instance);
@@ -75,7 +77,7 @@ namespace AlchemyBow.Core.IoC
         /// <typeparam name="TItem">The type of items in the collection.</typeparam>
         /// <param name="item">The item to add.</param>
         /// <remarks>
-        /// Informs the container that it should inject dependencies to the instance of the collection but not into the item.
+        /// Informs the container that it should inject dependencies to the instance of the collection but not into the item. (The dependencies are injected during the resolve process.)
         /// </remarks>
         public void AddToDynamicCollectionBinding<TCollection, TItem>(TItem item)
             where TCollection : ICollection<TItem>
@@ -94,7 +96,7 @@ namespace AlchemyBow.Core.IoC
         /// <typeparam name="TItem">The type of items in the collection.</typeparam>
         /// <param name="items">The items to add.</param>
         /// <remarks>
-        /// Informs the container that it should inject dependencies to the instance of the collection but not into the items.
+        /// Informs the container that it should inject dependencies to the instance of the collection but not into the items. (The dependencies are injected during the resolve process.)
         /// </remarks>
         public void AddRangeToDynamicCollectionBinding<TCollection, TItem>(IEnumerable<TItem> items)
             where TCollection : ICollection<TItem>

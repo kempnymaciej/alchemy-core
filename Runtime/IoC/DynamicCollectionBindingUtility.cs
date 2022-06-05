@@ -55,8 +55,8 @@ namespace AlchemyBow.Core.IoC
         /// <typeparam name="TKey">The type of the key.</typeparam>
         /// <typeparam name="TValue">The type of the value.</typeparam>
         /// <param name="container">The dependency injection container.</param>
-        /// <param name="key">The key of the item to add.</param>
-        /// <param name="value">The value of the item to add.</param>
+        /// <param name="key">The key.</param>
+        /// <param name="value">The value.</param>
         public static void AddToDynamicDictionaryBinding<TKey, TValue>(this IBindOnlyContainer container, TKey key, TValue value)
         {
             container.AddToDynamicCollectionBinding<Dictionary<TKey, TValue>, KeyValuePair<TKey, TValue>>
