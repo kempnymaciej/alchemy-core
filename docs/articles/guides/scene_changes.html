@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Loading </title>
+    <title>Scene changes </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Loading ">
+    <meta name="title" content="Scene changes ">
     <meta name="generator" content="docfx 2.59.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -99,11 +99,11 @@
                           <li class="">
                             <a href="../guides/dependency_injection.html" title="Dependency Injection" class="">Dependency Injection</a>
                           </li>
-                          <li class="active">
-                            <a href="../guides/loading.html" title="Loading" class="active">Loading</a>
-                          </li>
                           <li class="">
-                            <a href="../guides/scene_changes.html" title="Scene Changes" class="">Scene Changes</a>
+                            <a href="../guides/loading.html" title="Loading" class="">Loading</a>
+                          </li>
+                          <li class="active">
+                            <a href="../guides/scene_changes.html" title="Scene Changes" class="active">Scene Changes</a>
                           </li>
                           <li class="">
                             <a href="../guides/stateful_behaviour.html" title="Stateful Behaviour" class="">Stateful Behaviour</a>
@@ -116,98 +116,68 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="loading">
-<h1 id="loading">Loading</h1>
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="scene-changes">Scene changes</h1>
 
-<p>One of the most important aspects of the <strong>AlchemyBow.Core</strong> is to provide an easy and organized way to handle loading processes.</p>
-<h2 id="icoreloadable">ICoreLoadable</h2>
-<p><a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadable.html">ICoreLoadable</a> is an interface for objects that require time-consuming loading process. It provides one method - <code>Load(OperationHandle)</code> that takes the <a class="xref" href="../../api/AlchemyBow.Core.OperationHandle.html">OperationHandle</a> as a parameter.
-The loading process is considered complete when you call <code>OperationHandle.MarkDone()</code>.</p>
-<pre><code>using AlchemyBow.Core;
-using System.Collections;
-using UnityEngine;
-
-public class SampleCoreLoadable : MonoBehaviour, ICoreLoadable
+<p>In this section, you will find details on changing scenes in the <strong>AlchemyBow.Core</strong> framework.</p>
+<p>You probably already know that to change the scene you should use the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html#AlchemyBow_Core_CoreController_1_ChangeScene_System_Int32_">ChangeScene(int)</a> method.
+Have you noticed that it is <code>protected</code>? The reason is to discourage you from referring to instances of the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> because it creates inconspicuous circular dependecies (the controller uses modules that directly or indirectly use the controller).</p>
+<p>An easy way to trigger scene changes is to create a mediator object. For example:</p>
+<pre><code>public class GameSceneTrigger
 {
-    public void Load(OperationHandle handle)
-    {
-        StartCoroutine(CreateLoadCoroutine(handle));
-    }
+    public event System.Action Triggered;
 
-    private IEnumerator CreateLoadCoroutine(OperationHandle handle)
+    public void Trigger()
     {
-        yield return new WaitForSeconds(1); // some time-consuming operation
-        handle.MarkDone();
+        Triggered?.Invoke();
     }
 }
 </code></pre>
-<h3 id="geting-loadables">Geting loadables</h3>
-<p>To specify <strong>what to load</strong> and <strong>in what order</strong>, override <code>GetLoadables()</code> in <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> or <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> depending on the scope to which the loadable belongs.</p>
-<div class="NOTE">
-<h5>Note</h5>
-<p>Loadables returned by the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> are loaded each time you change the scene, but loadables returned by the <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> are only loaded once.</p>
-</div>
-<p>There are a lot of ways you can get your loadables. The fast method is to use injection directly.</p>
+<p>You can bind it, and then inject it wherever you need to trigger the scene change. The controller only needs to subscribe to the event:</p>
 <pre><code>using AlchemyBow.Core;
 using AlchemyBow.Core.IoC;
 using System.Collections.Generic;
 
 [InjectionTarget]
-public class MyCoreProjectContext : CoreProjectContext
+public class MyCoreController : CoreController&lt;MyCoreProjectContext&gt;
 {
+    private const int GameSceneBuildIndex = 0;
+
     [Inject]
-    private readonly SampleCoreLoadable sampleCoreLoadable;
+    private GameSceneTrigger gameSceneTrigger;
 
-    protected override IEnumerable&lt;ICoreLoadable&gt; GetLoadables()
+    protected override void OnLoadingFinished()
     {
-        yield return sampleCoreLoadable;
-        yield break;
+        gameSceneTrigger.Triggered += OnGameSceneTrigger;
+        base.OnLoadingFinished();
     }
+
+    protected override void OnSceneChangeStarted()
+    {
+        gameSceneTrigger.Triggered -= OnGameSceneTrigger;
+        base.OnSceneChangeStarted();
+    }
+
+    private void OnGameSceneTrigger()
+    {
+        ChangeScene(GameSceneBuildIndex);
+    }
+
+    // ...
 }
 </code></pre>
-<p>Most of the time this solution is fine (especially for <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a>), but you should also consider delegating the task to other objects to prevent <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> from becoming tightly coupled with loadables.<br>
-Another interesting concept is to use the dynamic collection binding feature - you can add your loadables to some collection with installers and then use the collection in the <code>GetLoadables()</code> method (this approach can be even better with some kind of sorted / priority collection).</p>
-<h2 id="icoreloadingcallbackshandler">ICoreLoadingCallbacksHandler</h2>
-<p><a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadingCallbacksHandler.html">ICoreLoadingCallbacksHandler</a> provides a mechanism for notifying objects when <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> finishes loading or starts unloading.</p>
-<pre><code>using AlchemyBow.Core;
-
-public class SampleCoreLoadingCallbacksHandler : ICoreLoadingCallbacksHandler
-{
-    public void OnCoreLoadingFinished()
-    {
-        // For example:
-        // - load some data
-        // - subscribe events
-    }
-
-    public void OnCoreSceneChangeStarted()
-    {
-        // For example:
-        // - unsubscribe events
-    }
-}
-</code></pre>
-<p>To receive callbacks, add subscribers to the dynamic <code>List&lt;ICoreLoadingCallbacksHandler&gt;</code> binding:</p>
-<pre><code>using AlchemyBow.Core;
-using AlchemyBow.Core.IoC;
-using System.Collections.Generic;
-
-public class SampleMonoInstaller : MonoInstaller
-{
-    public override void InstallBindings(IBindOnlyContainer container)
-    {
-        var sample = new SampleCoreLoadingCallbacksHandler();
-        container.Bind(sample);
-        container.AddToDynamicCollectionBinding
-            &lt;List&lt;ICoreLoadingCallbacksHandler&gt;, ICoreLoadingCallbacksHandler&gt;(sample);
-        // Or with a shortcut:
-        // container.AddToDynamicListBinding&lt;ICoreLoadingCallbacksHandler&gt;(sample);
-    }
-}
-</code></pre>
-<div class="WARNING">
-<h5>Warning</h5>
-<p><a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadingCallbacksHandler.html">ICoreLoadingCallbacksHandler</a> cannot be used in the project context.</p>
+<p>How is it better then using a reference to the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a>? Your modules are tightly coupled with the mediator instead of the controller, so it is much easier to implement them in scenes with different controllers.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The method described in this article is very similar to how state conditions work (see: <a class="xref" href="stateful_behaviour.html">Stateful Behaviour</a>).</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You can create <code>public</code> methods in your implementations of the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a>. However, it is strongly recommended that you only use them for prototyping purposes.</p>
+</div>
+<div class="TIP">
+<h5>Tip</h5>
+<p>You can use the <a href="https://github.com/kempnymaciej/alchemy-loadingscenes">AlchemyBow.LoadingScenes</a> package to easily manage loading screens.</p>
 </div>
 </article>
           </div>

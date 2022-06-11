@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AlchemyBow.Core.CoreController-1.html",
-          "hash": "sEL7EXtYFT5GNnd6QIB5+rV2RSz/fZLJSfs14flPdQE="
+          "hash": "+u++cCoSnfrVoecwdEeDiBzuKDMhmIEGia3t1XtweKY="
         }
       },
       "is_incremental": true,
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AlchemyBow.Core.CoreProjectContext.html",
-          "hash": "nQlwRkGSgxMRUOcUFlJsLl/GhQSj5PL8F68cdCpqqNc="
+          "hash": "Zjl38Mx+MWcZums6R9Q8FTWy8VMwmwVdPr5IZuDpS5k="
         }
       },
       "is_incremental": true,
@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AlchemyBow.Core.ICoreLoadable.html",
-          "hash": "Vkpq/rpogPv2erMQ4XIopx3OuUoL8VZVXariklRJBTI="
+          "hash": "QoPfwIBWQGK25rkEujMLaPBF8BEDjjXL6Ul6DgWeKMI="
         }
       },
       "is_incremental": true,
@@ -45,19 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AlchemyBow.Core.ICoreLoadingCallbacksHandler.html",
-          "hash": "KEtzZoxUyMQskxbxjRkj1ZGBjq2mpB7iHMWFEXoY5/A="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AlchemyBow.Core.ICoreState.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AlchemyBow.Core.ICoreState.html",
-          "hash": "yU0yvC8G/83Fh/KbYrcmnqmO4fKnbkqHToQEYAW6qzc="
+          "hash": "V33ID5Kd3s+q4naUVr00mAGB2ubCdRxWVBTL5H1vcz0="
         }
       },
       "is_incremental": true,
@@ -69,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AlchemyBow.Core.IoC.Container.html",
-          "hash": "5pLHLAPxlJ81J9y+6n+L0foNkTXGMGfT6Bwpwvm3/8M="
+          "hash": "Lau1Iw57UBvwYFYVoV9QAXXR/1zy8y/d61lkk4KxDYg="
         }
       },
       "is_incremental": true,
@@ -81,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AlchemyBow.Core.IoC.DynamicCollectionBindingUtility.html",
-          "hash": "9bOw4Yy2o1NBGc7ztcD/hkFoviXYPKWyK7gqhpfb/qE="
+          "hash": "g/rlQQ3vR+/ROYCh0ggodxfnX0dDTtApJUoe/ZdFCRs="
         }
       },
       "is_incremental": true,
@@ -93,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AlchemyBow.Core.IoC.Elements.InjectionInfo.html",
-          "hash": "zsbHlsVtKW0zzJ9GzsEqPjmGHipmgMT6IXFoikv3I+s="
+          "hash": "MlmbA4qZ4wr+N4PTDEJJ8yUZxHiJWZYyvmUr0NeM8wU="
         }
       },
       "is_incremental": true,
@@ -105,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AlchemyBow.Core.IoC.Elements.html",
-          "hash": "g+eLIdtVA1waO4u4bwBJKZs8L168havnwJNKsvfnhK4="
+          "hash": "CcyS/N68bgfOyBmrWuMXxkZp3Ay/swaOQJuTO22RHRY="
         }
       },
       "is_incremental": true,
@@ -117,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AlchemyBow.Core.IoC.IBindOnlyContainer.html",
-          "hash": "Hcm8vFDn3fD8B5+sax1OlGLFWGsSNs6yxFcYVgbDs6A="
+          "hash": "0f1fVq25aoU0vfsfQeLRVyWARC8xLQnyzjBOcHEudx0="
         }
       },
       "is_incremental": true,
@@ -129,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AlchemyBow.Core.IoC.InjectAttribute.html",
-          "hash": "SBILPArgEs7rchpent2eNS6ZfYam3IHU4anK0I+thSo="
+          "hash": "cLcBhfnr8e9AUN/cxrlTvRwKPI4qQXQBSEBzAsJOM4o="
         }
       },
       "is_incremental": true,
@@ -141,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AlchemyBow.Core.IoC.InjectionTargetAttribute.html",
-          "hash": "MQCfY56YXhPtn3Xx208CnVBRpgCeNImcWTgSGH2/bZs="
+          "hash": "9TPXGtClWgxcukvXyMaJYj6w0mSQdtZNo2IUmKLmLaU="
         }
       },
       "is_incremental": true,
@@ -153,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AlchemyBow.Core.IoC.MonoInstaller.html",
-          "hash": "iBfyKW2VDrekzSx1NzMjV/q6eDOA7xiBMo1+bBIMQKA="
+          "hash": "D5N63CJEmizPU1zqpaki63yi/Mykef/Ug7BoZm4a2cA="
         }
       },
       "is_incremental": true,
@@ -165,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AlchemyBow.Core.IoC.html",
-          "hash": "mRGeEQpHomB+LuSSXavTTgSm0yyCsPaEay8fu271o8I="
+          "hash": "DvxI0x8QFLVaqRkLNIxyIOGtAcyRslCGOD/BBZb0Wo8="
         }
       },
       "is_incremental": true,
@@ -177,7 +165,127 @@
       "output": {
         ".html": {
           "relative_path": "api/AlchemyBow.Core.OperationHandle.html",
-          "hash": "hY18YZRUuOcjwz9UH8yTko+fchWNdtICBFZWeTkH9cY="
+          "hash": "2s1x0zp5WWbcgBEvBY6EkZU/KrcMW05KQWuz/FXryXE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AlchemyBow.Core.States.Elements.StateGraphLink.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AlchemyBow.Core.States.Elements.StateGraphLink.html",
+          "hash": "UIT+CRgyhF8Hv/lRz0eg6fq4GZHyZQ1yf64FoahRxMg="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AlchemyBow.Core.States.Elements.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AlchemyBow.Core.States.Elements.html",
+          "hash": "krEukEoy8Ny1Kfh6uvyDK2ikHVVwEQ/qN/Mc0ENvQc0="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AlchemyBow.Core.States.ICondition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AlchemyBow.Core.States.ICondition.html",
+          "hash": "iZgbulVF5hSpqycfT4tS8UigDd18HPLB3KBZaM6g9a4="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AlchemyBow.Core.States.IState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AlchemyBow.Core.States.IState.html",
+          "hash": "1+NbJGVkb7LOV68vNcNRPlX6OEf8iFu9BpeKP7zToZU="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AlchemyBow.Core.States.Prototyping.PrototypeCondition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AlchemyBow.Core.States.Prototyping.PrototypeCondition.html",
+          "hash": "tSJv4Za8/1KEJ7+Lp+i+gw7TznxU+tvdzUKVsMaD1Wo="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AlchemyBow.Core.States.Prototyping.PrototypeState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AlchemyBow.Core.States.Prototyping.PrototypeState.html",
+          "hash": "Koj+EvZSA0n/Lg4yfJuiCLFnrZNmngJo/1AXtJ1Ku4w="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AlchemyBow.Core.States.Prototyping.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AlchemyBow.Core.States.Prototyping.html",
+          "hash": "ykCdimoIx7VWhR18D3GhCskp3fAOxYoz6pkp/BqoozE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AlchemyBow.Core.States.StateGraph.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AlchemyBow.Core.States.StateGraph.html",
+          "hash": "ssZvHfYGpKoMlB+RqrEIzTwKrSRxGDigz3L0W/ea1cA="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AlchemyBow.Core.States.StateGraphComposer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AlchemyBow.Core.States.StateGraphComposer.html",
+          "hash": "s1SqhdkV6oCu/dPx5lv+JCrWsqt6VcYzs1mBLDRMep0="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AlchemyBow.Core.States.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AlchemyBow.Core.States.html",
+          "hash": "3c/jTb8yBOa+9aNC+l5mp/C8ET0CvpdInuWvv5RXVFI="
         }
       },
       "is_incremental": true,
@@ -189,7 +297,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AlchemyBow.Core.html",
-          "hash": "JX9+n6nGrTBv2DPA3anB4mLILXvbpcQeDobv7D6OJqU="
+          "hash": "Fr9+LldtEp9EGHYAq+zD8Fr8XG3JvPG5e3cw/xXPiEU="
         }
       },
       "is_incremental": true,
@@ -201,7 +309,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "8qcvfTSZYsd4B4km2mqTkFT6w9Z42joDTJjWgQ7YyU8="
+          "hash": "Hdrd9BA4taiZzZ60ZY+0Pv8n6N6HLYtnLJAOtiVwgb0="
         }
       },
       "is_incremental": true,
@@ -213,7 +321,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/guides.html",
-          "hash": "Nw3mR+Nl9CoHcYuDJoPoJCKxu1mkijzTDwSYqBYxz4Y="
+          "hash": "l21lo7XfeESqbuz0VAvuxgqZDyLI6Nr7qFgBpi1TaYU="
         }
       },
       "is_incremental": true,
@@ -225,7 +333,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/guides/dependency_injection.html",
-          "hash": "NI08+yDu7ePh+ZTJXfPoQQxBtP5N2AB+Ne/Ob6lxlGQ="
+          "hash": "fexX1prcRapBfmLW9Eaio0TnEcbxrcGLm96d0b5Ly6I="
         }
       },
       "is_incremental": true,
@@ -237,7 +345,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/guides/getting_started.html",
-          "hash": "6UJxO4xMt1XkK5dYOVR0ecjms044ZaGlSkJpo6NWA/A="
+          "hash": "rtFaU5EgWDEWAPO5IUM7sy2jjq/yyAY5VcnNLw4ZwwQ="
         }
       },
       "is_incremental": true,
@@ -249,7 +357,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/guides/installation.html",
-          "hash": "fLM7sVtWy3GgpFoxH2vqxUcKS4bC27ywhvbRGstrGSc="
+          "hash": "ojzl3SNalG49NcqhWgxdwh+KFFiuDiDdo0iEoTJ0bcw="
         }
       },
       "is_incremental": true,
@@ -261,7 +369,19 @@
       "output": {
         ".html": {
           "relative_path": "articles/guides/loading.html",
-          "hash": "cMIPR6zwVtG9ylOAfrom6qx9bKZiNbggBTc9e2tsfAk="
+          "hash": "cPL2EiZxzRuU1KRYK2Zr+IRikpiY2k5k5xvrOGqbryw="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/guides/scene_changes.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/guides/scene_changes.html",
+          "hash": "ZqsjfWx7ekURrFUvJQricBwDT4hDy6JyRpx6lYaQVoc="
         }
       },
       "is_incremental": true,
@@ -273,7 +393,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/guides/stateful_behaviour.html",
-          "hash": "ECwMJqfvQNcia/xEtVNrbMV8kNKCiiDByCXGL34dmZQ="
+          "hash": "f2/5o/2kT4qZnDQNuAaUUvwQKdIqf8tLHihsO9cDRGE="
         }
       },
       "is_incremental": true,
@@ -285,10 +405,65 @@
       "output": {
         ".html": {
           "relative_path": "changelog/CHANGELOG.html",
-          "hash": "absxe6nozRYzlQA9BUo5gYuemTZC6Oqo6JM7fKwJhZk="
+          "hash": "D9CWsGlcrMmvHTTj+yG//es+aFV5BIKeYVOPpR9/jys="
         }
       },
       "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/LifeCircle.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/LifeCircle.svg"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/States1.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/States1.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/States2.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/States2.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/States3.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/States3.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/States4.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/States4.png"
+        }
+      },
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -297,7 +472,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "+sk2X7KdhP9yzv3/spDI/GAr2s6cAKRGqF9h1a0wbH4="
+          "hash": "lu/f2bD0OTrO91+AvDl3OlvT6p3I2Wibd6P7tLGCRQ0="
         }
       },
       "is_incremental": true,
@@ -328,14 +503,21 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 10,
-          "skipped_file_count": 10
+          "total_file_count": 11,
+          "skipped_file_count": 11
         },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 16,
-          "skipped_file_count": 16
+          "total_file_count": 25,
+          "skipped_file_count": 25
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
           "can_incremental": false,

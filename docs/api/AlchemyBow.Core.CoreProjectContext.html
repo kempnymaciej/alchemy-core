@@ -105,9 +105,6 @@
                             <a href="AlchemyBow.Core.ICoreLoadingCallbacksHandler.html" title="ICoreLoadingCallbacksHandler" class="">ICoreLoadingCallbacksHandler</a>
                           </li>
                           <li class="">
-                            <a href="AlchemyBow.Core.ICoreState.html" title="ICoreState" class="">ICoreState</a>
-                          </li>
-                          <li class="">
                             <a href="AlchemyBow.Core.OperationHandle.html" title="OperationHandle" class="">OperationHandle</a>
                           </li>
                         </ul>  </li>
@@ -144,6 +141,45 @@
                             <a href="AlchemyBow.Core.IoC.Elements.InjectionInfo.html" title="InjectionInfo" class="">InjectionInfo</a>
                           </li>
                         </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="AlchemyBow.Core.States.html" title="AlchemyBow.Core.States" class="">AlchemyBow.Core.States</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="AlchemyBow.Core.States.ICondition.html" title="ICondition" class="">ICondition</a>
+                          </li>
+                          <li class="">
+                            <a href="AlchemyBow.Core.States.IState.html" title="IState" class="">IState</a>
+                          </li>
+                          <li class="">
+                            <a href="AlchemyBow.Core.States.StateGraph.html" title="StateGraph" class="">StateGraph</a>
+                          </li>
+                          <li class="">
+                            <a href="AlchemyBow.Core.States.StateGraphComposer.html" title="StateGraphComposer" class="">StateGraphComposer</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="AlchemyBow.Core.States.Elements.html" title="AlchemyBow.Core.States.Elements" class="">AlchemyBow.Core.States.Elements</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="AlchemyBow.Core.States.Elements.StateGraphLink.html" title="StateGraphLink" class="">StateGraphLink</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="AlchemyBow.Core.States.Prototyping.html" title="AlchemyBow.Core.States.Prototyping" class="">AlchemyBow.Core.States.Prototyping</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="AlchemyBow.Core.States.Prototyping.PrototypeCondition.html" title="PrototypeCondition" class="">PrototypeCondition</a>
+                          </li>
+                          <li class="">
+                            <a href="AlchemyBow.Core.States.Prototyping.PrototypeState.html" title="PrototypeState" class="">PrototypeState</a>
+                          </li>
+                        </ul>  </li>
                   </ul>        </div>
               </div>
             </div>
@@ -156,7 +192,7 @@
   
   <h1 id="AlchemyBow_Core_CoreProjectContext" data-uid="AlchemyBow.Core.CoreProjectContext" class="text-break">Class CoreProjectContext
   </h1>
-  <div class="markdown level0 summary"><p>The base class for all project context.</p>
+  <div class="markdown level0 summary"><p>The base class for all project contexts.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -209,7 +245,7 @@
   
   <a id="AlchemyBow_Core_CoreProjectContext_CopyBindingsToContainer_" data-uid="AlchemyBow.Core.CoreProjectContext.CopyBindingsToContainer*"></a>
   <h4 id="AlchemyBow_Core_CoreProjectContext_CopyBindingsToContainer_AlchemyBow_Core_IoC_Container_" data-uid="AlchemyBow.Core.CoreProjectContext.CopyBindingsToContainer(AlchemyBow.Core.IoC.Container)">CopyBindingsToContainer(Container)</h4>
-  <div class="markdown level1 summary"><p>Copies the contents of the dependency injection container into another.</p>
+  <div class="markdown level1 summary"><p>Copies the contents of its own dependency injection container to another container.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -229,7 +265,7 @@
       <tr>
         <td><a class="xref" href="AlchemyBow.Core.IoC.Container.html">Container</a></td>
         <td><span class="parametername">target</span></td>
-        <td><p>The container to copy to.</p>
+        <td><p>The target container.</p>
 </td>
       </tr>
     </tbody>

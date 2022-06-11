@@ -103,6 +103,9 @@
                             <a href="../guides/loading.html" title="Loading" class="">Loading</a>
                           </li>
                           <li class="">
+                            <a href="../guides/scene_changes.html" title="Scene Changes" class="">Scene Changes</a>
+                          </li>
+                          <li class="">
                             <a href="../guides/stateful_behaviour.html" title="Stateful Behaviour" class="">Stateful Behaviour</a>
                           </li>
                         </ul>  </li>
@@ -116,18 +119,40 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="getting-started">Getting started</h1>
 
-<p>The <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> and the <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> are classes that you use to control your project in the <strong>AlchemyBow.Core</strong> framework.</p>
-<p>The <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> is used to store shared dependencies in the global (project) scope. To set it up:</p>
-<ol>
-<li>Create a class that inherits from the <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a>.</li>
-<li>Create a prefab and place it in the <code>Resources</code> folder under the path <code>Core/NameOfYourCoreProjectContextClass</code>, e.g. <code>Assets/Resources/Core/MyCoreProjectContext</code>.</li>
-</ol>
-<p>The <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> is a scene scope handle of the framework. In order to start, you need to have at least one. Create a class that inherits from <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> (as a generic parameter, pass your project context type). Then, you can add your CoreController to any <code>GameObject</code> and enter the play mode. Nothing special will happen, but know that everything is already working.</p>
-<p><em>(For now, <code>CoreProjectContext.GetLoadables()</code> and <code>CoreController.GetLoadables()</code> can return <code>null</code>.)</em></p>
+<p><a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> and <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> are classes that you use to control your project in the <strong>AlchemyBow.Core</strong> framework.</p>
+<h3 id="coreprojectcontext">CoreProjectContext</h3>
+<p><a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> is used to store shared dependencies in the global (project) scope. To set it up create a class that inherits from it.</p>
+<pre><code>using AlchemyBow.Core;
+using System.Collections.Generic;
+
+public class MyCoreProjectContext : CoreProjectContext
+{
+    protected override IEnumerable&lt;ICoreLoadable&gt; GetLoadables()
+    {
+        return null;
+    }
+}
+</code></pre>
+<p>Then, create a prefab and place it in the <code>Resources</code> folder under the path <code>Core/NameOfYourCoreProjectContextClass</code>, e.g. <code>Assets/Resources/Core/MyCoreProjectContext</code>.</p>
+<h3 id="corecontroller">CoreController</h3>
+<p><a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> is a scene scope handle of the framework. In order to start, you need to have at least one. Create a class that inherits from it (as a generic parameter, pass your project context type).</p>
+<pre><code>using AlchemyBow.Core;
+using System.Collections.Generic;
+
+public class MyCoreController : CoreController&lt;MyCoreProjectContext&gt;
+{
+    protected override IEnumerable&lt;ICoreLoadable&gt; GetLoadables()
+    {
+        return null;
+    }
+}
+</code></pre>
+<p>Then, you can add your <code>CoreController</code> to any game object and enter the play mode. Nothing special will happen, but know that everything is already working.</p>
 <h2 id="life-circle">Life circle</h2>
-<p>Working with the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> and the <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> is mostly about overriding their abstract and virtual members. The best way to understand what they are responsible for is to analyze the life cycle of the framework.</p>
+<p>Working with <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> and <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> is mostly about overriding their abstract and virtual members. The best way to understand what they are responsible for is to analyze the life cycle of the framework.
+<img src="../../images/LifeCircle.svg" alt="Life circle"></p>
 <h4 id="1-starting-stage">1. Starting stage</h4>
-<p>At the <code>Awake</code> message the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> starts. The <code>CoreController.OnStarted(OperationHandle)</code> is called. You can override this method to implement some early logic, for example to enable loading screen. However, note that dependencies are not injected at this stage.</p>
+<p>At the <code>Awake</code> message the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> starts. <code>CoreController.OnStarted(OperationHandle)</code> is called. You can override this method to implement some early logic, for example to enable a loading screen. However, note that dependencies are not injected at this stage.</p>
 <div class="TIP">
 <h5>Tip</h5>
 <p>The <a class="xref" href="../../api/AlchemyBow.Core.OperationHandle.html">OperationHandle</a> parameter is used for methods that are expected to perform multi-frame operations. For example, in the <code>OnStarted</code> method you can start a coroutine or a task in another thread. The <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> will hold until <code>OperationHandle.MarkDone()</code> is called.</p>
@@ -140,8 +165,8 @@
 <li>The project context installs bindings from its <a class="xref" href="../../api/AlchemyBow.Core.IoC.MonoInstaller.html">MonoInstallers</a> list and calls <code>CoreProjectContext.InstallAdditionalBindings</code> (you can override this method to add some custom binding logic).</li>
 <li>All project context dependencies are resolved in its container.</li>
 </ul>
-<p>Then, the contents of the <code>CoreProjectContext.Container</code> are copied to the <code>CoreController.Container</code> (dynamic collection bindings are sealed during the process).
-Then, the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> installs bindings from its <a class="xref" href="../../api/AlchemyBow.Core.IoC.MonoInstaller.html">MonoInstallers</a> list and calls <code>CoreController.InstallAdditionalBindings</code> (you can override this method to add some custom binding logic).</p>
+<p>Then, the contents of the <code>CoreProjectContext.Container</code> are copied to the <code>CoreController.Container</code> (dynamic collection bindings are sealed during the process).</p>
+<p>Then, the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> installs bindings from its <a class="xref" href="../../api/AlchemyBow.Core.IoC.MonoInstaller.html">MonoInstallers</a> list and calls <code>CoreController.InstallAdditionalBindings</code> (you can override this method to add some custom binding logic).</p>
 <p>Finally, the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> resolves all dependencies and calls <code>CoreController.OnBindingFinished()</code>.</p>
 <h4 id="3-loading-stage">3. Loading stage</h4>
 <p>This stage is dedicated to performing operations that are potentially time consuming. It consists of the following steps:</p>
@@ -155,7 +180,7 @@ Then, the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html"
 <p>At the end, <code>CoreController.OnLoadingFinished()</code> is called. The default implementation of this method triggers related callbacks from the <a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadingCallbacksHandler.html">ICoreLoadingCallbacksHandler</a>.</p>
 <p>For details on <a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadable.html">ICoreLoadable</a> and <a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadingCallbacksHandler.html">ICoreLoadingCallbacksHandler</a> see <a class="xref" href="loading.html">Loading</a>.</p>
 <h4 id="4-working-stage">4. Working stage</h4>
-<p>This stage defines what happens between loading and unloading. The default solution is to use the state pattern to control the game behavior (see <a class="xref" href="stateful_behaviour.html">Stateful Behaviour</a>). However, it is not mandatory, so you can use any method you like.</p>
+<p>This stage defines what happens between loading and unloading. The recommended solution is to use a state machine (see: <a class="xref" href="stateful_behaviour.html">stateful behaviour</a>). However, it is not mandatory, so you can use any method you like.</p>
 <h4 id="5-unloading-stage">5. Unloading stage</h4>
 <p>This stage is the last phase of the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> life circle. It starts when you call <code>CoreController.ChangeScene(int)</code>.
 At this point, <code>CoreController.OnSceneChangeStarted()</code> is called, the default implementation of this method triggers related callbacks from the <a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadingCallbacksHandler.html">ICoreLoadingCallbacksHandler</a> (see <a class="xref" href="loading.html">Loading</a> for more details).</p>

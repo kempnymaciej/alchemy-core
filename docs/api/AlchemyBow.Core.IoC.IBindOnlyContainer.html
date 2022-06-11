@@ -105,9 +105,6 @@
                             <a href="AlchemyBow.Core.ICoreLoadingCallbacksHandler.html" title="ICoreLoadingCallbacksHandler" class="">ICoreLoadingCallbacksHandler</a>
                           </li>
                           <li class="">
-                            <a href="AlchemyBow.Core.ICoreState.html" title="ICoreState" class="">ICoreState</a>
-                          </li>
-                          <li class="">
                             <a href="AlchemyBow.Core.OperationHandle.html" title="OperationHandle" class="">OperationHandle</a>
                           </li>
                         </ul>  </li>
@@ -142,6 +139,45 @@
                         <ul class="nav level2">
                           <li class="">
                             <a href="AlchemyBow.Core.IoC.Elements.InjectionInfo.html" title="InjectionInfo" class="">InjectionInfo</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="AlchemyBow.Core.States.html" title="AlchemyBow.Core.States" class="">AlchemyBow.Core.States</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="AlchemyBow.Core.States.ICondition.html" title="ICondition" class="">ICondition</a>
+                          </li>
+                          <li class="">
+                            <a href="AlchemyBow.Core.States.IState.html" title="IState" class="">IState</a>
+                          </li>
+                          <li class="">
+                            <a href="AlchemyBow.Core.States.StateGraph.html" title="StateGraph" class="">StateGraph</a>
+                          </li>
+                          <li class="">
+                            <a href="AlchemyBow.Core.States.StateGraphComposer.html" title="StateGraphComposer" class="">StateGraphComposer</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="AlchemyBow.Core.States.Elements.html" title="AlchemyBow.Core.States.Elements" class="">AlchemyBow.Core.States.Elements</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="AlchemyBow.Core.States.Elements.StateGraphLink.html" title="StateGraphLink" class="">StateGraphLink</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="AlchemyBow.Core.States.Prototyping.html" title="AlchemyBow.Core.States.Prototyping" class="">AlchemyBow.Core.States.Prototyping</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="AlchemyBow.Core.States.Prototyping.PrototypeCondition.html" title="PrototypeCondition" class="">PrototypeCondition</a>
+                          </li>
+                          <li class="">
+                            <a href="AlchemyBow.Core.States.Prototyping.PrototypeState.html" title="PrototypeState" class="">PrototypeState</a>
                           </li>
                         </ul>  </li>
                   </ul>        </div>
@@ -219,7 +255,7 @@
     </tbody>
   </table>
   <h5 id="AlchemyBow_Core_IoC_IBindOnlyContainer_AddRangeToDynamicCollectionBinding__2_System_Collections_Generic_IEnumerable___1___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Informs the container that it should inject dependencies to the instance of the collection but not into the items.</p>
+  <div class="markdown level1 remarks"><p>Informs the container that it should inject dependencies to the instance of the collection but not into the items. (The dependencies are injected during the resolve process.)</p>
 </div>
   
   
@@ -273,7 +309,7 @@
     </tbody>
   </table>
   <h5 id="AlchemyBow_Core_IoC_IBindOnlyContainer_AddToDynamicCollectionBinding__2___1__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Informs the container that it should inject dependencies to the instance of the collection but not into the item.</p>
+  <div class="markdown level1 remarks"><p>Informs the container that it should inject dependencies to the instance of the collection but not into the item. (The dependencies are injected during the resolve process.)</p>
 </div>
   
   
@@ -311,7 +347,7 @@
     </tbody>
   </table>
   <h5 id="AlchemyBow_Core_IoC_IBindOnlyContainer_Bind_System_Type_System_Object__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Only use it if the generic overload of the method cannot be used.</p>
+  <div class="markdown level1 remarks"><p>The dependencies are injected during the resolve process.</p>
 </div>
   
   
@@ -358,6 +394,9 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="AlchemyBow_Core_IoC_IBindOnlyContainer_Bind__1___0__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The dependencies are injected during the resolve process.</p>
+</div>
   
   
   <a id="AlchemyBow_Core_IoC_IBindOnlyContainer_BindInaccessible_" data-uid="AlchemyBow.Core.IoC.IBindOnlyContainer.BindInaccessible*"></a>
@@ -387,6 +426,9 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="AlchemyBow_Core_IoC_IBindOnlyContainer_BindInaccessible_System_Object__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The dependencies are injected during the resolve process.</p>
+</div>
   
   
   <a id="AlchemyBow_Core_IoC_IBindOnlyContainer_EnsureDynamicCollectionBinding_" data-uid="AlchemyBow.Core.IoC.IBindOnlyContainer.EnsureDynamicCollectionBinding*"></a>

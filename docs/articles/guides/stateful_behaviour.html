@@ -102,6 +102,9 @@
                           <li class="">
                             <a href="../guides/loading.html" title="Loading" class="">Loading</a>
                           </li>
+                          <li class="">
+                            <a href="../guides/scene_changes.html" title="Scene Changes" class="">Scene Changes</a>
+                          </li>
                           <li class="active">
                             <a href="../guides/stateful_behaviour.html" title="Stateful Behaviour" class="active">Stateful Behaviour</a>
                           </li>
@@ -116,46 +119,290 @@
             <article class="content wrap" id="_content" data-uid="stateful_behaviour">
 <h1 id="stateful-behaviour">Stateful behaviour</h1>
 
-<p>The <strong>AlchemyBow.Core</strong> supports the state pattern. To better understand what states are, imagine a game that has a pause feature - you need to pause time, disable the player movement script, disable interaction with some UI elements, and so on. Instead of implementing the pause logic in each script, you can create two states:</p>
-<ul>
-<li>game state - that enables/disables all in-game systems.</li>
-<li>pause state - that enables/disables only the pause menu.</li>
-</ul>
-<p>The built-in solution allows grouping the functionality of the scene into smaller chunks (called states) and switching between them. To create a state, we need to implement the <a class="xref" href="../../api/AlchemyBow.Core.ICoreState.html">ICoreState</a> interface.</p>
-<pre><code>[InjectionTarget]
-public class SampleState : ICoreState
+<p>In this section we will discuss an optional tool provided by <strong>AlchemyBow.Core</strong> to help you manage the state of your app / game.</p>
+<h2 id="introduction">Introduction</h2>
+<p>Before we get into the implementation, let's have an example to better understand what stateful behavior is.</p>
+<p>First, imagine a simple PC game where the player can click the &quot;Escape&quot; button to toggle the pause menu.
+Obviously, the game can be in 2 states: the play state - where the player is playing, and the pause state - where the player does other things.
+It is easy to see that there are some relationships between these states - the play state can transition into the pause state and vice versa, but only when the player clicks the &quot;Escape&quot; button.<br>
+With that in mind, we can conclude that there are at least 3 elements: <strong>states</strong>, <strong>transitions</strong> connecting states, and <strong>conditions</strong> that trigger transitions.
+<img src="../../images/States1.png" alt="Play State and Pause State"></p>
+<p>For the next part, let's make two assumptions about the imaginary game:</p>
+<ol>
+<li>The states are used to toggle the game modules, for example enable/disable the player avatar.</li>
+<li>The pause menu doesn't cover the entire screen, the remaining elements are slightly dimmed.</li>
+</ol>
+<p>Now, we should be able to spot a new problem. Since the player avatar is visible in both states, any transition would cause this module to toggle unnecessarily. This is bad for both the computer (more to compute) and the developer (more code to write and sustain). To address this issue, we can introduce another state to handle the shared modules - the game state, which is the parent for the play state and pause state.<br>
+The conclusion is that we can nest states to avoid redundant operations.
+<img src="../../images/States2.png" alt="Game State"></p>
+<p>For the final thought, let's make some more assumptions:</p>
+<ol>
+<li>The game is very simple so it runs on one scene.</li>
+<li>There is a main menu that cover the entire screen.</li>
+</ol>
+<p>Now, imagine that you launch this game. The first thing you see is the main menu. If you click the play button, the actual game will start. Then, you can pause it and exit to the main menu. If you click the play button again, the game will start and won't be paused.<br>
+So, we should note that there is a default state at each nesting level which is entered every time a parent state is entered.
+<img src="../../images/States3.png" alt="Game State, Menu State and defaults"></p>
+<h2 id="implementation">Implementation</h2>
+<p>In this section, we recreate the concept of stateful behavior from the introduction. To make it more complete, let's add one more state - the credits state. It should look like this:
+<img src="../../images/States4.png" alt="All states"></p>
+<h3 id="creating-a-state">Creating a state</h3>
+<p>The most important part are states. A state can be entered and exited. To create it, you need to implement the <a class="xref" href="../../api/AlchemyBow.Core.States.IState.html">IState</a> interface.
+For example, let's create the pause state:</p>
+<pre><code>using AlchemyBow.Core.IoC;
+using AlchemyBow.Core.States;
+
+[InjectionTarget]
+public class GamePauseState : IState
 {
-    [Inject]
-    private readonly SampleSystem1 sampleSystem1;
-    [Inject]
-    private readonly SampleSystem2 sampleSystem2;
+    [Inject] // suppose such a module exists
+    private readonly PauseMenuViewController pauseMenuViewController;
+    [Inject] // suppose such a module exists
+    private readonly GameTimeController gameTimeController;
 
-    public void Initialize()
+    public void Enter()
     {
-        sampleSystem1.SetActive(true);
-        sampleSystem2.SetActive(true);
+        pauseMenuViewController.SetActive(true);
+        gameTimeController.PauseTime();
     }
 
-    public void Deinitialize()
+    public void Exit()
     {
-        sampleSystem1.SetActive(false);
-        sampleSystem2.SetActive(false);
+        pauseMenuViewController.SetActive(false);
+        gameTimeController.UnpauseTime();
     }
+}
+</code></pre>
+<p>Since the <a class="xref" href="../../api/AlchemyBow.Core.States.IState.html">IState</a> is an interface, it can be anything - a plain c# class (as in the example) or a class inheriting from <code>MonoBehaviour</code>, <code>ScriptableObject</code>, ... . In order to have its fields injected, you must bind it (just like anything else).</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>The <a class="xref" href="../../api/AlchemyBow.Core.States.Prototyping.PrototypeState.html">PrototypeState</a> is a general implementation of the <a class="xref" href="../../api/AlchemyBow.Core.States.IState.html">IState</a> that uses actions and can be handy for prototyping.</p>
+</div>
+<h3 id="creating-a-condition">Creating a condition</h3>
+<p>Similar to states, conditions are also created by implementing an interface (<a class="xref" href="../../api/AlchemyBow.Core.States.ICondition.html">ICondition</a>). There is no one perfect implementation for a condition. Depending on the situation, they can act as mediators between the state machine and the rest of the scripts, or they can be fully independent entities such as <code>MonoBehaviour</code> with <code>Update()</code>, and so on.<br>
+The important part is to understand how the state machine uses them.</p>
+<ul>
+<li>When a state is entered, all its conditions are activated and the state machine subscribes to their <code>Triggered</code> events.</li>
+<li>When the <code>Triggered</code> event is raised, the state machine checks the active state transitions with <code>ICondition.CheckCondition()</code> and starts the first fulfilled transition.</li>
+<li>When a state is exited, all its conditions are deactivated and the state machine unsubscribes to their <code>Triggered</code> events.</li>
+</ul>
+<p>Let's create the pause condition.</p>
+<pre><code>using AlchemyBow.Core.States;
+
+public class PauseCondition : ICondition
+{
+    public event System.Action Triggered;
+    private bool conditionValue;
+
+    // Sets the internal value and raises the event.
+    public void Trigger()
+    {
+        conditionValue = true;
+        Triggered?.Invoke();
+    }
+
+    // Resets the internal value.
+    public void SetActive(bool value)
+    {
+        conditionValue = false;
+    }
+
+    public bool CheckCondition()
+    {
+        return conditionValue;
+    }
+}
+</code></pre>
+<p>The condition above acts like a trigger button. The <code>Trigger()</code> method raises the event, and the <code>SetActive(bool value)</code> method resets its internal state. You can bind it, and then inject it wherever you need it, so that you can call the <code>Trigger()</code> method as a consequence of clicking the <code>Escape</code> button.</p>
+<p>The same effect as above can be achieved with the <a class="xref" href="../../api/AlchemyBow.Core.States.Prototyping.PrototypeCondition.html">PrototypeCondition</a>.</p>
+<pre><code>using AlchemyBow.Core.States.Prototyping;
+
+public class PauseCondition : PrototypeCondition 
+{ 
+
+}
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p>The condition can inherit from <code>MonoBehaviour</code> to receive Unity messages or from <code>ScriptableObject</code> to be convenient for the editor drag-and-drop.</p>
+</div>
+<h3 id="creating-a-state-machine">Creating a state machine</h3>
+<p>Since we know how to create states and conditions, it's time to create the state machine itself. The framework provides an implementation of a predefined hierarchical finite state machine. Before we continue, let's make the name less scary and learn about its components:</p>
+<ul>
+<li>Predefined - means that all states, transitions and conditions are created during initialization, which is great because we can clearly plan and see the entire structure in one place.</li>
+<li>Hierarchical - means that we can nest states.</li>
+<li>Finite - means that there are a finite number of states.</li>
+</ul>
+<p>The state machine is represented by <a class="xref" href="../../api/AlchemyBow.Core.States.StateGraph.html">StateGraph</a>. To build it, we use <a class="xref" href="../../api/AlchemyBow.Core.States.StateGraphComposer.html">StateGraphComposer</a> which represents a single node (state).
+For now, let's assume that we have all the states and conditions created (we'll come back to them later).</p>
+<pre><code>private StateGraph CreateStateGraph()
+{
+    // Similar to the case where gameState is the parent of 
+    // gamePlayState and gamePauseState, we need to create 
+    // a parent for menuState, creditsState and gameState.
+    // However, they don't have any shared elements so we can 
+    // quickly create an empty state with null.
+    var rootComposer = new StateGraphComposer(null);
+
+    // Create empty composers for states. 
+    var menuComposer = new StateGraphComposer(menuState);
+    var creditsComposer = new StateGraphComposer(creditsState);
+    var gameComposer = new StateGraphComposer(gameState);
+    var gamePlayComposer = new StateGraphComposer(gamePlayState);
+    var gamePauseComposer = new StateGraphComposer(gamePauseState);
+
+    // Mark gamePlayState and gamePauseState as children
+    // of gameState and link them accordingly.
+    // Note that the first added child is the default one!
+    gameComposer.AddNode(gamePlayComposer); 
+    gameComposer.AddNode(gamePauseComposer);
+    gameComposer.AddLink(gamePlayComposer, gamePauseComposer, pauseCondition);
+    gameComposer.AddLink(gamePauseComposer, gamePlayComposer, pauseCondition);
+
+    // Mark menuState, creditsState and gameState as children
+    // of the root and link them accordingly.
+    // Note that the first added child is the default one!
+    rootComposer.AddNode(menuComposer);
+    rootComposer.AddNode(creditsComposer);
+    rootComposer.AddNode(gameComposer);
+    rootComposer.AddLink(menuComposer, creditsComposer, creditsCondition);
+    rootComposer.AddLink(creditsComposer, menuComposer, menuCondition);
+    rootComposer.AddLink(menuComposer, gameComposer, gameCondition);
+    rootComposer.AddLink(gameComposer, menuComposer, menuCondition);
+
+    // You can validate the graph before building it.
+    // However, consider wrapping the validation code
+    // with the #if UNITY_EDITOR directive.
+#if UNITY_EDITOR
+    rootComposer.Validate();
+    string paths = &quot;Graph paths:\n&quot;;
+    foreach (var path in rootComposer.GetGraphPaths())
+    {
+        paths += path + &quot;\n&quot;;
+    }
+    Debug.Log(paths); 
+#endif
+
+    // Build the actual `StateGraph`.
+    return StateGraph.Build(rootComposer);
 }
 </code></pre>
 <div class="NOTE">
 <h5>Note</h5>
-<p>In order to have the state fields injected, you must install it (just like any other object).</p>
+<p>You can reuse conditions and states. However, they cannot be active at the same time. The <code>StateGraphComposer.Validate()</code> method ensures their correct composition.</p>
 </div>
-<div class="TIP">
-<h5>Tip</h5>
-<p>If you want to receive Unity messages inside a state, consider inheriting from the <code>MonoBehaviour</code> class.</p>
-</div>
-<p>Then, you can use the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> method - <code>ChangeState(ICoreState)</code> to change the states. The best way to set the initial state is to override the <code>CoreController.OnLoadingFinished()</code> method. Also, remember to set the state to <code>null</code> before starting the scene change process.</p>
 <div class="NOTE">
 <h5>Note</h5>
-<p>No part of the framework forces the use of state behavior. You can use it as it is, you can use it in a custom form (e.g. nested states), you can use none or any other solution.</p>
+<p>The validation methods use the <code>ToString()</code> method to determine the names of the states (<a class="xref" href="../../api/AlchemyBow.Core.States.IState.html">IState</a>). You need to override the <code>ToString()</code> method in your <a class="xref" href="../../api/AlchemyBow.Core.States.IState.html">IState</a> implementations for readable output.</p>
 </div>
+<h3 id="connecting-a-state-machine">Connecting a state machine</h3>
+<p>Now how to connect the state machine to the framework? As always, it's a good idea to delegate a job to a different class, but for clarity, let's use it directly in the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a>.</p>
+<pre><code>using AlchemyBow.Core;
+using AlchemyBow.Core.IoC;
+using AlchemyBow.Core.States;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MyCoreController : CoreController&lt;MyCoreProjectContext&gt;
+{
+    // We assume that the classes for states and conditions exist
+    // and work similar to the previous examples.
+    private readonly MenuState menuState = new MenuState();
+    private readonly CreditsState creditsState = new CreditsState();
+    private readonly GameState gameState = new GameState();
+    private readonly GamePlayState gamePlayState = new GamePlayState();
+    private readonly GamePauseState gamePauseState = new GamePauseState();
+
+    private readonly MenuCondition menuCondition = new MenuCondition();
+    private readonly CreditsCondition creditsCondition = new CreditsCondition();
+    private readonly GameCondition gameCondition = new GameCondition();
+    private readonly PauseCondition pauseCondition = new PauseCondition();
+
+    // The state machine.
+    private StateGraph stateGraph;
+
+    protected override void InstallAdditionalBindings(IBindOnlyContainer container)
+    {
+        // Bind the conditions to keys so that they can be requested as dependencies.
+        container.Bind(menuCondition);
+        container.Bind(creditsCondition);
+        container.Bind(gameCondition);
+        container.Bind(pauseCondition);
+
+        // The states need dependencies, but should not be used externally.
+        container.BindInaccessible(menuState);
+        container.BindInaccessible(creditsState);
+        container.BindInaccessible(gameState);
+        container.BindInaccessible(gamePlayState);
+        container.BindInaccessible(gamePauseState);
+
+        base.InstallAdditionalBindings(container);
+    }
+
+    protected override void OnLoadingFinished()
+    {
+        base.OnLoadingFinished();
+        // Create and activate the state machine when the loading 
+        // is finished.
+        stateGraph = CreateStateGraph();
+        stateGraph.Enter(); 
+    }
+
+    protected override void OnSceneChangeStarted()
+    {
+        // Deactivate the state machine when the unloading 
+        // is started.
+        stateGraph.Exit();
+        base.OnSceneChangeStarted();
+    }
+
+    private StateGraph CreateStateGraph()
+    {
+        // ...
+    }
+
+    protected override IEnumerable&lt;ICoreLoadable&gt; GetLoadables()
+    {
+        return null;
+    }
+}
+</code></pre>
+<h2 id="remarks">Remarks</h2>
+<p>In this section, you will find some interesting details on this topic.</p>
+<h3 id="unity-messages-in-states">Unity messages in states</h3>
+<p>You may be wondering how to get Unity messages (<code>Update</code>, <code>OnGUI</code>, ...) inside states. The most common options are:</p>
+<ol>
+<li>Delegate these tasks to other classes and just toggle them in state. (You should almost always pick this option.)</li>
+<li>States can inherit from the <code>MonoBehaviour</code> class.</li>
+<li>You can combine the <code>StateGraph.EnumerateDown(...)</code> method with interfaces to invoke a message in order.</li>
+</ol>
+<pre><code>public class MyCoreController : CoreController&lt;MyCoreProjectContext&gt;
+{
+    // ...
+    private StateGraph stateGraph;
+    // ...
+    private void Update()
+    {
+        stateGraph.EnumerateDown(state =&gt;
+        {
+            if (state is IUpdatable updatable)
+            {
+                updatable.Update();
+            }
+        }, true);
+    }
+}
+
+public interface IUpdatable
+{
+    void Update();
+}
+</code></pre>
+<h3 id="conditions-gotchas">Conditions gotchas</h3>
+<ul>
+<li>If multiple conditions are true when the state is activated, the order in which the links were added determines the transition.</li>
+<li>Raising the <code>ICondition.Triggered</code> event in the <code>ICondition.SetActive(bool value)</code> method does not affect the state machine. In case the state is activated, all conditions are checked when activation is complete. In case the state is deactivated, the event is completely ignored.</li>
+</ul>
 </article>
           </div>
           

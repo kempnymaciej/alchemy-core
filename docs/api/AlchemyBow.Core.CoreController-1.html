@@ -105,9 +105,6 @@
                             <a href="AlchemyBow.Core.ICoreLoadingCallbacksHandler.html" title="ICoreLoadingCallbacksHandler" class="">ICoreLoadingCallbacksHandler</a>
                           </li>
                           <li class="">
-                            <a href="AlchemyBow.Core.ICoreState.html" title="ICoreState" class="">ICoreState</a>
-                          </li>
-                          <li class="">
                             <a href="AlchemyBow.Core.OperationHandle.html" title="OperationHandle" class="">OperationHandle</a>
                           </li>
                         </ul>  </li>
@@ -142,6 +139,45 @@
                         <ul class="nav level2">
                           <li class="">
                             <a href="AlchemyBow.Core.IoC.Elements.InjectionInfo.html" title="InjectionInfo" class="">InjectionInfo</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="AlchemyBow.Core.States.html" title="AlchemyBow.Core.States" class="">AlchemyBow.Core.States</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="AlchemyBow.Core.States.ICondition.html" title="ICondition" class="">ICondition</a>
+                          </li>
+                          <li class="">
+                            <a href="AlchemyBow.Core.States.IState.html" title="IState" class="">IState</a>
+                          </li>
+                          <li class="">
+                            <a href="AlchemyBow.Core.States.StateGraph.html" title="StateGraph" class="">StateGraph</a>
+                          </li>
+                          <li class="">
+                            <a href="AlchemyBow.Core.States.StateGraphComposer.html" title="StateGraphComposer" class="">StateGraphComposer</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="AlchemyBow.Core.States.Elements.html" title="AlchemyBow.Core.States.Elements" class="">AlchemyBow.Core.States.Elements</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="AlchemyBow.Core.States.Elements.StateGraphLink.html" title="StateGraphLink" class="">StateGraphLink</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="AlchemyBow.Core.States.Prototyping.html" title="AlchemyBow.Core.States.Prototyping" class="">AlchemyBow.Core.States.Prototyping</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="AlchemyBow.Core.States.Prototyping.PrototypeCondition.html" title="PrototypeCondition" class="">PrototypeCondition</a>
+                          </li>
+                          <li class="">
+                            <a href="AlchemyBow.Core.States.Prototyping.PrototypeState.html" title="PrototypeState" class="">PrototypeState</a>
                           </li>
                         </ul>  </li>
                   </ul>        </div>
@@ -223,7 +259,7 @@
   
   <a id="AlchemyBow_Core_CoreController_1_PostLoadingDelay_" data-uid="AlchemyBow.Core.CoreController`1.PostLoadingDelay*"></a>
   <h4 id="AlchemyBow_Core_CoreController_1_PostLoadingDelay" data-uid="AlchemyBow.Core.CoreController`1.PostLoadingDelay">PostLoadingDelay</h4>
-  <div class="markdown level1 summary"><p>Delay between the loading and working stages measured in seconds (real time).</p>
+  <div class="markdown level1 summary"><p>The additional delay between the loading and working stages (measured in seconds, real time).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -249,7 +285,7 @@
   
   <a id="AlchemyBow_Core_CoreController_1_PreLoadingDelay_" data-uid="AlchemyBow.Core.CoreController`1.PreLoadingDelay*"></a>
   <h4 id="AlchemyBow_Core_CoreController_1_PreLoadingDelay" data-uid="AlchemyBow.Core.CoreController`1.PreLoadingDelay">PreLoadingDelay</h4>
-  <div class="markdown level1 summary"><p>Delay between the binding and loading stages measured in seconds (real time).</p>
+  <div class="markdown level1 summary"><p>The additional delay between the binding and loading stages (measured in seconds, real time).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -267,32 +303,6 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Single</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="AlchemyBow_Core_CoreController_1_State_" data-uid="AlchemyBow.Core.CoreController`1.State*"></a>
-  <h4 id="AlchemyBow_Core_CoreController_1_State" data-uid="AlchemyBow.Core.CoreController`1.State">State</h4>
-  <div class="markdown level1 summary"><p>The active state.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICoreState State { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="AlchemyBow.Core.ICoreState.html">ICoreState</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -324,35 +334,6 @@
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">buildIndex</span></td>
         <td><p>The build index of the scene to load.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="AlchemyBow_Core_CoreController_1_ChangeState_" data-uid="AlchemyBow.Core.CoreController`1.ChangeState*"></a>
-  <h4 id="AlchemyBow_Core_CoreController_1_ChangeState_AlchemyBow_Core_ICoreState_" data-uid="AlchemyBow.Core.CoreController`1.ChangeState(AlchemyBow.Core.ICoreState)">ChangeState(ICoreState)</h4>
-  <div class="markdown level1 summary"><p>Deinitializes the previous state and initializes the new state.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void ChangeState(ICoreState state)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="AlchemyBow.Core.ICoreState.html">ICoreState</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p>The state to initialize.</p>
 </td>
       </tr>
     </tbody>
@@ -453,7 +434,7 @@
   
   <a id="AlchemyBow_Core_CoreController_1_OnSceneChangeStarted_" data-uid="AlchemyBow.Core.CoreController`1.OnSceneChangeStarted*"></a>
   <h4 id="AlchemyBow_Core_CoreController_1_OnSceneChangeStarted" data-uid="AlchemyBow.Core.CoreController`1.OnSceneChangeStarted">OnSceneChangeStarted()</h4>
-  <div class="markdown level1 summary"><p>This method is called when the scene change process begins. If you use the <code>UnityEngine.UI</code> package, add <code>UnityEngine.EventSystems.EventSystem.current.enabled = false;</code>.</p>
+  <div class="markdown level1 summary"><p>This method is called when the scene change process begins. By default, it invokes <code>ICoreLoadingCallbacksHandler.OnCoreSceneChangeStarted()</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -461,7 +442,7 @@
     <pre><code class="lang-csharp hljs">protected virtual void OnSceneChangeStarted()</code></pre>
   </div>
   <h5 id="AlchemyBow_Core_CoreController_1_OnSceneChangeStarted_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>By default, it invokes <code>ICoreLoadingCallbacksHandler.OnCoreSceneChangeStarted()</code>.</p>
+  <div class="markdown level1 remarks"><p>If you use the <code>UnityEngine.UI</code> package, you may need to add <code>UnityEngine.EventSystems.EventSystem.current.enabled = false;</code> here.</p>
 </div>
   
   
@@ -487,14 +468,13 @@
       <tr>
         <td><a class="xref" href="AlchemyBow.Core.OperationHandle.html">OperationHandle</a></td>
         <td><span class="parametername">operationHandle</span></td>
-        <td><p>The handle of the operation.</p>
+        <td><p>The handle of the operation. (The base verision of the method marks the operation handle done.)</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 id="AlchemyBow_Core_CoreController_1_OnStarted_AlchemyBow_Core_OperationHandle__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The base verision of the method marks the operation handle done.
-It's called before the binding stage, so dependencies are not injected yet.</p>
+  <div class="markdown level1 remarks"><p>It's called before the binding stage, so dependencies are not injected yet.</p>
 </div>
 </article>
           </div>
