@@ -24,7 +24,6 @@ namespace AlchemyBow.Core
 
         private enum Stage { Starting, Binding, Loading, Working, Unloading }
         private Stage stage;
-        private ICoreState state;
 
         /// <summary>
         /// The container used for dependency injection.
@@ -35,19 +34,14 @@ namespace AlchemyBow.Core
         protected Container Container { get; private set; }
 
         /// <summary>
-        /// Delay between the binding and loading stages measured in seconds (real time).
+        /// The additional delay between the binding and loading stages (measured in seconds, real time).
         /// </summary>
         protected virtual float PreLoadingDelay => 0;
 
         /// <summary>
-        /// Delay between the loading and working stages measured in seconds (real time).
+        /// The additional delay between the loading and working stages (measured in seconds, real time).
         /// </summary>
         protected virtual float PostLoadingDelay => 0;
-
-        /// <summary>
-        /// The active state.
-        /// </summary>
-        public ICoreState State => state;
 
         private void Awake()
         {
@@ -120,9 +114,8 @@ namespace AlchemyBow.Core
         /// <summary>
         /// This method is called when the script instance is being loaded. It can be used to perform operations such as turning on the loading screen.
         /// </summary>
-        /// <param name="operationHandle">The handle of the operation.</param>
+        /// <param name="operationHandle">The handle of the operation. (The base verision of the method marks the operation handle done.)</param>
         /// <remarks>
-        /// The base verision of the method marks the operation handle done.
         /// It's called before the binding stage, so dependencies are not injected yet.
         /// </remarks>
         protected virtual void OnStarted(OperationHandle operationHandle) 
@@ -210,10 +203,6 @@ namespace AlchemyBow.Core
         /// <param name="buildIndex">The build index of the scene to load.</param>
         protected void ChangeScene(int buildIndex)
         {
-            if (state != null)
-            {
-                Debug.LogWarning("Since the scene change process is a coroutine, consider changing the state to null before running it.");
-            }
             if (stage != Stage.Working)
             {
                 Debug.LogError($"The controller is in the '{stage}' stage. The scene cannot be changed now.");
@@ -233,10 +222,10 @@ namespace AlchemyBow.Core
         }
 
         /// <summary>
-        /// This method is called when the scene change process begins. If you use the <c>UnityEngine.UI</c> package, add <c>UnityEngine.EventSystems.EventSystem.current.enabled = false;</c>.
+        /// This method is called when the scene change process begins. By default, it invokes <c>ICoreLoadingCallbacksHandler.OnCoreSceneChangeStarted()</c>.
         /// </summary>
         /// <remarks>
-        /// By default, it invokes <c>ICoreLoadingCallbacksHandler.OnCoreSceneChangeStarted()</c>.
+        /// If you use the <c>UnityEngine.UI</c> package, you may need to add <c>UnityEngine.EventSystems.EventSystem.current.enabled = false;</c> here.
         /// </remarks>
         protected virtual void OnSceneChangeStarted()
         {
@@ -256,25 +245,6 @@ namespace AlchemyBow.Core
                 Destroy(projectContext.gameObject);
                 projectContext = null;
             }
-        }
-        #endregion
-
-        #region State
-        /// <summary>
-        /// Deinitializes the previous state and initializes the new state.
-        /// </summary>
-        /// <param name="state">The state to initialize.</param>
-        protected void ChangeState(ICoreState state)
-        {
-            if (stage != Stage.Working)
-            {
-                Debug.LogError($"The controller is in the '{stage}' stage. The state cannot be changed now.");
-                return;
-            }
-
-            this.state?.Deinitialize();
-            this.state = state;
-            this.state?.Initialize();
         }
         #endregion
     } 

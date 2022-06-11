@@ -6,7 +6,7 @@ using UnityEngine;
 namespace AlchemyBow.Core
 {
     /// <summary>
-    /// The base class for all project context.
+    /// The base class for all project contexts.
     /// </summary>
     public abstract class CoreProjectContext : MonoBehaviour
     {
@@ -27,9 +27,9 @@ namespace AlchemyBow.Core
         protected Container Container { get; private set; }
 
         /// <summary>
-        /// Copies the contents of the dependency injection container into another.
+        /// Copies the contents of its own dependency injection container to another container.
         /// </summary>
-        /// <param name="target">The container to copy to.</param>
+        /// <param name="target">The target container.</param>
         /// <remarks>
         /// The dynamic collections bindings are sealed in the target container.
         /// </remarks>

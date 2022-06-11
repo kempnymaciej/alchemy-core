@@ -28,7 +28,7 @@ namespace AlchemyBow.Core.IoC.Elements
         }
 
         /// <summary>
-        /// Analyzes the type for information about dependency injection.
+        /// Analyzes the type for dependency injection information.
         /// </summary>
         /// <param name="type">The type to analyse.</param>
         /// <returns><c>InjectionInfo</c> for the type.</returns>
