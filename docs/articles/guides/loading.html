@@ -121,7 +121,7 @@
 
 <p>One of the most important aspects of the <strong>AlchemyBow.Core</strong> is to provide an easy and organized way to handle loading processes.</p>
 <h2 id="icoreloadable">ICoreLoadable</h2>
-<p><a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadable.html">ICoreLoadable</a> is an interface for objects that require time-consuming loading process. It provides one method - <code>Load(OperationHandle)</code> that takes the <a class="xref" href="../../api/AlchemyBow.Core.OperationHandle.html">OperationHandle</a> as a parameter.
+<p><a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadable.html">ICoreLoadable</a> is an interface for objects that require a time-consuming loading process. It provides one method - <code>Load(OperationHandle)</code> that takes the <a class="xref" href="../../api/AlchemyBow.Core.OperationHandle.html">OperationHandle</a> as a parameter.
 The loading process is considered complete when you call <code>OperationHandle.MarkDone()</code>.</p>
 <pre><code>using AlchemyBow.Core;
 using System.Collections;
@@ -165,8 +165,8 @@ public class MyCoreProjectContext : CoreProjectContext
     }
 }
 </code></pre>
-<p>Most of the time this solution is fine (especially for <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a>), but you should also consider delegating the task to other objects to prevent <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> from becoming tightly coupled with loadables.<br>
-Another interesting concept is to use the dynamic collection binding feature - you can add your loadables to some collection with installers and then use the collection in the <code>GetLoadables()</code> method (this approach can be even better with some kind of sorted / priority collection).</p>
+<p>Most of the time this solution is fine (especially for <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a>), but you should also consider delegating the task to other objects to prevent controllers from becoming tightly coupled with loadables.<br>
+Another interesting concept is to use the dynamic collection binding feature - you can add your loadables to some collection by installers and then use the collection in the <code>GetLoadables()</code> method (this approach can be even better with some kind of sorted / priority collection).</p>
 <h2 id="icoreloadingcallbackshandler">ICoreLoadingCallbacksHandler</h2>
 <p><a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadingCallbacksHandler.html">ICoreLoadingCallbacksHandler</a> provides a mechanism for notifying objects when <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> finishes loading or starts unloading.</p>
 <pre><code>using AlchemyBow.Core;

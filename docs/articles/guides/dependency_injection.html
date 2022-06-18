@@ -178,7 +178,7 @@ public class SampleClient : MonoBehaviour
 }
 </code></pre>
 <p>The first change is the <a class="xref" href="../../api/AlchemyBow.Core.IoC.InjectionTargetAttribute.html">[InjectionTarget]</a> attribute in the <code>SampleClient</code> class declaration. In this way we notify the framework that this type should be analized for fields decorated with the <code>[Inject]</code> attribute.<br>
-The <a class="xref" href="../../api/AlchemyBow.Core.IoC.InjectAttribute.html">[Inject]</a> attribute informs the framework that it should inject the value of the key <code>SampleService</code> to the decorated field.
+The <a class="xref" href="../../api/AlchemyBow.Core.IoC.InjectAttribute.html">[Inject]</a> attribute informs the framework that it should inject the value of the key <code>SampleService</code> to the decorated field.<br>
 Finally, we added the keyword <code>readonly</code> to the field declaration, this is a good practice as it almost never makes sense to change it manually.</p>
 <p>After these changes, nothing will happen yet. This is because we need to install our objects. To do that we can use <a class="xref" href="../../api/AlchemyBow.Core.IoC.MonoInstaller.html">MonoInstallers</a>, let's create them.</p>
 <pre><code>using AlchemyBow.Core.IoC;
