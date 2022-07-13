@@ -1,4 +1,5 @@
-﻿using AlchemyBow.Core.IoC;
+﻿using AlchemyBow.Core.Elements;
+using AlchemyBow.Core.IoC;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,7 +27,7 @@ namespace AlchemyBow.Core
         private Stage stage;
 
         /// <summary>
-        /// The container used for dependency injection.
+        /// Returns the container used for dependency injection or <c>null</c> before the binding stage.
         /// </summary>
         /// <returns>
         /// The container used for dependency injection or <c>null</c> before the binding stage.
@@ -75,25 +76,12 @@ namespace AlchemyBow.Core
             }
             yield return null;
 
-            if (projectContext != null)
-            {
-                var operationHandle = new OperationHandle();
-                projectContext.Load(operationHandle);
-                yield return null;
-                yield return new WaitUntil(() => operationHandle.IsDone);
-            }
+            var projectContextLoadablesProcess = projectContext?.GetLoadingProcess() ?? LoadablesProcess.CreateEmpty();
+            var controllerLoadablesProcess = new LoadablesProcess(this, GetLoadables());
 
-            var loadables = GetLoadables();
-            if (loadables != null)
-            {
-                foreach (var loadable in loadables)
-                {
-                    var operationHandle = new OperationHandle();
-                    loadable.Load(operationHandle);
-                    yield return null;
-                    yield return new WaitUntil(() => operationHandle.IsDone);
-                } 
-            }
+            yield return new LoadCompositeLoadablesProcess(
+                processes: new LoadablesProcess[] { projectContextLoadablesProcess, controllerLoadablesProcess },
+                progressedCallback: OnLoadablesProgressed);
 
             if (PostLoadingDelay > 0)
             {
@@ -112,7 +100,7 @@ namespace AlchemyBow.Core
         }
 
         /// <summary>
-        /// This method is called when the script instance is being loaded. It can be used to perform operations such as turning on the loading screen.
+        /// This method is called when the script instance is being loaded. It can be used to perform operations such as turning on a loading screen.
         /// </summary>
         /// <param name="operationHandle">The handle of the operation. (The base verision of the method marks the operation handle done.)</param>
         /// <remarks>
@@ -176,10 +164,17 @@ namespace AlchemyBow.Core
         protected virtual void OnBindingFinished() { }
 
         /// <summary>
-        /// Override this method to specify ordered loading components.
+        /// Override this method to specify an ordered collection of loading members.
         /// </summary>
-        /// <returns>Returns ordered loading components.</returns>
+        /// <returns>Returns an ordered collection of loading members or <c>null</c>.</returns>
         protected abstract IEnumerable<ICoreLoadable> GetLoadables();
+
+        /// <summary>
+        /// Override this method to respond to the the loading process progress. For example, to update your loading screen.
+        /// </summary>
+        /// <param name="progress">The current progress.</param>
+        /// <remarks>This method is called twice for each loadable during the loading process (not once if there are none). Project context loadables are included if they haven't been loaded previously.</remarks>
+        protected virtual void OnLoadablesProgressed(LoadablesProgress progress)  { }
 
         /// <summary>
         /// This method is called when binding and loading is completed (when the controller enters the working stage).
@@ -215,6 +210,12 @@ namespace AlchemyBow.Core
         private IEnumerator CreateChangeSceneCoroutine(int buildIndex)
         {
             OnSceneChangeStarted();
+            var keepUnloadingHandle = new OperationHandle();
+            OnKeepUnloading(keepUnloadingHandle);
+            if (!keepUnloadingHandle.IsDone)
+            {
+                yield return new WaitUntil(() => keepUnloadingHandle.IsDone); 
+            }
             var sceneToUnload = gameObject.scene;
             var loading = SceneManager.LoadSceneAsync(buildIndex, LoadSceneMode.Additive);
             yield return new WaitUntil(() => loading.isDone);
@@ -236,6 +237,15 @@ namespace AlchemyBow.Core
         }
 
         /// <summary>
+        /// This method is called after <c>OnSceneChangeStarted()</c> and before the actual scene change process. You can use it to clean up external resources, such as additional scenes.
+        /// </summary>
+        /// <param name="operationHandle">The handle of the operation. (The base verision of the method marks the operation handle done.)</param>
+        protected virtual void OnKeepUnloading(OperationHandle operationHandle)
+        {
+            operationHandle.MarkDone();
+        }
+
+        /// <summary>
         /// Destroys the project context. A potential use of this method is to allow you to switch between different project contexts.
         /// </summary>
         protected void DestroyProjectContext()
@@ -247,5 +257,5 @@ namespace AlchemyBow.Core
             }
         }
         #endregion
-    } 
+    }
 }

@@ -13,6 +13,7 @@ namespace AlchemyBow.Core.IoC
         private readonly HashSet<object> inaccessibleBindings;
         private readonly HashSet<object> resolved;
         private readonly HashSet<Type> dynamicCollections;
+        private readonly Dictionary<Type, ReflectionFieldsSetter> dynamicFieldSetters;
 
         /// <summary>
         /// Creates an instance of the class.
@@ -23,6 +24,7 @@ namespace AlchemyBow.Core.IoC
             this.inaccessibleBindings = new HashSet<object>();
             this.resolved = new HashSet<object>();
             this.dynamicCollections = new HashSet<Type>();
+            this.dynamicFieldSetters = new Dictionary<Type, ReflectionFieldsSetter>();
         }
 
         /// <summary>
@@ -180,19 +182,52 @@ namespace AlchemyBow.Core.IoC
         {
             if (resolved.Add(instance))
             {
-                var injectionInfo = InjectionInfo.GetInjectionInfo(instance.GetType());
+                if (instance is DynamicInjectorBase dynamicInjector)
+                {
+                    InjectDynamicInjector(dynamicInjector);
+                }
+                InjectStandardType(instance);
+            }
+        }
+
+        private void InjectStandardType(object instance)
+        {
+            var injectionInfo = InjectionInfo.GetInjectionInfo(instance.GetType());
+            while (injectionInfo != null)
+            {
+                if (injectionInfo.declaredInjectFields != null)
+                {
+                    foreach (var item in injectionInfo.declaredInjectFields)
+                    {
+                        item.SetValue(instance, Resolve(item.FieldType));
+                    }
+                }
+                injectionInfo = injectionInfo.parentInfo;
+            }
+        }
+
+        private void InjectDynamicInjector(DynamicInjectorBase dynamicInjector)
+        {
+            var injectionTargetType = dynamicInjector.injectionTargetType;
+            if (!dynamicFieldSetters.TryGetValue(injectionTargetType, out var fieldSetter))
+            {
+                var injectionInfo = InjectionInfo.GetInjectionInfo(injectionTargetType);
+                var fields = new List<(System.Reflection.FieldInfo, object)>();
                 while (injectionInfo != null)
                 {
                     if (injectionInfo.declaredInjectFields != null)
                     {
                         foreach (var item in injectionInfo.declaredInjectFields)
                         {
-                            item.SetValue(instance, Resolve(item.FieldType));
+                            fields.Add((item, Resolve(item.FieldType)));
                         }
                     }
                     injectionInfo = injectionInfo.parentInfo;
                 }
+                fieldSetter = new ReflectionFieldsSetter(fields.ToArray());
+                dynamicFieldSetters.Add(injectionTargetType, fieldSetter);
             }
+            dynamicInjector.FieldSetter = fieldSetter;
         }
 
         /// <summary>
@@ -214,6 +249,10 @@ namespace AlchemyBow.Core.IoC
             foreach (var item in source.resolved)
             {
                 target.resolved.Add(item);
+            }
+            foreach (var item in source.dynamicFieldSetters)
+            {
+                target.dynamicFieldSetters.Add(item.Key, item.Value);
             }
 
             if (!sealDynamicCollections)
