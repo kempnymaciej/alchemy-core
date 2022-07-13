@@ -1,5 +1,5 @@
+using AlchemyBow.Core.Elements;
 using AlchemyBow.Core.IoC;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,21 +10,31 @@ namespace AlchemyBow.Core
     /// </summary>
     public abstract class CoreProjectContext : MonoBehaviour
     {
-        private enum Stage { NotInitiated, Initiated, Loading, Completed }
-
         [SerializeField]
         private MonoInstaller[] installers = new MonoInstaller[0];
 
-        private Stage stage = Stage.NotInitiated;
-        private OperationHandle loadingHandle;
+        private bool initiated;
+        private LoadablesProcess loadingProcess;
 
         /// <summary>
-        /// The container used for dependency injection.
+        /// Returns the container used for dependency injection or <c>null</c> before the binding stage.
         /// </summary>
         /// <returns>
         /// The container used for dependency injection or <c>null</c> before the binding stage.
         /// </returns>
         protected Container Container { get; private set; }
+
+        /// <summary>
+        /// Override this method to install additional bindings.
+        /// </summary>
+        /// <param name="container">The dependency injection container.</param>
+        protected virtual void InstallAdditionalBindings(IBindOnlyContainer container) { }
+
+        /// <summary>
+        /// Override this method to specify an ordered collection of loading members.
+        /// </summary>
+        /// <returns>Returns an ordered collection of loading members or <c>null</c>.</returns>
+        protected abstract IEnumerable<ICoreLoadable> GetLoadables();
 
         /// <summary>
         /// Copies the contents of its own dependency injection container to another container.
@@ -33,9 +43,29 @@ namespace AlchemyBow.Core
         /// <remarks>
         /// The dynamic collections bindings are sealed in the target container.
         /// </remarks>
-        public void CopyBindingsToContainer(Container target)
+        internal void CopyBindingsToContainer(Container target)
         {
-            if (stage == Stage.NotInitiated)
+            EnsureInitated();
+            Container.CopyContent(Container, target, true);
+        }
+
+        /// <summary>
+        /// Gets the loading process.
+        /// </summary>
+        /// <returns>The loading process.</returns>
+        internal LoadablesProcess GetLoadingProcess()
+        {
+            EnsureInitated();
+            if (loadingProcess == null)
+            {
+                loadingProcess = new LoadablesProcess(this, GetLoadables());
+            }
+            return loadingProcess;
+        }
+
+        private void EnsureInitated()
+        {
+            if (!initiated)
             {
                 Container = new Container();
                 Container.BindInaccessible(this);
@@ -48,70 +78,8 @@ namespace AlchemyBow.Core
                 }
                 InstallAdditionalBindings(Container);
                 Container.ResolveAllBindings();
-                stage = Stage.Initiated;
+                initiated = true;
             }
-            Container.CopyContent(Container, target, true);
-        }
-
-        /// <summary>
-        /// Override this method to install additional bindings.
-        /// </summary>
-        /// <param name="container">The dependency injection container.</param>
-        protected virtual void InstallAdditionalBindings(IBindOnlyContainer container) { }
-
-        /// <summary>
-        /// Override this method to specify ordered loading components.
-        /// </summary>
-        /// <returns>Returns ordered loading components.</returns>
-        protected abstract IEnumerable<ICoreLoadable> GetLoadables();
-
-        /// <summary>
-        /// Starts the loading process.
-        /// </summary>
-        /// <param name="handle">The handle of the loading process.</param>
-        public void Load(OperationHandle handle)
-        {
-            switch (stage)
-            {
-                case Stage.NotInitiated:
-                    Debug.LogError("The project context was not initiated. Cannot proceed.");
-                    break;
-                case Stage.Initiated:
-                    stage = Stage.Loading;
-                    loadingHandle = handle;
-                    StartCoroutine(Loading());
-                    break;
-                case Stage.Loading:
-                    if (loadingHandle.IsDone)
-                    {
-                        handle.MarkDone();
-                    }
-                    else
-                    {
-                        loadingHandle = handle;
-                    }
-                    break;
-                case Stage.Completed:
-                    handle.MarkDone();
-                    break;
-            }
-        }
-
-        private IEnumerator Loading()
-        {
-            var loadables = GetLoadables();
-            if (loadables != null)
-            {
-                foreach (var loadable in loadables)
-                {
-                    var operationHandle = new OperationHandle();
-                    loadable.Load(operationHandle);
-                    yield return null;
-                    yield return new WaitUntil(() => operationHandle.IsDone);
-                } 
-            }
-            stage = Stage.Completed;
-            loadingHandle.MarkDone();
         }
     }
 }

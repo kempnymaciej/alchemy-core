@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.0] - 2000-07-13
+* Reworked loading processes (internally).
+* Added `CoreController.OnLoadablesProgressed(LoadablesProgress)`.
+* Added `CoreController.OnKeepUnloading(OperationHandle)`.
+* Added automated dynamic injection (`DynamicInjector<T>` and `DynamicInjectorBase`).
+* Improved documentation comments.
+* Improved [the documentation page](https://kempnymaciej.github.io/alchemy-core/).
+
 ## [2.0.0] - 2022-06-05
 * Removed the `ICoreState` interface.
 * `CoreController` no longer has a built-in state machine.
