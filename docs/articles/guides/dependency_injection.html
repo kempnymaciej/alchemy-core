@@ -338,34 +338,57 @@ public class SampleClient
 <p>The dynamic collection binding cannot be shared between <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> and <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a>.</p>
 </div>
 <h1 id="dynamic-injection">Dynamic injection</h1>
-<p>At some point, you may need to inject dependencies into objects created after loading. To do that you can use factories. A factory is a simple class that contains all needed dependencies (injected during loading) and <code>Create(...)</code> methods.
-In short, you need to bind your factory and use it to create objects.</p>
+<p>At some point, you may need to inject dependencies into objects created after loading. To do that you can use dynamic injectors - objects that have all the necessary dependencies (injected during loading) and are able to inject them into objects of a specific type. To create one:</p>
+<ul>
+<li>Create an instance of the <a class="xref" href="../../api/AlchemyBow.Core.IoC.DynamicInjector-1.html"><code>DynamicInjector&lt;T&gt;</code></a> class where <code>T</code> is the injection target.</li>
+<li>Bind the injector.</li>
+<li>After loading, use the <code>DynamicInjector&lt;T&gt;.Inject(T)</code> method to inject.</li>
+</ul>
+<p>A very similar approach is to create factories that are also responsible for creating objects. It is worth noting that in <strong>AlchemyBow.Core</strong>, it is common to build factories using injectors.
+Let's see a complete example:</p>
 <pre><code>using AlchemyBow.Core.IoC;
 
-public class SomeClient
+[InjectionTarget]
+public class SampleClient // We want to dynamically create instances of this class
 {
-    private readonly SomeService someService;
-    private readonly int someDynamicParameter;
+    [Inject]
+    private readonly SampleService someService;
+    private readonly int someCreationParameter;
 
-    public SomeClient(SomeService someService, int someDynamicParameter)
+    public SampleClient(int someCreationParameter)
     {
-        this.someService = someService;
-        this.someDynamicParameter = someDynamicParameter;
+        this.someCreationParameter = someCreationParameter;
     }
 
     [InjectionTarget]
-    public class Factory
+    public class Factory // The factory class is nested for clear code formatting.
     {
         [Inject]
-        private readonly SomeService someService;
+        private readonly DynamicInjector&lt;SampleClient&gt; injector;
 
-        public SomeClient Create(int someDynamicParameter)
+        // With this method we can create instances of the `SampleClient` class.
+        public SampleClient Create(int someCreationParameter)
         {
-            return new SomeClient(someService, someDynamicParameter);
+            return injector.Inject(new SampleClient(someCreationParameter));
         }
     }
 }
 </code></pre>
+<pre><code>using AlchemyBow.Core.IoC;
+
+public class SampleClientFactoryInstaller : MonoInstaller
+{
+    public override void InstallBindings(IBindOnlyContainer container)
+    {
+        container.Bind(new DynamicInjector&lt;SampleClient&gt;());
+        container.Bind(new SampleClient.Factory());
+    }
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Injectors and factories can be created manually. However, the mechanism provided with the <a class="xref" href="../../api/AlchemyBow.Core.IoC.DynamicInjector-1.html"><code>DynamicInjector&lt;T&gt;</code></a> class makes your code more scalable, more consistent and less boiler-plate.</p>
+</div>
 </article>
           </div>
           

@@ -105,6 +105,9 @@
                             <a href="AlchemyBow.Core.ICoreLoadingCallbacksHandler.html" title="ICoreLoadingCallbacksHandler" class="">ICoreLoadingCallbacksHandler</a>
                           </li>
                           <li class="">
+                            <a href="AlchemyBow.Core.LoadablesProgress.html" title="LoadablesProgress" class="">LoadablesProgress</a>
+                          </li>
+                          <li class="">
                             <a href="AlchemyBow.Core.OperationHandle.html" title="OperationHandle" class="">OperationHandle</a>
                           </li>
                         </ul>  </li>
@@ -118,6 +121,9 @@
                           </li>
                           <li class="">
                             <a href="AlchemyBow.Core.IoC.DynamicCollectionBindingUtility.html" title="DynamicCollectionBindingUtility" class="">DynamicCollectionBindingUtility</a>
+                          </li>
+                          <li class="">
+                            <a href="AlchemyBow.Core.IoC.DynamicInjector-1.html" title="DynamicInjector&lt;T&gt;" class="">DynamicInjector&lt;T&gt;</a>
                           </li>
                           <li class="">
                             <a href="AlchemyBow.Core.IoC.IBindOnlyContainer.html" title="IBindOnlyContainer" class="">IBindOnlyContainer</a>
@@ -138,7 +144,13 @@
                         
                         <ul class="nav level2">
                           <li class="">
+                            <a href="AlchemyBow.Core.IoC.Elements.DynamicInjectorBase.html" title="DynamicInjectorBase" class="">DynamicInjectorBase</a>
+                          </li>
+                          <li class="">
                             <a href="AlchemyBow.Core.IoC.Elements.InjectionInfo.html" title="InjectionInfo" class="">InjectionInfo</a>
+                          </li>
+                          <li class="">
+                            <a href="AlchemyBow.Core.IoC.Elements.ReflectionFieldsSetter.html" title="ReflectionFieldsSetter" class="">ReflectionFieldsSetter</a>
                           </li>
                         </ul>  </li>
                     <li class="">
@@ -216,7 +228,7 @@
   
   <a id="AlchemyBow_Core_CoreProjectContext_Container_" data-uid="AlchemyBow.Core.CoreProjectContext.Container*"></a>
   <h4 id="AlchemyBow_Core_CoreProjectContext_Container" data-uid="AlchemyBow.Core.CoreProjectContext.Container">Container</h4>
-  <div class="markdown level1 summary"><p>The container used for dependency injection.</p>
+  <div class="markdown level1 summary"><p>Returns the container used for dependency injection or <code>null</code> before the binding stage.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -243,41 +255,9 @@
   </h3>
   
   
-  <a id="AlchemyBow_Core_CoreProjectContext_CopyBindingsToContainer_" data-uid="AlchemyBow.Core.CoreProjectContext.CopyBindingsToContainer*"></a>
-  <h4 id="AlchemyBow_Core_CoreProjectContext_CopyBindingsToContainer_AlchemyBow_Core_IoC_Container_" data-uid="AlchemyBow.Core.CoreProjectContext.CopyBindingsToContainer(AlchemyBow.Core.IoC.Container)">CopyBindingsToContainer(Container)</h4>
-  <div class="markdown level1 summary"><p>Copies the contents of its own dependency injection container to another container.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void CopyBindingsToContainer(Container target)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="AlchemyBow.Core.IoC.Container.html">Container</a></td>
-        <td><span class="parametername">target</span></td>
-        <td><p>The target container.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="AlchemyBow_Core_CoreProjectContext_CopyBindingsToContainer_AlchemyBow_Core_IoC_Container__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The dynamic collections bindings are sealed in the target container.</p>
-</div>
-  
-  
   <a id="AlchemyBow_Core_CoreProjectContext_GetLoadables_" data-uid="AlchemyBow.Core.CoreProjectContext.GetLoadables*"></a>
   <h4 id="AlchemyBow_Core_CoreProjectContext_GetLoadables" data-uid="AlchemyBow.Core.CoreProjectContext.GetLoadables">GetLoadables()</h4>
-  <div class="markdown level1 summary"><p>Override this method to specify ordered loading components.</p>
+  <div class="markdown level1 summary"><p>Override this method to specify an ordered collection of loading members.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -295,7 +275,7 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="AlchemyBow.Core.ICoreLoadable.html">ICoreLoadable</a>&gt;</td>
-        <td><p>Returns ordered loading components.</p>
+        <td><p>Returns an ordered collection of loading members or <code>null</code>.</p>
 </td>
       </tr>
     </tbody>
@@ -325,35 +305,6 @@
         <td><a class="xref" href="AlchemyBow.Core.IoC.IBindOnlyContainer.html">IBindOnlyContainer</a></td>
         <td><span class="parametername">container</span></td>
         <td><p>The dependency injection container.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="AlchemyBow_Core_CoreProjectContext_Load_" data-uid="AlchemyBow.Core.CoreProjectContext.Load*"></a>
-  <h4 id="AlchemyBow_Core_CoreProjectContext_Load_AlchemyBow_Core_OperationHandle_" data-uid="AlchemyBow.Core.CoreProjectContext.Load(AlchemyBow.Core.OperationHandle)">Load(OperationHandle)</h4>
-  <div class="markdown level1 summary"><p>Starts the loading process.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Load(OperationHandle handle)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="AlchemyBow.Core.OperationHandle.html">OperationHandle</a></td>
-        <td><span class="parametername">handle</span></td>
-        <td><p>The handle of the loading process.</p>
 </td>
       </tr>
     </tbody>

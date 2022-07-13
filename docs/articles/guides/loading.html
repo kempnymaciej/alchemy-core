@@ -167,6 +167,27 @@ public class MyCoreProjectContext : CoreProjectContext
 </code></pre>
 <p>Most of the time this solution is fine (especially for <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a>), but you should also consider delegating the task to other objects to prevent controllers from becoming tightly coupled with loadables.<br>
 Another interesting concept is to use the dynamic collection binding feature - you can add your loadables to some collection by installers and then use the collection in the <code>GetLoadables()</code> method (this approach can be even better with some kind of sorted / priority collection).</p>
+<h3 id="loading-progress">Loading progress</h3>
+<p>You can react to the loading process progress (for example, update your loading screen). To do this, override the <code>CoreController.OnLoadablesProgressed(LoadablesProgress)</code> method:</p>
+<pre><code>using AlchemyBow.Core;
+using AlchemyBow.Core.IoC;
+using System.Collections.Generic;
+
+[InjectionTarget]
+public class MyCoreController : CoreController&lt;CoreProjectContext&gt;
+{
+    protected override IEnumerable&lt;ICoreLoadable&gt; GetLoadables()
+    {
+        // ...
+    }
+
+    protected override void OnLoadablesProgressed(LoadablesProgress progress)
+    {
+        UnityEngine.Debug.Log($&quot;{progress.loadableIndex}/{progress.numberOfLoadables}---{progress.loadable}:{progress.loadableCompleted}&quot;);
+    }
+}
+</code></pre>
+<p>Note that this method is called twice for each loadable (not once if there are none). Project context loadables are included if they haven't been loaded previously.</p>
 <h2 id="icoreloadingcallbackshandler">ICoreLoadingCallbacksHandler</h2>
 <p><a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadingCallbacksHandler.html">ICoreLoadingCallbacksHandler</a> provides a mechanism for notifying objects when <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> finishes loading or starts unloading.</p>
 <pre><code>using AlchemyBow.Core;

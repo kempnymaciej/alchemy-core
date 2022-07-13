@@ -105,6 +105,9 @@
                             <a href="AlchemyBow.Core.ICoreLoadingCallbacksHandler.html" title="ICoreLoadingCallbacksHandler" class="">ICoreLoadingCallbacksHandler</a>
                           </li>
                           <li class="">
+                            <a href="AlchemyBow.Core.LoadablesProgress.html" title="LoadablesProgress" class="">LoadablesProgress</a>
+                          </li>
+                          <li class="">
                             <a href="AlchemyBow.Core.OperationHandle.html" title="OperationHandle" class="">OperationHandle</a>
                           </li>
                         </ul>  </li>
@@ -118,6 +121,9 @@
                           </li>
                           <li class="">
                             <a href="AlchemyBow.Core.IoC.DynamicCollectionBindingUtility.html" title="DynamicCollectionBindingUtility" class="">DynamicCollectionBindingUtility</a>
+                          </li>
+                          <li class="">
+                            <a href="AlchemyBow.Core.IoC.DynamicInjector-1.html" title="DynamicInjector&lt;T&gt;" class="">DynamicInjector&lt;T&gt;</a>
                           </li>
                           <li class="">
                             <a href="AlchemyBow.Core.IoC.IBindOnlyContainer.html" title="IBindOnlyContainer" class="">IBindOnlyContainer</a>
@@ -138,7 +144,13 @@
                         
                         <ul class="nav level2">
                           <li class="">
+                            <a href="AlchemyBow.Core.IoC.Elements.DynamicInjectorBase.html" title="DynamicInjectorBase" class="">DynamicInjectorBase</a>
+                          </li>
+                          <li class="">
                             <a href="AlchemyBow.Core.IoC.Elements.InjectionInfo.html" title="InjectionInfo" class="">InjectionInfo</a>
+                          </li>
+                          <li class="">
+                            <a href="AlchemyBow.Core.IoC.Elements.ReflectionFieldsSetter.html" title="ReflectionFieldsSetter" class="">ReflectionFieldsSetter</a>
                           </li>
                         </ul>  </li>
                     <li class="">
@@ -232,7 +244,7 @@
   
   <a id="AlchemyBow_Core_CoreController_1_Container_" data-uid="AlchemyBow.Core.CoreController`1.Container*"></a>
   <h4 id="AlchemyBow_Core_CoreController_1_Container" data-uid="AlchemyBow.Core.CoreController`1.Container">Container</h4>
-  <div class="markdown level1 summary"><p>The container used for dependency injection.</p>
+  <div class="markdown level1 summary"><p>Returns the container used for dependency injection or <code>null</code> before the binding stage.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -353,7 +365,7 @@
   
   <a id="AlchemyBow_Core_CoreController_1_GetLoadables_" data-uid="AlchemyBow.Core.CoreController`1.GetLoadables*"></a>
   <h4 id="AlchemyBow_Core_CoreController_1_GetLoadables" data-uid="AlchemyBow.Core.CoreController`1.GetLoadables">GetLoadables()</h4>
-  <div class="markdown level1 summary"><p>Override this method to specify ordered loading components.</p>
+  <div class="markdown level1 summary"><p>Override this method to specify an ordered collection of loading members.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -371,7 +383,7 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="AlchemyBow.Core.ICoreLoadable.html">ICoreLoadable</a>&gt;</td>
-        <td><p>Returns ordered loading components.</p>
+        <td><p>Returns an ordered collection of loading members or <code>null</code>.</p>
 </td>
       </tr>
     </tbody>
@@ -418,6 +430,67 @@
   </div>
   
   
+  <a id="AlchemyBow_Core_CoreController_1_OnKeepUnloading_" data-uid="AlchemyBow.Core.CoreController`1.OnKeepUnloading*"></a>
+  <h4 id="AlchemyBow_Core_CoreController_1_OnKeepUnloading_AlchemyBow_Core_OperationHandle_" data-uid="AlchemyBow.Core.CoreController`1.OnKeepUnloading(AlchemyBow.Core.OperationHandle)">OnKeepUnloading(OperationHandle)</h4>
+  <div class="markdown level1 summary"><p>This method is called after <code>OnSceneChangeStarted()</code> and before the actual scene change process. You can use it to clean up external resources, such as additional scenes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnKeepUnloading(OperationHandle operationHandle)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AlchemyBow.Core.OperationHandle.html">OperationHandle</a></td>
+        <td><span class="parametername">operationHandle</span></td>
+        <td><p>The handle of the operation. (The base verision of the method marks the operation handle done.)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="AlchemyBow_Core_CoreController_1_OnLoadablesProgressed_" data-uid="AlchemyBow.Core.CoreController`1.OnLoadablesProgressed*"></a>
+  <h4 id="AlchemyBow_Core_CoreController_1_OnLoadablesProgressed_AlchemyBow_Core_LoadablesProgress_" data-uid="AlchemyBow.Core.CoreController`1.OnLoadablesProgressed(AlchemyBow.Core.LoadablesProgress)">OnLoadablesProgressed(LoadablesProgress)</h4>
+  <div class="markdown level1 summary"><p>Override this method to respond to the the loading process progress. For example, to update your loading screen.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnLoadablesProgressed(LoadablesProgress progress)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AlchemyBow.Core.LoadablesProgress.html">LoadablesProgress</a></td>
+        <td><span class="parametername">progress</span></td>
+        <td><p>The current progress.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="AlchemyBow_Core_CoreController_1_OnLoadablesProgressed_AlchemyBow_Core_LoadablesProgress__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is called twice for each loadable during the loading process (not once if there are none). Project context loadables are included if they haven't been loaded previously.</p>
+</div>
+  
+  
   <a id="AlchemyBow_Core_CoreController_1_OnLoadingFinished_" data-uid="AlchemyBow.Core.CoreController`1.OnLoadingFinished*"></a>
   <h4 id="AlchemyBow_Core_CoreController_1_OnLoadingFinished" data-uid="AlchemyBow.Core.CoreController`1.OnLoadingFinished">OnLoadingFinished()</h4>
   <div class="markdown level1 summary"><p>This method is called when binding and loading is completed (when the controller enters the working stage).</p>
@@ -448,7 +521,7 @@
   
   <a id="AlchemyBow_Core_CoreController_1_OnStarted_" data-uid="AlchemyBow.Core.CoreController`1.OnStarted*"></a>
   <h4 id="AlchemyBow_Core_CoreController_1_OnStarted_AlchemyBow_Core_OperationHandle_" data-uid="AlchemyBow.Core.CoreController`1.OnStarted(AlchemyBow.Core.OperationHandle)">OnStarted(OperationHandle)</h4>
-  <div class="markdown level1 summary"><p>This method is called when the script instance is being loaded. It can be used to perform operations such as turning on the loading screen.</p>
+  <div class="markdown level1 summary"><p>This method is called when the script instance is being loaded. It can be used to perform operations such as turning on a loading screen.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>

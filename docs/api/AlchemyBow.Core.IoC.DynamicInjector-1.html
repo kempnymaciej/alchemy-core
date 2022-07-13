@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface IState
+    <title>Class DynamicInjector&lt;T&gt;
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface IState
+    <meta name="title" content="Class DynamicInjector&lt;T&gt;
    ">
     <meta name="generator" content="docfx 2.59.0.0">
     
@@ -122,8 +122,8 @@
                           <li class="">
                             <a href="AlchemyBow.Core.IoC.DynamicCollectionBindingUtility.html" title="DynamicCollectionBindingUtility" class="">DynamicCollectionBindingUtility</a>
                           </li>
-                          <li class="">
-                            <a href="AlchemyBow.Core.IoC.DynamicInjector-1.html" title="DynamicInjector&lt;T&gt;" class="">DynamicInjector&lt;T&gt;</a>
+                          <li class="active">
+                            <a href="AlchemyBow.Core.IoC.DynamicInjector-1.html" title="DynamicInjector&lt;T&gt;" class="active">DynamicInjector&lt;T&gt;</a>
                           </li>
                           <li class="">
                             <a href="AlchemyBow.Core.IoC.IBindOnlyContainer.html" title="IBindOnlyContainer" class="">IBindOnlyContainer</a>
@@ -161,8 +161,8 @@
                           <li class="">
                             <a href="AlchemyBow.Core.States.ICondition.html" title="ICondition" class="">ICondition</a>
                           </li>
-                          <li class="active">
-                            <a href="AlchemyBow.Core.States.IState.html" title="IState" class="active">IState</a>
+                          <li class="">
+                            <a href="AlchemyBow.Core.States.IState.html" title="IState" class="">IState</a>
                           </li>
                           <li class="">
                             <a href="AlchemyBow.Core.States.StateGraph.html" title="StateGraph" class="">StateGraph</a>
@@ -199,44 +199,114 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="AlchemyBow.Core.States.IState">
+            <article class="content wrap" id="_content" data-uid="AlchemyBow.Core.IoC.DynamicInjector`1">
   
   
-  <h1 id="AlchemyBow_Core_States_IState" data-uid="AlchemyBow.Core.States.IState" class="text-break">Interface IState
+  <h1 id="AlchemyBow_Core_IoC_DynamicInjector_1" data-uid="AlchemyBow.Core.IoC.DynamicInjector`1" class="text-break">Class DynamicInjector&lt;T&gt;
   </h1>
-  <div class="markdown level0 summary"><p>Provides the base interface for the abstraction of states.</p>
+  <div class="markdown level0 summary"><p>Provides a mechanism for automated dynamic injection.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="AlchemyBow.Core.States.html">AlchemyBow.Core.States</a></h6>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="AlchemyBow.Core.IoC.Elements.DynamicInjectorBase.html">DynamicInjectorBase</a></div>
+    <div class="level2"><span class="xref">DynamicInjector&lt;T&gt;</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="AlchemyBow.Core.IoC.Elements.DynamicInjectorBase.html#AlchemyBow_Core_IoC_Elements_DynamicInjectorBase_injectionTargetType">DynamicInjectorBase.injectionTargetType</a>
+    </div>
+    <div>
+      <a class="xref" href="AlchemyBow.Core.IoC.Elements.DynamicInjectorBase.html#AlchemyBow_Core_IoC_Elements_DynamicInjectorBase_FieldSetter">DynamicInjectorBase.FieldSetter</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="AlchemyBow.Core.IoC.html">AlchemyBow.Core.IoC</a></h6>
   <h6><strong>Assembly</strong>: AlchemyBow.Core.dll</h6>
-  <h5 id="AlchemyBow_Core_States_IState_syntax">Syntax</h5>
+  <h5 id="AlchemyBow_Core_IoC_DynamicInjector_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IState</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class DynamicInjector&lt;T&gt; : DynamicInjectorBase where T : class</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the injection target class.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="AlchemyBow_Core_IoC_DynamicInjector_1__ctor_" data-uid="AlchemyBow.Core.IoC.DynamicInjector`1.#ctor*"></a>
+  <h4 id="AlchemyBow_Core_IoC_DynamicInjector_1__ctor" data-uid="AlchemyBow.Core.IoC.DynamicInjector`1.#ctor">DynamicInjector()</h4>
+  <div class="markdown level1 summary"><p>Creates an instance of the class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DynamicInjector()</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   
   
-  <a id="AlchemyBow_Core_States_IState_Enter_" data-uid="AlchemyBow.Core.States.IState.Enter*"></a>
-  <h4 id="AlchemyBow_Core_States_IState_Enter" data-uid="AlchemyBow.Core.States.IState.Enter">Enter()</h4>
-  <div class="markdown level1 summary"><p>Activates the state.</p>
+  <a id="AlchemyBow_Core_IoC_DynamicInjector_1_Inject_" data-uid="AlchemyBow.Core.IoC.DynamicInjector`1.Inject*"></a>
+  <h4 id="AlchemyBow_Core_IoC_DynamicInjector_1_Inject__0_" data-uid="AlchemyBow.Core.IoC.DynamicInjector`1.Inject(`0)">Inject(T)</h4>
+  <div class="markdown level1 summary"><p>Injects values into the target object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Enter()</code></pre>
+    <pre><code class="lang-csharp hljs">public T Inject(T target)</code></pre>
   </div>
-  
-  
-  <a id="AlchemyBow_Core_States_IState_Exit_" data-uid="AlchemyBow.Core.States.IState.Exit*"></a>
-  <h4 id="AlchemyBow_Core_States_IState_Exit" data-uid="AlchemyBow.Core.States.IState.Exit">Exit()</h4>
-  <div class="markdown level1 summary"><p>Deactivates the state.</p>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">target</span></td>
+        <td><p>The target object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>The object passed as a parameter (<code>target</code>).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="AlchemyBow_Core_IoC_DynamicInjector_1_Inject__0__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Only works if the injector has been bound and resolved in the container.</p>
 </div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Exit()</code></pre>
-  </div>
 </article>
           </div>
           
