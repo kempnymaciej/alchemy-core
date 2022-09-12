@@ -1,6 +1,9 @@
 # Changelog
 
-## [2.1.0] - 2000-07-13
+## [2.1.1] - 2022-09-12
+* Fix a typo in the changelog headers.
+
+## [2.1.0] - 2022-07-13
 * Reworked loading processes (internally).
 * Added `CoreController.OnLoadablesProgressed(LoadablesProgress)`.
 * Added `CoreController.OnKeepUnloading(OperationHandle)`.
