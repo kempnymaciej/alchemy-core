@@ -1,7 +1,10 @@
 # Changelog
 
+## [2.2.0] - 2022-10-25
+* Added editor tools (the quick start core wizard and the core management window)
+
 ## [2.1.1] - 2022-09-12
-* Fix a typo in the changelog headers.
+* Fixed a typo in the changelog headers.
 
 ## [2.1.0] - 2022-07-13
 * Reworked loading processes (internally).
