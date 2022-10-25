@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface ICondition
+    <title>Class ValidationMessageList
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface ICondition
+    <meta name="title" content="Class ValidationMessageList
    ">
     <meta name="generator" content="docfx 2.59.3.0">
     
@@ -149,8 +149,8 @@
                           <li class="">
                             <a href="AlchemyBow.Core.Editor.Wizards.CoreQuickStartWizard.html" title="CoreQuickStartWizard" class="">CoreQuickStartWizard</a>
                           </li>
-                          <li class="">
-                            <a href="AlchemyBow.Core.Editor.Wizards.ValidationMessageList.html" title="ValidationMessageList" class="">ValidationMessageList</a>
+                          <li class="active">
+                            <a href="AlchemyBow.Core.Editor.Wizards.ValidationMessageList.html" title="ValidationMessageList" class="active">ValidationMessageList</a>
                           </li>
                           <li class="">
                             <a href="AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.html" title="WizardValidationUtility" class="">WizardValidationUtility</a>
@@ -206,8 +206,8 @@
                       <a href="AlchemyBow.Core.States.html" title="AlchemyBow.Core.States" class="">AlchemyBow.Core.States</a>
                         
                         <ul class="nav level2">
-                          <li class="active">
-                            <a href="AlchemyBow.Core.States.ICondition.html" title="ICondition" class="active">ICondition</a>
+                          <li class="">
+                            <a href="AlchemyBow.Core.States.ICondition.html" title="ICondition" class="">ICondition</a>
                           </li>
                           <li class="">
                             <a href="AlchemyBow.Core.States.IState.html" title="IState" class="">IState</a>
@@ -247,34 +247,66 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="AlchemyBow.Core.States.ICondition">
+            <article class="content wrap" id="_content" data-uid="AlchemyBow.Core.Editor.Wizards.ValidationMessageList">
   
   
-  <h1 id="AlchemyBow_Core_States_ICondition" data-uid="AlchemyBow.Core.States.ICondition" class="text-break">Interface ICondition
+  <h1 id="AlchemyBow_Core_Editor_Wizards_ValidationMessageList" data-uid="AlchemyBow.Core.Editor.Wizards.ValidationMessageList" class="text-break">Class ValidationMessageList
   </h1>
-  <div class="markdown level0 summary"><p>Provides the base interface for the abstraction of conditions.</p>
+  <div class="markdown level0 summary"><p>Represents a list of various validation messages.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="AlchemyBow.Core.States.html">AlchemyBow.Core.States</a></h6>
-  <h6><strong>Assembly</strong>: AlchemyBow.Core.dll</h6>
-  <h5 id="AlchemyBow_Core_States_ICondition_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface ICondition</code></pre>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ValidationMessageList</span></div>
   </div>
-  <h3 id="methods">Methods
+  <h6><strong>Namespace</strong>: <a class="xref" href="AlchemyBow.Core.Editor.Wizards.html">AlchemyBow.Core.Editor.Wizards</a></h6>
+  <h6><strong>Assembly</strong>: AlchemyBow.Core.Editor.dll</h6>
+  <h5 id="AlchemyBow_Core_Editor_Wizards_ValidationMessageList_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class ValidationMessageList</code></pre>
+  </div>
+  <h3 id="properties">Properties
   </h3>
   
   
-  <a id="AlchemyBow_Core_States_ICondition_CheckCondition_" data-uid="AlchemyBow.Core.States.ICondition.CheckCondition*"></a>
-  <h4 id="AlchemyBow_Core_States_ICondition_CheckCondition" data-uid="AlchemyBow.Core.States.ICondition.CheckCondition">CheckCondition()</h4>
-  <div class="markdown level1 summary"><p>Determines whether the condition is met.</p>
+  <a id="AlchemyBow_Core_Editor_Wizards_ValidationMessageList_Errors_" data-uid="AlchemyBow.Core.Editor.Wizards.ValidationMessageList.Errors*"></a>
+  <h4 id="AlchemyBow_Core_Editor_Wizards_ValidationMessageList_Errors" data-uid="AlchemyBow.Core.Editor.Wizards.ValidationMessageList.Errors">Errors</h4>
+  <div class="markdown level1 summary"><p>The collection of errors.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">bool CheckCondition()</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;string&gt; Errors { get; }</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>The collection of errors.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="AlchemyBow_Core_Editor_Wizards_ValidationMessageList_HasErrors_" data-uid="AlchemyBow.Core.Editor.Wizards.ValidationMessageList.HasErrors*"></a>
+  <h4 id="AlchemyBow_Core_Editor_Wizards_ValidationMessageList_HasErrors" data-uid="AlchemyBow.Core.Editor.Wizards.ValidationMessageList.HasErrors">HasErrors</h4>
+  <div class="markdown level1 summary"><p>Determines if there are errors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasErrors { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -285,21 +317,131 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td><p><code>true</code> if met; Otherwise, <code>false</code>.</p>
+        <td><p><code>true</code> if there is at least one error; Otherwise, <code>false</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="AlchemyBow_Core_States_ICondition_SetActive_" data-uid="AlchemyBow.Core.States.ICondition.SetActive*"></a>
-  <h4 id="AlchemyBow_Core_States_ICondition_SetActive_System_Boolean_" data-uid="AlchemyBow.Core.States.ICondition.SetActive(System.Boolean)">SetActive(Boolean)</h4>
-  <div class="markdown level1 summary"><p>Activates/Deactivates the conditions. An active condition should track its status and raise the <code>Triggered</code> event when met.</p>
+  <a id="AlchemyBow_Core_Editor_Wizards_ValidationMessageList_HasInfos_" data-uid="AlchemyBow.Core.Editor.Wizards.ValidationMessageList.HasInfos*"></a>
+  <h4 id="AlchemyBow_Core_Editor_Wizards_ValidationMessageList_HasInfos" data-uid="AlchemyBow.Core.Editor.Wizards.ValidationMessageList.HasInfos">HasInfos</h4>
+  <div class="markdown level1 summary"><p>Determines if there are infos.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void SetActive(bool value)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool HasInfos { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if there is at least one info; Otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="AlchemyBow_Core_Editor_Wizards_ValidationMessageList_HasWarnings_" data-uid="AlchemyBow.Core.Editor.Wizards.ValidationMessageList.HasWarnings*"></a>
+  <h4 id="AlchemyBow_Core_Editor_Wizards_ValidationMessageList_HasWarnings" data-uid="AlchemyBow.Core.Editor.Wizards.ValidationMessageList.HasWarnings">HasWarnings</h4>
+  <div class="markdown level1 summary"><p>Determines if there are warnings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasWarnings { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if there is at least one warning; Otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="AlchemyBow_Core_Editor_Wizards_ValidationMessageList_Infos_" data-uid="AlchemyBow.Core.Editor.Wizards.ValidationMessageList.Infos*"></a>
+  <h4 id="AlchemyBow_Core_Editor_Wizards_ValidationMessageList_Infos" data-uid="AlchemyBow.Core.Editor.Wizards.ValidationMessageList.Infos">Infos</h4>
+  <div class="markdown level1 summary"><p>The collection of infos.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;string&gt; Infos { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>The collection of infos.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="AlchemyBow_Core_Editor_Wizards_ValidationMessageList_Warnings_" data-uid="AlchemyBow.Core.Editor.Wizards.ValidationMessageList.Warnings*"></a>
+  <h4 id="AlchemyBow_Core_Editor_Wizards_ValidationMessageList_Warnings" data-uid="AlchemyBow.Core.Editor.Wizards.ValidationMessageList.Warnings">Warnings</h4>
+  <div class="markdown level1 summary"><p>The collection of warnings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;string&gt; Warnings { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>The collection of warnings.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="AlchemyBow_Core_Editor_Wizards_ValidationMessageList_AddError_" data-uid="AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddError*"></a>
+  <h4 id="AlchemyBow_Core_Editor_Wizards_ValidationMessageList_AddError_System_String_" data-uid="AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddError(System.String)">AddError(String)</h4>
+  <div class="markdown level1 summary"><p>Adds an error message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddError(string message)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -312,46 +454,82 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>When <code>true</code> activates the conditions; otherwise, deactivates it.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The error message.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="AlchemyBow_Core_States_ICondition_SetActive_System_Boolean__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method can be used to reset the internal state of a condition between uses.</p>
-</div>
-  <h3 id="events">Events
-  </h3>
   
   
-  <h4 id="AlchemyBow_Core_States_ICondition_Triggered" data-uid="AlchemyBow.Core.States.ICondition.Triggered">Triggered</h4>
-  <div class="markdown level1 summary"><p>An event that is raised when the condition should be checked.</p>
+  <a id="AlchemyBow_Core_Editor_Wizards_ValidationMessageList_AddInfo_" data-uid="AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddInfo*"></a>
+  <h4 id="AlchemyBow_Core_Editor_Wizards_ValidationMessageList_AddInfo_System_String_" data-uid="AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddInfo(System.String)">AddInfo(String)</h4>
+  <div class="markdown level1 summary"><p>Adds an info message.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">event Action Triggered</code></pre>
+    <pre><code class="lang-csharp hljs">public void AddInfo(string message)</code></pre>
   </div>
-  <h5 class="eventType">Event Type</h5>
+  <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
+        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Action</span></td>
-        <td></td>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The info message.</p>
+</td>
       </tr>
     </tbody>
   </table>
-  <h5 id="AlchemyBow_Core_States_ICondition_Triggered_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>In most cases, it should be raised when the condition is met.</p>
+  
+  
+  <a id="AlchemyBow_Core_Editor_Wizards_ValidationMessageList_AddWarning_" data-uid="AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddWarning*"></a>
+  <h4 id="AlchemyBow_Core_Editor_Wizards_ValidationMessageList_AddWarning_System_String_" data-uid="AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddWarning(System.String)">AddWarning(String)</h4>
+  <div class="markdown level1 summary"><p>Adds a warning message.</p>
 </div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddWarning(string message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The warning message.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="AlchemyBow_Core_Editor_Wizards_ValidationMessageList_Clear_" data-uid="AlchemyBow.Core.Editor.Wizards.ValidationMessageList.Clear*"></a>
+  <h4 id="AlchemyBow_Core_Editor_Wizards_ValidationMessageList_Clear" data-uid="AlchemyBow.Core.Editor.Wizards.ValidationMessageList.Clear">Clear()</h4>
+  <div class="markdown level1 summary"><p>Removes all messages.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+  </div>
 </article>
           </div>
           

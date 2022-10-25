@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface ICondition
+    <title>Class CoreControllerScriptWizard
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface ICondition
+    <meta name="title" content="Class CoreControllerScriptWizard
    ">
     <meta name="generator" content="docfx 2.59.3.0">
     
@@ -137,8 +137,8 @@
                       <a href="AlchemyBow.Core.Editor.Wizards.html" title="AlchemyBow.Core.Editor.Wizards" class="">AlchemyBow.Core.Editor.Wizards</a>
                         
                         <ul class="nav level2">
-                          <li class="">
-                            <a href="AlchemyBow.Core.Editor.Wizards.CoreControllerScriptWizard.html" title="CoreControllerScriptWizard" class="">CoreControllerScriptWizard</a>
+                          <li class="active">
+                            <a href="AlchemyBow.Core.Editor.Wizards.CoreControllerScriptWizard.html" title="CoreControllerScriptWizard" class="active">CoreControllerScriptWizard</a>
                           </li>
                           <li class="">
                             <a href="AlchemyBow.Core.Editor.Wizards.CoreProjectContextPrefabWizard.html" title="CoreProjectContextPrefabWizard" class="">CoreProjectContextPrefabWizard</a>
@@ -206,8 +206,8 @@
                       <a href="AlchemyBow.Core.States.html" title="AlchemyBow.Core.States" class="">AlchemyBow.Core.States</a>
                         
                         <ul class="nav level2">
-                          <li class="active">
-                            <a href="AlchemyBow.Core.States.ICondition.html" title="ICondition" class="active">ICondition</a>
+                          <li class="">
+                            <a href="AlchemyBow.Core.States.ICondition.html" title="ICondition" class="">ICondition</a>
                           </li>
                           <li class="">
                             <a href="AlchemyBow.Core.States.IState.html" title="IState" class="">IState</a>
@@ -247,59 +247,65 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="AlchemyBow.Core.States.ICondition">
+            <article class="content wrap" id="_content" data-uid="AlchemyBow.Core.Editor.Wizards.CoreControllerScriptWizard">
   
   
-  <h1 id="AlchemyBow_Core_States_ICondition" data-uid="AlchemyBow.Core.States.ICondition" class="text-break">Interface ICondition
+  <h1 id="AlchemyBow_Core_Editor_Wizards_CoreControllerScriptWizard" data-uid="AlchemyBow.Core.Editor.Wizards.CoreControllerScriptWizard" class="text-break">Class CoreControllerScriptWizard
   </h1>
-  <div class="markdown level0 summary"><p>Provides the base interface for the abstraction of conditions.</p>
+  <div class="markdown level0 summary"><p>Provides a wizard for <code>CoreController</code> scripts.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="AlchemyBow.Core.States.html">AlchemyBow.Core.States</a></h6>
-  <h6><strong>Assembly</strong>: AlchemyBow.Core.dll</h6>
-  <h5 id="AlchemyBow_Core_States_ICondition_syntax">Syntax</h5>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">UnityEngine.Object</span></div>
+    <div class="level2"><span class="xref">UnityEngine.ScriptableObject</span></div>
+    <div class="level3"><span class="xref">UnityEditor.EditorWindow</span></div>
+    <div class="level4"><a class="xref" href="AlchemyBow.Core.Editor.Wizards.WizardWindow.html">WizardWindow</a></div>
+    <div class="level5"><span class="xref">CoreControllerScriptWizard</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="AlchemyBow.Core.Editor.Wizards.WizardWindow.html#AlchemyBow_Core_Editor_Wizards_WizardWindow_IsValid">WizardWindow.IsValid</a>
+    </div>
+    <div>
+      <a class="xref" href="AlchemyBow.Core.Editor.Wizards.WizardWindow.html#AlchemyBow_Core_Editor_Wizards_WizardWindow_OnProjectChange">WizardWindow.OnProjectChange()</a>
+    </div>
+    <div>
+      <a class="xref" href="AlchemyBow.Core.Editor.Wizards.WizardWindow.html#AlchemyBow_Core_Editor_Wizards_WizardWindow_Validate">WizardWindow.Validate()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="AlchemyBow.Core.Editor.Wizards.html">AlchemyBow.Core.Editor.Wizards</a></h6>
+  <h6><strong>Assembly</strong>: AlchemyBow.Core.Editor.dll</h6>
+  <h5 id="AlchemyBow_Core_Editor_Wizards_CoreControllerScriptWizard_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface ICondition</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class CoreControllerScriptWizard : WizardWindow</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   
   
-  <a id="AlchemyBow_Core_States_ICondition_CheckCondition_" data-uid="AlchemyBow.Core.States.ICondition.CheckCondition*"></a>
-  <h4 id="AlchemyBow_Core_States_ICondition_CheckCondition" data-uid="AlchemyBow.Core.States.ICondition.CheckCondition">CheckCondition()</h4>
-  <div class="markdown level1 summary"><p>Determines whether the condition is met.</p>
-</div>
+  <a id="AlchemyBow_Core_Editor_Wizards_CoreControllerScriptWizard_Awake_" data-uid="AlchemyBow.Core.Editor.Wizards.CoreControllerScriptWizard.Awake*"></a>
+  <h4 id="AlchemyBow_Core_Editor_Wizards_CoreControllerScriptWizard_Awake" data-uid="AlchemyBow.Core.Editor.Wizards.CoreControllerScriptWizard.Awake">Awake()</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">bool CheckCondition()</code></pre>
+    <pre><code class="lang-csharp hljs">protected override void Awake()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p><code>true</code> if met; Otherwise, <code>false</code>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="AlchemyBow.Core.Editor.Wizards.WizardWindow.html#AlchemyBow_Core_Editor_Wizards_WizardWindow_Awake">WizardWindow.Awake()</a></div>
   
   
-  <a id="AlchemyBow_Core_States_ICondition_SetActive_" data-uid="AlchemyBow.Core.States.ICondition.SetActive*"></a>
-  <h4 id="AlchemyBow_Core_States_ICondition_SetActive_System_Boolean_" data-uid="AlchemyBow.Core.States.ICondition.SetActive(System.Boolean)">SetActive(Boolean)</h4>
-  <div class="markdown level1 summary"><p>Activates/Deactivates the conditions. An active condition should track its status and raise the <code>Triggered</code> event when met.</p>
+  <a id="AlchemyBow_Core_Editor_Wizards_CoreControllerScriptWizard_BuildCoreControllerScript_" data-uid="AlchemyBow.Core.Editor.Wizards.CoreControllerScriptWizard.BuildCoreControllerScript*"></a>
+  <h4 id="AlchemyBow_Core_Editor_Wizards_CoreControllerScriptWizard_BuildCoreControllerScript_System_String_System_String_System_String_System_String_" data-uid="AlchemyBow.Core.Editor.Wizards.CoreControllerScriptWizard.BuildCoreControllerScript(System.String,System.String,System.String,System.String)">BuildCoreControllerScript(String, String, String, String)</h4>
+  <div class="markdown level1 summary"><p>Builds a minimal content of the <code>CoreController</code> script.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void SetActive(bool value)</code></pre>
+    <pre><code class="lang-csharp hljs">public static string BuildCoreControllerScript(string namespaceName, string className, string projectContextNamespaceName, string projectContextClassName)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -312,29 +318,32 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>When <code>true</code> activates the conditions; otherwise, deactivates it.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">namespaceName</span></td>
+        <td><p>The controller namespace name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">className</span></td>
+        <td><p>The controller class name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">projectContextNamespaceName</span></td>
+        <td><p>The project context namespace name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">projectContextClassName</span></td>
+        <td><p>The project context class name.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="AlchemyBow_Core_States_ICondition_SetActive_System_Boolean__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method can be used to reset the internal state of a condition between uses.</p>
-</div>
-  <h3 id="events">Events
-  </h3>
-  
-  
-  <h4 id="AlchemyBow_Core_States_ICondition_Triggered" data-uid="AlchemyBow.Core.States.ICondition.Triggered">Triggered</h4>
-  <div class="markdown level1 summary"><p>An event that is raised when the condition should be checked.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">event Action Triggered</code></pre>
-  </div>
-  <h5 class="eventType">Event Type</h5>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -344,14 +353,94 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Action</span></td>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A minimal content of the <code>CoreController</code> script.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="AlchemyBow_Core_Editor_Wizards_CoreControllerScriptWizard_Create_" data-uid="AlchemyBow.Core.Editor.Wizards.CoreControllerScriptWizard.Create*"></a>
+  <h4 id="AlchemyBow_Core_Editor_Wizards_CoreControllerScriptWizard_Create" data-uid="AlchemyBow.Core.Editor.Wizards.CoreControllerScriptWizard.Create">Create()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Create()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="AlchemyBow.Core.Editor.Wizards.WizardWindow.html#AlchemyBow_Core_Editor_Wizards_WizardWindow_Create">WizardWindow.Create()</a></div>
+  
+  
+  <a id="AlchemyBow_Core_Editor_Wizards_CoreControllerScriptWizard_CreateWindow_" data-uid="AlchemyBow.Core.Editor.Wizards.CoreControllerScriptWizard.CreateWindow*"></a>
+  <h4 id="AlchemyBow_Core_Editor_Wizards_CoreControllerScriptWizard_CreateWindow_System_Type_" data-uid="AlchemyBow.Core.Editor.Wizards.CoreControllerScriptWizard.CreateWindow(System.Type)">CreateWindow(Type)</h4>
+  <div class="markdown level1 summary"><p>Opens a new core controller script wizard window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void CreateWindow(Type projectContextType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Type</span></td>
+        <td><span class="parametername">projectContextType</span></td>
+        <td><p>A type of the core project context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="AlchemyBow_Core_Editor_Wizards_CoreControllerScriptWizard_OnValidableGUI_" data-uid="AlchemyBow.Core.Editor.Wizards.CoreControllerScriptWizard.OnValidableGUI*"></a>
+  <h4 id="AlchemyBow_Core_Editor_Wizards_CoreControllerScriptWizard_OnValidableGUI" data-uid="AlchemyBow.Core.Editor.Wizards.CoreControllerScriptWizard.OnValidableGUI">OnValidableGUI()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnValidableGUI()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="AlchemyBow.Core.Editor.Wizards.WizardWindow.html#AlchemyBow_Core_Editor_Wizards_WizardWindow_OnValidableGUI">WizardWindow.OnValidableGUI()</a></div>
+  
+  
+  <a id="AlchemyBow_Core_Editor_Wizards_CoreControllerScriptWizard_Validate_" data-uid="AlchemyBow.Core.Editor.Wizards.CoreControllerScriptWizard.Validate*"></a>
+  <h4 id="AlchemyBow_Core_Editor_Wizards_CoreControllerScriptWizard_Validate_AlchemyBow_Core_Editor_Wizards_ValidationMessageList_" data-uid="AlchemyBow.Core.Editor.Wizards.CoreControllerScriptWizard.Validate(AlchemyBow.Core.Editor.Wizards.ValidationMessageList)">Validate(ValidationMessageList)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Validate(ValidationMessageList validationMessageList)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AlchemyBow.Core.Editor.Wizards.ValidationMessageList.html">ValidationMessageList</a></td>
+        <td><span class="parametername">validationMessageList</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 id="AlchemyBow_Core_States_ICondition_Triggered_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>In most cases, it should be raised when the condition is met.</p>
-</div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="AlchemyBow.Core.Editor.Wizards.WizardWindow.html#AlchemyBow_Core_Editor_Wizards_WizardWindow_Validate_AlchemyBow_Core_Editor_Wizards_ValidationMessageList_">WizardWindow.Validate(ValidationMessageList)</a></div>
 </article>
           </div>
           

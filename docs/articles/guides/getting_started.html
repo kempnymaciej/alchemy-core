@@ -119,9 +119,29 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="getting-started">Getting started</h1>
 
-<p><a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> and <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> are classes that you use to control your project in the <strong>AlchemyBow.Core</strong> framework.</p>
-<h3 id="coreprojectcontext">CoreProjectContext</h3>
-<p><a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> is used to store shared dependencies in the global (project) scope. To set it up create a class that inherits from it.</p>
+<p>Before you start working with <strong>AlchemyBow.Core</strong>, you need to get to know 2 classes:</p>
+<ul>
+<li><a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html"><strong>CoreProjectContext</strong></a> - that is used to store shared dependencies within the global (project) scope. Most often, you should have one class that is derived from it and a prefab that stores its instance (at <code>Assets/*/Resources/Core/YourCoreProjectContextClassName.prefab</code>).</li>
+<li><a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html"><strong>CoreController</strong></a> -  that is used as a scene scope handle of the framework. You need to have at least one class that is derived from it and a game object that stores its instance on the starting scene.</li>
+</ul>
+<h3 id="starting-with-the-editor-tools">Starting with the editor tools</h3>
+<p>The <strong>quick start core wizard</strong> is a tool that allows you to quickly create a basic configuration.</p>
+<p>Click <strong>Window</strong> &gt; <strong>AlchemyBow</strong> &gt; <strong>Core</strong> &gt; <strong>Quick Start Core</strong>.
+<img src="../../images/CoreQuickStartWizard.png" alt="Core Quick Start Wizard"></p>
+<p>Then select the destination folder, enter an optional namespace name, enter class names and decide whether to create a <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> prefab and a <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> instance.</p>
+<p>For more advanced editing you can use the <strong>core management window</strong>.<br>
+Click <strong>Window</strong> &gt; <strong>AlchemyBow</strong> &gt; <strong>Core</strong> &gt; <strong>Core Management</strong> to open it.</p>
+<p>The window can operate in two modes:</p>
+<ul>
+<li><p>Core Project Contexts - where you can review, select and quickly create <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> scripts and prefabs.<br>
+<img src="../../images/CoreManagementProjectContexts.png" alt="Core Management Project Contexts"></p>
+</li>
+<li><p>Core Controllers - where you can review, select and quickly create <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> scripts and scene instances.<br>
+<img src="../../images/CoreManagementControllers.png" alt="Core Management Controllers"></p>
+</li>
+</ul>
+<h3 id="starting-manually">Starting manually</h3>
+<p>Create a class that inherits from <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a>.</p>
 <pre><code>using AlchemyBow.Core;
 using System.Collections.Generic;
 
@@ -133,9 +153,8 @@ public class MyCoreProjectContext : CoreProjectContext
     }
 }
 </code></pre>
-<p>Then, create a prefab and place it in the <code>Resources</code> folder under the path <code>Core/NameOfYourCoreProjectContextClass</code>, e.g. <code>Assets/Resources/Core/MyCoreProjectContext</code>.</p>
-<h3 id="corecontroller">CoreController</h3>
-<p><a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> is a scene scope handle of the framework. In order to start, you need to have at least one. Create a class that inherits from it (as a generic parameter, pass your project context type).</p>
+<p>Then, create a prefab and put it in the <code>Resources</code> folder under the path <code>Core/NameOfYourCoreProjectContextClass</code>, e.g. <code>Assets/Resources/Core/MyCoreProjectContext.prefab</code>.</p>
+<p>Then, create a class that inherits from <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> (use your project context type as a generic parameter).</p>
 <pre><code>using AlchemyBow.Core;
 using System.Collections.Generic;
 
@@ -147,9 +166,9 @@ public class MyCoreController : CoreController&lt;MyCoreProjectContext&gt;
     }
 }
 </code></pre>
-<p>Then, you can add your <code>CoreController</code> to any game object and enter the play mode. Nothing special will happen, but know that everything is already working.</p>
+<p>Finally, create a new game object on the starting scene and attach your <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> to it.</p>
 <h2 id="life-circle">Life circle</h2>
-<p>Working with <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> and <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> is mostly about overriding their abstract and virtual members. The best way to understand what they are responsible for is to analyze the life cycle of the framework.
+<p>If you followed the instructions in the previous section, you can press the play button. Nothing special will happen, but the framework is already working. The next steps are mostly about overriding abstract and virtual members of <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> and <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a>. The best way to understand what they are responsible for is to analyze the life cycle of the framework.
 <img src="../../images/LifeCircle.svg" alt="Life circle"></p>
 <h4 id="1-starting-stage">1. Starting stage</h4>
 <p>At the <code>Awake</code> message the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> starts. <code>CoreController.OnStarted(OperationHandle)</code> is called. You can override this method to implement some early logic, for example to enable a loading screen. However, note that dependencies are not injected at this stage.</p>
@@ -216,7 +235,7 @@ public class MyCoreController : CoreController&lt;MyCoreProjectContext&gt;
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            <span>Copyright © 2022 <b>AlchemyBow</b></span> | <span>Generated by <b>DocFX</b></span>
+            <span>Copyright © 2022 <a href="https://www.alchemybow.com/"><b>AlchemyBow</b></a></span> | <span>Generated by <b>DocFX</b></span>
             
           </div>
         </div>
