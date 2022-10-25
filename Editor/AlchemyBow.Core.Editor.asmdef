@@ -1,0 +1,18 @@
+{
+    "name": "AlchemyBow.Core.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:91dc7a086af629e4fa5f707e7684c930"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
