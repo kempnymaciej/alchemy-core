@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0] - 2024-11-26
+Added Extras folder with additional tools and utilities:
+* `FluentBinding` and `ContainerFluentExtensions` - Provides fluent binding syntax for easier configuration.
+* `UnityObjectMonoInstaller` - A variant of MonoInstaller that supports binding a single Unity object (e.g., a MonoBehaviour or ScriptableObject) assigned through the inspector.
+* `ChildrenCompositeMonoInstaller` - A variant of MonoInstaller that finds and installs other MonoInstallers within the same GameObject and its children.
+* `CoreBehaviour` - A base class for objects that can be enabled or disabled, and integrate with the core loading callbacks for initialization or cleanup.
+
 ## [2.2.0] - 2022-10-25
 * Added editor tools (the quick start core wizard and the core management window)
 
