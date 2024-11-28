@@ -1,16 +1,21 @@
 # AlchemyBow.Core
-**AlchemyBow.Core** is a framework for Unity projects based on dependency injection. It is designed to help you manage dependencies, all aspects of the loading process and the state of your application.
+**AlchemyBow.Core** is a user-friendly framework specifically crafted for Unity projects, placing a strong emphasis on dependency injection. It empowers developers to effortlessly manage dependencies, game loading, and application states.
+By integrating AlchemyBow.Core into your project, you can boost productivity with a scalable foundation that effectively addresses common development problems, allowing you to concentrate on creating the actual game mechanics.
 
-## Documentation
-To get started with the framework, please refer to the [documentation page](https://kempnymaciej.github.io/alchemy-core/) for detailed instructions and usage examples.
+## Resources:
+* [Manual & Documentation](https://kempnymaciej.github.io/alchemy-core/index.html)
+* [YouTube Series](https://youtube.com/playlist?list=PLOjKvxKYw5Eys7UqMl1q-Ihz0GEnO9pJF&si=0Htw_zu3PIdgt2PS)
+* [Demo Project](https://github.com/kempnymaciej/alchemy-core-snake-demo)
 
-## YouTube Series
-If you prefer video tutorials, there is a YouTube series that walks you through the setup and usage of the framework.
-
-* [Introduction](https://youtu.be/X5xmAbqZqKI)
-* [Dependency Injection](https://youtu.be/isHfRDYgx9g)
-* [Loading & Life Cycle](https://youtu.be/mJnWqAn-uzc)
-* [Scene State Machines](https://youtu.be/DuUzGs4npJs)
+## Key Features:
+* Dependency Injection
+* Customizable Game Loading
+* Improved Life Cycle
+* State Management with HFSM
+* Perfected Scopes
+* Tutorials & Other Resources
+* Lightweight
+* Prioritized Ease-of-Use
 
 ## License
-This project is licensed under the MIT license. Please see the LICENSE file for more information.
+This project is distributed under the MIT License. For detailed terms and conditions, please refer to [the LICENSE file](https://github.com/kempnymaciej/alchemy-core/blob/master/LICENSE.md).

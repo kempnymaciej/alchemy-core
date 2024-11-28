@@ -1,8 +1,8 @@
 {
   "name": "com.alchemybow.core",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "displayName": "AlchemyBow.Core",
-  "description": "AlchemyBow.Core is a framework for Unity projects based on dependency injection. It is designed to help you manage dependencies, all aspects of the loading process and the state of your application.",
+  "description": "AlchemyBow.Core is a user-friendly framework placing a strong emphasis on dependency injection. It empowers developers to effortlessly manage dependencies, game loading, and application states.",
   "unity": "2018.3",
   "documentationUrl": "https://kempnymaciej.github.io/alchemy-core/",
   "changelogUrl": "https://kempnymaciej.github.io/alchemy-core/changelog/CHANGELOG.html",
