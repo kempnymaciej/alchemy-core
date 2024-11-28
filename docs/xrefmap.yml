@@ -17,13 +17,14 @@ references:
   nameWithType: CoreController<TProjectContext>
   nameWithType.vb: CoreController(Of TProjectContext)
 - uid: AlchemyBow.Core.CoreController`1.ChangeScene(System.Int32)
-  name: ChangeScene(Int32)
+  name: ChangeScene(int)
   href: api/AlchemyBow.Core.CoreController-1.html#AlchemyBow_Core_CoreController_1_ChangeScene_System_Int32_
   commentId: M:AlchemyBow.Core.CoreController`1.ChangeScene(System.Int32)
-  fullName: AlchemyBow.Core.CoreController<TProjectContext>.ChangeScene(System.Int32)
-  fullName.vb: AlchemyBow.Core.CoreController(Of TProjectContext).ChangeScene(System.Int32)
-  nameWithType: CoreController<TProjectContext>.ChangeScene(Int32)
-  nameWithType.vb: CoreController(Of TProjectContext).ChangeScene(Int32)
+  name.vb: ChangeScene(Integer)
+  fullName: AlchemyBow.Core.CoreController<TProjectContext>.ChangeScene(int)
+  fullName.vb: AlchemyBow.Core.CoreController(Of TProjectContext).ChangeScene(Integer)
+  nameWithType: CoreController<TProjectContext>.ChangeScene(int)
+  nameWithType.vb: CoreController(Of TProjectContext).ChangeScene(Integer)
 - uid: AlchemyBow.Core.CoreController`1.ChangeScene*
   name: ChangeScene
   href: api/AlchemyBow.Core.CoreController-1.html#AlchemyBow_Core_CoreController_1_ChangeScene_
@@ -295,14 +296,14 @@ references:
   fullName: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility
   nameWithType: CoreEditorUtility
 - uid: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.AssetsPathToSystemPath(System.String,System.String@)
-  name: AssetsPathToSystemPath(String, out String)
+  name: AssetsPathToSystemPath(string, out string)
   href: api/AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.html#AlchemyBow_Core_Editor_Utilities_CoreEditorUtility_AssetsPathToSystemPath_System_String_System_String__
   commentId: M:AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.AssetsPathToSystemPath(System.String,System.String@)
-  name.vb: AssetsPathToSystemPath(String, ByRef String)
-  fullName: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.AssetsPathToSystemPath(System.String, out System.String)
-  fullName.vb: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.AssetsPathToSystemPath(System.String, ByRef System.String)
-  nameWithType: CoreEditorUtility.AssetsPathToSystemPath(String, out String)
-  nameWithType.vb: CoreEditorUtility.AssetsPathToSystemPath(String, ByRef String)
+  name.vb: AssetsPathToSystemPath(String, String)
+  fullName: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.AssetsPathToSystemPath(string, out string)
+  fullName.vb: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.AssetsPathToSystemPath(String, String)
+  nameWithType: CoreEditorUtility.AssetsPathToSystemPath(string, out string)
+  nameWithType.vb: CoreEditorUtility.AssetsPathToSystemPath(String, String)
 - uid: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.AssetsPathToSystemPath*
   name: AssetsPathToSystemPath
   href: api/AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.html#AlchemyBow_Core_Editor_Utilities_CoreEditorUtility_AssetsPathToSystemPath_
@@ -311,14 +312,14 @@ references:
   fullName: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.AssetsPathToSystemPath
   nameWithType: CoreEditorUtility.AssetsPathToSystemPath
 - uid: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.CheckIfCanCreateFilesInFolderAndLogErrors(System.String,System.String[])
-  name: CheckIfCanCreateFilesInFolderAndLogErrors(String, String[])
+  name: CheckIfCanCreateFilesInFolderAndLogErrors(string, params string[])
   href: api/AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.html#AlchemyBow_Core_Editor_Utilities_CoreEditorUtility_CheckIfCanCreateFilesInFolderAndLogErrors_System_String_System_String___
   commentId: M:AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.CheckIfCanCreateFilesInFolderAndLogErrors(System.String,System.String[])
-  name.vb: CheckIfCanCreateFilesInFolderAndLogErrors(String, String())
-  fullName: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.CheckIfCanCreateFilesInFolderAndLogErrors(System.String, System.String[])
-  fullName.vb: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.CheckIfCanCreateFilesInFolderAndLogErrors(System.String, System.String())
-  nameWithType: CoreEditorUtility.CheckIfCanCreateFilesInFolderAndLogErrors(String, String[])
-  nameWithType.vb: CoreEditorUtility.CheckIfCanCreateFilesInFolderAndLogErrors(String, String())
+  name.vb: CheckIfCanCreateFilesInFolderAndLogErrors(String, ParamArray String())
+  fullName: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.CheckIfCanCreateFilesInFolderAndLogErrors(string, params string[])
+  fullName.vb: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.CheckIfCanCreateFilesInFolderAndLogErrors(String, ParamArray String())
+  nameWithType: CoreEditorUtility.CheckIfCanCreateFilesInFolderAndLogErrors(string, params string[])
+  nameWithType.vb: CoreEditorUtility.CheckIfCanCreateFilesInFolderAndLogErrors(String, ParamArray String())
 - uid: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.CheckIfCanCreateFilesInFolderAndLogErrors*
   name: CheckIfCanCreateFilesInFolderAndLogErrors
   href: api/AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.html#AlchemyBow_Core_Editor_Utilities_CoreEditorUtility_CheckIfCanCreateFilesInFolderAndLogErrors_
@@ -327,11 +328,14 @@ references:
   fullName: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.CheckIfCanCreateFilesInFolderAndLogErrors
   nameWithType: CoreEditorUtility.CheckIfCanCreateFilesInFolderAndLogErrors
 - uid: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.EnsureOnlyForwardSlashes(System.String)
-  name: EnsureOnlyForwardSlashes(String)
+  name: EnsureOnlyForwardSlashes(string)
   href: api/AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.html#AlchemyBow_Core_Editor_Utilities_CoreEditorUtility_EnsureOnlyForwardSlashes_System_String_
   commentId: M:AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.EnsureOnlyForwardSlashes(System.String)
-  fullName: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.EnsureOnlyForwardSlashes(System.String)
-  nameWithType: CoreEditorUtility.EnsureOnlyForwardSlashes(String)
+  name.vb: EnsureOnlyForwardSlashes(String)
+  fullName: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.EnsureOnlyForwardSlashes(string)
+  fullName.vb: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.EnsureOnlyForwardSlashes(String)
+  nameWithType: CoreEditorUtility.EnsureOnlyForwardSlashes(string)
+  nameWithType.vb: CoreEditorUtility.EnsureOnlyForwardSlashes(String)
 - uid: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.EnsureOnlyForwardSlashes*
   name: EnsureOnlyForwardSlashes
   href: api/AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.html#AlchemyBow_Core_Editor_Utilities_CoreEditorUtility_EnsureOnlyForwardSlashes_
@@ -379,11 +383,14 @@ references:
   fullName: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.FocusProjectWindowAndPingObject
   nameWithType: CoreEditorUtility.FocusProjectWindowAndPingObject
 - uid: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.FolderField(System.String,System.String)
-  name: FolderField(String, String)
+  name: FolderField(string, string)
   href: api/AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.html#AlchemyBow_Core_Editor_Utilities_CoreEditorUtility_FolderField_System_String_System_String_
   commentId: M:AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.FolderField(System.String,System.String)
-  fullName: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.FolderField(System.String, System.String)
-  nameWithType: CoreEditorUtility.FolderField(String, String)
+  name.vb: FolderField(String, String)
+  fullName: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.FolderField(string, string)
+  fullName.vb: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.FolderField(String, String)
+  nameWithType: CoreEditorUtility.FolderField(string, string)
+  nameWithType.vb: CoreEditorUtility.FolderField(String, String)
 - uid: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.FolderField*
   name: FolderField
   href: api/AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.html#AlchemyBow_Core_Editor_Utilities_CoreEditorUtility_FolderField_
@@ -444,11 +451,14 @@ references:
   fullName: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.GetProjectName
   nameWithType: CoreEditorUtility.GetProjectName
 - uid: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.IsValidClassName(System.String)
-  name: IsValidClassName(String)
+  name: IsValidClassName(string)
   href: api/AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.html#AlchemyBow_Core_Editor_Utilities_CoreEditorUtility_IsValidClassName_System_String_
   commentId: M:AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.IsValidClassName(System.String)
-  fullName: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.IsValidClassName(System.String)
-  nameWithType: CoreEditorUtility.IsValidClassName(String)
+  name.vb: IsValidClassName(String)
+  fullName: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.IsValidClassName(string)
+  fullName.vb: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.IsValidClassName(String)
+  nameWithType: CoreEditorUtility.IsValidClassName(string)
+  nameWithType.vb: CoreEditorUtility.IsValidClassName(String)
 - uid: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.IsValidClassName*
   name: IsValidClassName
   href: api/AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.html#AlchemyBow_Core_Editor_Utilities_CoreEditorUtility_IsValidClassName_
@@ -457,11 +467,14 @@ references:
   fullName: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.IsValidClassName
   nameWithType: CoreEditorUtility.IsValidClassName
 - uid: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.IsValidNamespaceName(System.String)
-  name: IsValidNamespaceName(String)
+  name: IsValidNamespaceName(string)
   href: api/AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.html#AlchemyBow_Core_Editor_Utilities_CoreEditorUtility_IsValidNamespaceName_System_String_
   commentId: M:AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.IsValidNamespaceName(System.String)
-  fullName: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.IsValidNamespaceName(System.String)
-  nameWithType: CoreEditorUtility.IsValidNamespaceName(String)
+  name.vb: IsValidNamespaceName(String)
+  fullName: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.IsValidNamespaceName(string)
+  fullName.vb: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.IsValidNamespaceName(String)
+  nameWithType: CoreEditorUtility.IsValidNamespaceName(string)
+  nameWithType.vb: CoreEditorUtility.IsValidNamespaceName(String)
 - uid: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.IsValidNamespaceName*
   name: IsValidNamespaceName
   href: api/AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.html#AlchemyBow_Core_Editor_Utilities_CoreEditorUtility_IsValidNamespaceName_
@@ -483,14 +496,14 @@ references:
   fullName: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.LoadCoreProjectContextFromResources
   nameWithType: CoreEditorUtility.LoadCoreProjectContextFromResources
 - uid: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.SystemPathToAssetsPath(System.String,System.String@)
-  name: SystemPathToAssetsPath(String, out String)
+  name: SystemPathToAssetsPath(string, out string)
   href: api/AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.html#AlchemyBow_Core_Editor_Utilities_CoreEditorUtility_SystemPathToAssetsPath_System_String_System_String__
   commentId: M:AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.SystemPathToAssetsPath(System.String,System.String@)
-  name.vb: SystemPathToAssetsPath(String, ByRef String)
-  fullName: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.SystemPathToAssetsPath(System.String, out System.String)
-  fullName.vb: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.SystemPathToAssetsPath(System.String, ByRef System.String)
-  nameWithType: CoreEditorUtility.SystemPathToAssetsPath(String, out String)
-  nameWithType.vb: CoreEditorUtility.SystemPathToAssetsPath(String, ByRef String)
+  name.vb: SystemPathToAssetsPath(String, String)
+  fullName: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.SystemPathToAssetsPath(string, out string)
+  fullName.vb: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.SystemPathToAssetsPath(String, String)
+  nameWithType: CoreEditorUtility.SystemPathToAssetsPath(string, out string)
+  nameWithType.vb: CoreEditorUtility.SystemPathToAssetsPath(String, String)
 - uid: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.SystemPathToAssetsPath*
   name: SystemPathToAssetsPath
   href: api/AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.html#AlchemyBow_Core_Editor_Utilities_CoreEditorUtility_SystemPathToAssetsPath_
@@ -499,11 +512,14 @@ references:
   fullName: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.SystemPathToAssetsPath
   nameWithType: CoreEditorUtility.SystemPathToAssetsPath
 - uid: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.TryGetCoreFolderAt(System.String)
-  name: TryGetCoreFolderAt(String)
+  name: TryGetCoreFolderAt(string)
   href: api/AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.html#AlchemyBow_Core_Editor_Utilities_CoreEditorUtility_TryGetCoreFolderAt_System_String_
   commentId: M:AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.TryGetCoreFolderAt(System.String)
-  fullName: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.TryGetCoreFolderAt(System.String)
-  nameWithType: CoreEditorUtility.TryGetCoreFolderAt(String)
+  name.vb: TryGetCoreFolderAt(String)
+  fullName: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.TryGetCoreFolderAt(string)
+  fullName.vb: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.TryGetCoreFolderAt(String)
+  nameWithType: CoreEditorUtility.TryGetCoreFolderAt(string)
+  nameWithType.vb: CoreEditorUtility.TryGetCoreFolderAt(String)
 - uid: AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.TryGetCoreFolderAt*
   name: TryGetCoreFolderAt
   href: api/AlchemyBow.Core.Editor.Utilities.CoreEditorUtility.html#AlchemyBow_Core_Editor_Utilities_CoreEditorUtility_TryGetCoreFolderAt_
@@ -537,11 +553,14 @@ references:
   fullName: AlchemyBow.Core.Editor.Utilities.IndentStringBuilder.AppendLine()
   nameWithType: IndentStringBuilder.AppendLine()
 - uid: AlchemyBow.Core.Editor.Utilities.IndentStringBuilder.AppendLine(System.String)
-  name: AppendLine(String)
+  name: AppendLine(string)
   href: api/AlchemyBow.Core.Editor.Utilities.IndentStringBuilder.html#AlchemyBow_Core_Editor_Utilities_IndentStringBuilder_AppendLine_System_String_
   commentId: M:AlchemyBow.Core.Editor.Utilities.IndentStringBuilder.AppendLine(System.String)
-  fullName: AlchemyBow.Core.Editor.Utilities.IndentStringBuilder.AppendLine(System.String)
-  nameWithType: IndentStringBuilder.AppendLine(String)
+  name.vb: AppendLine(String)
+  fullName: AlchemyBow.Core.Editor.Utilities.IndentStringBuilder.AppendLine(string)
+  fullName.vb: AlchemyBow.Core.Editor.Utilities.IndentStringBuilder.AppendLine(String)
+  nameWithType: IndentStringBuilder.AppendLine(string)
+  nameWithType.vb: IndentStringBuilder.AppendLine(String)
 - uid: AlchemyBow.Core.Editor.Utilities.IndentStringBuilder.AppendLine*
   name: AppendLine
   href: api/AlchemyBow.Core.Editor.Utilities.IndentStringBuilder.html#AlchemyBow_Core_Editor_Utilities_IndentStringBuilder_AppendLine_
@@ -626,11 +645,14 @@ references:
   fullName: AlchemyBow.Core.Editor.Wizards.CoreControllerScriptWizard.Awake
   nameWithType: CoreControllerScriptWizard.Awake
 - uid: AlchemyBow.Core.Editor.Wizards.CoreControllerScriptWizard.BuildCoreControllerScript(System.String,System.String,System.String,System.String)
-  name: BuildCoreControllerScript(String, String, String, String)
+  name: BuildCoreControllerScript(string, string, string, string)
   href: api/AlchemyBow.Core.Editor.Wizards.CoreControllerScriptWizard.html#AlchemyBow_Core_Editor_Wizards_CoreControllerScriptWizard_BuildCoreControllerScript_System_String_System_String_System_String_System_String_
   commentId: M:AlchemyBow.Core.Editor.Wizards.CoreControllerScriptWizard.BuildCoreControllerScript(System.String,System.String,System.String,System.String)
-  fullName: AlchemyBow.Core.Editor.Wizards.CoreControllerScriptWizard.BuildCoreControllerScript(System.String, System.String, System.String, System.String)
-  nameWithType: CoreControllerScriptWizard.BuildCoreControllerScript(String, String, String, String)
+  name.vb: BuildCoreControllerScript(String, String, String, String)
+  fullName: AlchemyBow.Core.Editor.Wizards.CoreControllerScriptWizard.BuildCoreControllerScript(string, string, string, string)
+  fullName.vb: AlchemyBow.Core.Editor.Wizards.CoreControllerScriptWizard.BuildCoreControllerScript(String, String, String, String)
+  nameWithType: CoreControllerScriptWizard.BuildCoreControllerScript(string, string, string, string)
+  nameWithType.vb: CoreControllerScriptWizard.BuildCoreControllerScript(String, String, String, String)
 - uid: AlchemyBow.Core.Editor.Wizards.CoreControllerScriptWizard.BuildCoreControllerScript*
   name: BuildCoreControllerScript
   href: api/AlchemyBow.Core.Editor.Wizards.CoreControllerScriptWizard.html#AlchemyBow_Core_Editor_Wizards_CoreControllerScriptWizard_BuildCoreControllerScript_
@@ -794,11 +816,14 @@ references:
   fullName: AlchemyBow.Core.Editor.Wizards.CoreProjectContextScriptWizard.Awake
   nameWithType: CoreProjectContextScriptWizard.Awake
 - uid: AlchemyBow.Core.Editor.Wizards.CoreProjectContextScriptWizard.BuildCoreProjectContextScript(System.String,System.String)
-  name: BuildCoreProjectContextScript(String, String)
+  name: BuildCoreProjectContextScript(string, string)
   href: api/AlchemyBow.Core.Editor.Wizards.CoreProjectContextScriptWizard.html#AlchemyBow_Core_Editor_Wizards_CoreProjectContextScriptWizard_BuildCoreProjectContextScript_System_String_System_String_
   commentId: M:AlchemyBow.Core.Editor.Wizards.CoreProjectContextScriptWizard.BuildCoreProjectContextScript(System.String,System.String)
-  fullName: AlchemyBow.Core.Editor.Wizards.CoreProjectContextScriptWizard.BuildCoreProjectContextScript(System.String, System.String)
-  nameWithType: CoreProjectContextScriptWizard.BuildCoreProjectContextScript(String, String)
+  name.vb: BuildCoreProjectContextScript(String, String)
+  fullName: AlchemyBow.Core.Editor.Wizards.CoreProjectContextScriptWizard.BuildCoreProjectContextScript(string, string)
+  fullName.vb: AlchemyBow.Core.Editor.Wizards.CoreProjectContextScriptWizard.BuildCoreProjectContextScript(String, String)
+  nameWithType: CoreProjectContextScriptWizard.BuildCoreProjectContextScript(string, string)
+  nameWithType.vb: CoreProjectContextScriptWizard.BuildCoreProjectContextScript(String, String)
 - uid: AlchemyBow.Core.Editor.Wizards.CoreProjectContextScriptWizard.BuildCoreProjectContextScript*
   name: BuildCoreProjectContextScript
   href: api/AlchemyBow.Core.Editor.Wizards.CoreProjectContextScriptWizard.html#AlchemyBow_Core_Editor_Wizards_CoreProjectContextScriptWizard_BuildCoreProjectContextScript_
@@ -936,11 +961,14 @@ references:
   fullName: AlchemyBow.Core.Editor.Wizards.ValidationMessageList
   nameWithType: ValidationMessageList
 - uid: AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddError(System.String)
-  name: AddError(String)
+  name: AddError(string)
   href: api/AlchemyBow.Core.Editor.Wizards.ValidationMessageList.html#AlchemyBow_Core_Editor_Wizards_ValidationMessageList_AddError_System_String_
   commentId: M:AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddError(System.String)
-  fullName: AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddError(System.String)
-  nameWithType: ValidationMessageList.AddError(String)
+  name.vb: AddError(String)
+  fullName: AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddError(string)
+  fullName.vb: AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddError(String)
+  nameWithType: ValidationMessageList.AddError(string)
+  nameWithType.vb: ValidationMessageList.AddError(String)
 - uid: AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddError*
   name: AddError
   href: api/AlchemyBow.Core.Editor.Wizards.ValidationMessageList.html#AlchemyBow_Core_Editor_Wizards_ValidationMessageList_AddError_
@@ -949,11 +977,14 @@ references:
   fullName: AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddError
   nameWithType: ValidationMessageList.AddError
 - uid: AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddInfo(System.String)
-  name: AddInfo(String)
+  name: AddInfo(string)
   href: api/AlchemyBow.Core.Editor.Wizards.ValidationMessageList.html#AlchemyBow_Core_Editor_Wizards_ValidationMessageList_AddInfo_System_String_
   commentId: M:AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddInfo(System.String)
-  fullName: AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddInfo(System.String)
-  nameWithType: ValidationMessageList.AddInfo(String)
+  name.vb: AddInfo(String)
+  fullName: AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddInfo(string)
+  fullName.vb: AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddInfo(String)
+  nameWithType: ValidationMessageList.AddInfo(string)
+  nameWithType.vb: ValidationMessageList.AddInfo(String)
 - uid: AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddInfo*
   name: AddInfo
   href: api/AlchemyBow.Core.Editor.Wizards.ValidationMessageList.html#AlchemyBow_Core_Editor_Wizards_ValidationMessageList_AddInfo_
@@ -962,11 +993,14 @@ references:
   fullName: AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddInfo
   nameWithType: ValidationMessageList.AddInfo
 - uid: AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddWarning(System.String)
-  name: AddWarning(String)
+  name: AddWarning(string)
   href: api/AlchemyBow.Core.Editor.Wizards.ValidationMessageList.html#AlchemyBow_Core_Editor_Wizards_ValidationMessageList_AddWarning_System_String_
   commentId: M:AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddWarning(System.String)
-  fullName: AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddWarning(System.String)
-  nameWithType: ValidationMessageList.AddWarning(String)
+  name.vb: AddWarning(String)
+  fullName: AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddWarning(string)
+  fullName.vb: AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddWarning(String)
+  nameWithType: ValidationMessageList.AddWarning(string)
+  nameWithType.vb: ValidationMessageList.AddWarning(String)
 - uid: AlchemyBow.Core.Editor.Wizards.ValidationMessageList.AddWarning*
   name: AddWarning
   href: api/AlchemyBow.Core.Editor.Wizards.ValidationMessageList.html#AlchemyBow_Core_Editor_Wizards_ValidationMessageList_AddWarning_
@@ -1072,11 +1106,14 @@ references:
   fullName: AlchemyBow.Core.Editor.Wizards.WizardValidationUtility
   nameWithType: WizardValidationUtility
 - uid: AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.ValidateClassName(System.String,AlchemyBow.Core.Editor.Wizards.ValidationMessageList)
-  name: ValidateClassName(String, ValidationMessageList)
+  name: ValidateClassName(string, ValidationMessageList)
   href: api/AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.html#AlchemyBow_Core_Editor_Wizards_WizardValidationUtility_ValidateClassName_System_String_AlchemyBow_Core_Editor_Wizards_ValidationMessageList_
   commentId: M:AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.ValidateClassName(System.String,AlchemyBow.Core.Editor.Wizards.ValidationMessageList)
-  fullName: AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.ValidateClassName(System.String, AlchemyBow.Core.Editor.Wizards.ValidationMessageList)
-  nameWithType: WizardValidationUtility.ValidateClassName(String, ValidationMessageList)
+  name.vb: ValidateClassName(String, ValidationMessageList)
+  fullName: AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.ValidateClassName(string, AlchemyBow.Core.Editor.Wizards.ValidationMessageList)
+  fullName.vb: AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.ValidateClassName(String, AlchemyBow.Core.Editor.Wizards.ValidationMessageList)
+  nameWithType: WizardValidationUtility.ValidateClassName(string, ValidationMessageList)
+  nameWithType.vb: WizardValidationUtility.ValidateClassName(String, ValidationMessageList)
 - uid: AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.ValidateClassName*
   name: ValidateClassName
   href: api/AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.html#AlchemyBow_Core_Editor_Wizards_WizardValidationUtility_ValidateClassName_
@@ -1085,11 +1122,14 @@ references:
   fullName: AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.ValidateClassName
   nameWithType: WizardValidationUtility.ValidateClassName
 - uid: AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.ValidateFolder(System.String,AlchemyBow.Core.Editor.Wizards.ValidationMessageList)
-  name: ValidateFolder(String, ValidationMessageList)
+  name: ValidateFolder(string, ValidationMessageList)
   href: api/AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.html#AlchemyBow_Core_Editor_Wizards_WizardValidationUtility_ValidateFolder_System_String_AlchemyBow_Core_Editor_Wizards_ValidationMessageList_
   commentId: M:AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.ValidateFolder(System.String,AlchemyBow.Core.Editor.Wizards.ValidationMessageList)
-  fullName: AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.ValidateFolder(System.String, AlchemyBow.Core.Editor.Wizards.ValidationMessageList)
-  nameWithType: WizardValidationUtility.ValidateFolder(String, ValidationMessageList)
+  name.vb: ValidateFolder(String, ValidationMessageList)
+  fullName: AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.ValidateFolder(string, AlchemyBow.Core.Editor.Wizards.ValidationMessageList)
+  fullName.vb: AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.ValidateFolder(String, AlchemyBow.Core.Editor.Wizards.ValidationMessageList)
+  nameWithType: WizardValidationUtility.ValidateFolder(string, ValidationMessageList)
+  nameWithType.vb: WizardValidationUtility.ValidateFolder(String, ValidationMessageList)
 - uid: AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.ValidateFolder*
   name: ValidateFolder
   href: api/AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.html#AlchemyBow_Core_Editor_Wizards_WizardValidationUtility_ValidateFolder_
@@ -1098,11 +1138,14 @@ references:
   fullName: AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.ValidateFolder
   nameWithType: WizardValidationUtility.ValidateFolder
 - uid: AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.ValidateNamespaceName(System.String,AlchemyBow.Core.Editor.Wizards.ValidationMessageList)
-  name: ValidateNamespaceName(String, ValidationMessageList)
+  name: ValidateNamespaceName(string, ValidationMessageList)
   href: api/AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.html#AlchemyBow_Core_Editor_Wizards_WizardValidationUtility_ValidateNamespaceName_System_String_AlchemyBow_Core_Editor_Wizards_ValidationMessageList_
   commentId: M:AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.ValidateNamespaceName(System.String,AlchemyBow.Core.Editor.Wizards.ValidationMessageList)
-  fullName: AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.ValidateNamespaceName(System.String, AlchemyBow.Core.Editor.Wizards.ValidationMessageList)
-  nameWithType: WizardValidationUtility.ValidateNamespaceName(String, ValidationMessageList)
+  name.vb: ValidateNamespaceName(String, ValidationMessageList)
+  fullName: AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.ValidateNamespaceName(string, AlchemyBow.Core.Editor.Wizards.ValidationMessageList)
+  fullName.vb: AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.ValidateNamespaceName(String, AlchemyBow.Core.Editor.Wizards.ValidationMessageList)
+  nameWithType: WizardValidationUtility.ValidateNamespaceName(string, ValidationMessageList)
+  nameWithType.vb: WizardValidationUtility.ValidateNamespaceName(String, ValidationMessageList)
 - uid: AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.ValidateNamespaceName*
   name: ValidateNamespaceName
   href: api/AlchemyBow.Core.Editor.Wizards.WizardValidationUtility.html#AlchemyBow_Core_Editor_Wizards_WizardValidationUtility_ValidateNamespaceName_
@@ -1200,6 +1243,312 @@ references:
   isSpec: "True"
   fullName: AlchemyBow.Core.Editor.Wizards.WizardWindow.Validate
   nameWithType: WizardWindow.Validate
+- uid: AlchemyBow.Core.Extras.Behaviours
+  name: AlchemyBow.Core.Extras.Behaviours
+  href: api/AlchemyBow.Core.Extras.Behaviours.html
+  commentId: N:AlchemyBow.Core.Extras.Behaviours
+  fullName: AlchemyBow.Core.Extras.Behaviours
+  nameWithType: AlchemyBow.Core.Extras.Behaviours
+- uid: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour
+  name: CoreBehaviour
+  href: api/AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.html
+  commentId: T:AlchemyBow.Core.Extras.Behaviours.CoreBehaviour
+  fullName: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour
+  nameWithType: CoreBehaviour
+- uid: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.#ctor(AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy)
+  name: CoreBehaviour(CoreBehaviourEnablingStrategy)
+  href: api/AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.html#AlchemyBow_Core_Extras_Behaviours_CoreBehaviour__ctor_AlchemyBow_Core_Extras_Behaviours_CoreBehaviourEnablingStrategy_
+  commentId: M:AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.#ctor(AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy)
+  name.vb: New(CoreBehaviourEnablingStrategy)
+  fullName: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.CoreBehaviour(AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy)
+  fullName.vb: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.New(AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy)
+  nameWithType: CoreBehaviour.CoreBehaviour(CoreBehaviourEnablingStrategy)
+  nameWithType.vb: CoreBehaviour.New(CoreBehaviourEnablingStrategy)
+- uid: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.#ctor*
+  name: CoreBehaviour
+  href: api/AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.html#AlchemyBow_Core_Extras_Behaviours_CoreBehaviour__ctor_
+  commentId: Overload:AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.CoreBehaviour
+  fullName.vb: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.New
+  nameWithType: CoreBehaviour.CoreBehaviour
+  nameWithType.vb: CoreBehaviour.New
+- uid: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.Enabled
+  name: Enabled
+  href: api/AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.html#AlchemyBow_Core_Extras_Behaviours_CoreBehaviour_Enabled
+  commentId: P:AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.Enabled
+  fullName: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.Enabled
+  nameWithType: CoreBehaviour.Enabled
+- uid: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.Enabled*
+  name: Enabled
+  href: api/AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.html#AlchemyBow_Core_Extras_Behaviours_CoreBehaviour_Enabled_
+  commentId: Overload:AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.Enabled
+  isSpec: "True"
+  fullName: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.Enabled
+  nameWithType: CoreBehaviour.Enabled
+- uid: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.OnCoreLoadingFinished
+  name: OnCoreLoadingFinished()
+  href: api/AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.html#AlchemyBow_Core_Extras_Behaviours_CoreBehaviour_OnCoreLoadingFinished
+  commentId: M:AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.OnCoreLoadingFinished
+  fullName: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.OnCoreLoadingFinished()
+  nameWithType: CoreBehaviour.OnCoreLoadingFinished()
+- uid: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.OnCoreLoadingFinished*
+  name: OnCoreLoadingFinished
+  href: api/AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.html#AlchemyBow_Core_Extras_Behaviours_CoreBehaviour_OnCoreLoadingFinished_
+  commentId: Overload:AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.OnCoreLoadingFinished
+  isSpec: "True"
+  fullName: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.OnCoreLoadingFinished
+  nameWithType: CoreBehaviour.OnCoreLoadingFinished
+- uid: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.OnCoreSceneChangeStarted
+  name: OnCoreSceneChangeStarted()
+  href: api/AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.html#AlchemyBow_Core_Extras_Behaviours_CoreBehaviour_OnCoreSceneChangeStarted
+  commentId: M:AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.OnCoreSceneChangeStarted
+  fullName: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.OnCoreSceneChangeStarted()
+  nameWithType: CoreBehaviour.OnCoreSceneChangeStarted()
+- uid: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.OnCoreSceneChangeStarted*
+  name: OnCoreSceneChangeStarted
+  href: api/AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.html#AlchemyBow_Core_Extras_Behaviours_CoreBehaviour_OnCoreSceneChangeStarted_
+  commentId: Overload:AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.OnCoreSceneChangeStarted
+  isSpec: "True"
+  fullName: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.OnCoreSceneChangeStarted
+  nameWithType: CoreBehaviour.OnCoreSceneChangeStarted
+- uid: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.OnDisabled
+  name: OnDisabled()
+  href: api/AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.html#AlchemyBow_Core_Extras_Behaviours_CoreBehaviour_OnDisabled
+  commentId: M:AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.OnDisabled
+  fullName: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.OnDisabled()
+  nameWithType: CoreBehaviour.OnDisabled()
+- uid: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.OnDisabled*
+  name: OnDisabled
+  href: api/AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.html#AlchemyBow_Core_Extras_Behaviours_CoreBehaviour_OnDisabled_
+  commentId: Overload:AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.OnDisabled
+  isSpec: "True"
+  fullName: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.OnDisabled
+  nameWithType: CoreBehaviour.OnDisabled
+- uid: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.OnEnabled
+  name: OnEnabled()
+  href: api/AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.html#AlchemyBow_Core_Extras_Behaviours_CoreBehaviour_OnEnabled
+  commentId: M:AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.OnEnabled
+  fullName: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.OnEnabled()
+  nameWithType: CoreBehaviour.OnEnabled()
+- uid: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.OnEnabled*
+  name: OnEnabled
+  href: api/AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.html#AlchemyBow_Core_Extras_Behaviours_CoreBehaviour_OnEnabled_
+  commentId: Overload:AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.OnEnabled
+  isSpec: "True"
+  fullName: AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.OnEnabled
+  nameWithType: CoreBehaviour.OnEnabled
+- uid: AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy
+  name: CoreBehaviourEnablingStrategy
+  href: api/AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy.html
+  commentId: T:AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy
+  fullName: AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy
+  nameWithType: CoreBehaviourEnablingStrategy
+- uid: AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy.Cumulative
+  name: Cumulative
+  href: api/AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy.html#AlchemyBow_Core_Extras_Behaviours_CoreBehaviourEnablingStrategy_Cumulative
+  commentId: F:AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy.Cumulative
+  fullName: AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy.Cumulative
+  nameWithType: CoreBehaviourEnablingStrategy.Cumulative
+- uid: AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy.Simple
+  name: Simple
+  href: api/AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy.html#AlchemyBow_Core_Extras_Behaviours_CoreBehaviourEnablingStrategy_Simple
+  commentId: F:AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy.Simple
+  fullName: AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy.Simple
+  nameWithType: CoreBehaviourEnablingStrategy.Simple
+- uid: AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy.SimpleAutoDisable
+  name: SimpleAutoDisable
+  href: api/AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy.html#AlchemyBow_Core_Extras_Behaviours_CoreBehaviourEnablingStrategy_SimpleAutoDisable
+  commentId: F:AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy.SimpleAutoDisable
+  fullName: AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy.SimpleAutoDisable
+  nameWithType: CoreBehaviourEnablingStrategy.SimpleAutoDisable
+- uid: AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy.SimpleAutoEnable
+  name: SimpleAutoEnable
+  href: api/AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy.html#AlchemyBow_Core_Extras_Behaviours_CoreBehaviourEnablingStrategy_SimpleAutoEnable
+  commentId: F:AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy.SimpleAutoEnable
+  fullName: AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy.SimpleAutoEnable
+  nameWithType: CoreBehaviourEnablingStrategy.SimpleAutoEnable
+- uid: AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy.SimpleAutoEnableDisable
+  name: SimpleAutoEnableDisable
+  href: api/AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy.html#AlchemyBow_Core_Extras_Behaviours_CoreBehaviourEnablingStrategy_SimpleAutoEnableDisable
+  commentId: F:AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy.SimpleAutoEnableDisable
+  fullName: AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy.SimpleAutoEnableDisable
+  nameWithType: CoreBehaviourEnablingStrategy.SimpleAutoEnableDisable
+- uid: AlchemyBow.Core.Extras.FluentBindings
+  name: AlchemyBow.Core.Extras.FluentBindings
+  href: api/AlchemyBow.Core.Extras.FluentBindings.html
+  commentId: N:AlchemyBow.Core.Extras.FluentBindings
+  fullName: AlchemyBow.Core.Extras.FluentBindings
+  nameWithType: AlchemyBow.Core.Extras.FluentBindings
+- uid: AlchemyBow.Core.Extras.FluentBindings.ContainerFluentExtensions
+  name: ContainerFluentExtensions
+  href: api/AlchemyBow.Core.Extras.FluentBindings.ContainerFluentExtensions.html
+  commentId: T:AlchemyBow.Core.Extras.FluentBindings.ContainerFluentExtensions
+  fullName: AlchemyBow.Core.Extras.FluentBindings.ContainerFluentExtensions
+  nameWithType: ContainerFluentExtensions
+- uid: AlchemyBow.Core.Extras.FluentBindings.ContainerFluentExtensions.StartFluentBinding(AlchemyBow.Core.IoC.IBindOnlyContainer,System.Object)
+  name: StartFluentBinding(IBindOnlyContainer, object)
+  href: api/AlchemyBow.Core.Extras.FluentBindings.ContainerFluentExtensions.html#AlchemyBow_Core_Extras_FluentBindings_ContainerFluentExtensions_StartFluentBinding_AlchemyBow_Core_IoC_IBindOnlyContainer_System_Object_
+  commentId: M:AlchemyBow.Core.Extras.FluentBindings.ContainerFluentExtensions.StartFluentBinding(AlchemyBow.Core.IoC.IBindOnlyContainer,System.Object)
+  name.vb: StartFluentBinding(IBindOnlyContainer, Object)
+  fullName: AlchemyBow.Core.Extras.FluentBindings.ContainerFluentExtensions.StartFluentBinding(AlchemyBow.Core.IoC.IBindOnlyContainer, object)
+  fullName.vb: AlchemyBow.Core.Extras.FluentBindings.ContainerFluentExtensions.StartFluentBinding(AlchemyBow.Core.IoC.IBindOnlyContainer, Object)
+  nameWithType: ContainerFluentExtensions.StartFluentBinding(IBindOnlyContainer, object)
+  nameWithType.vb: ContainerFluentExtensions.StartFluentBinding(IBindOnlyContainer, Object)
+- uid: AlchemyBow.Core.Extras.FluentBindings.ContainerFluentExtensions.StartFluentBinding*
+  name: StartFluentBinding
+  href: api/AlchemyBow.Core.Extras.FluentBindings.ContainerFluentExtensions.html#AlchemyBow_Core_Extras_FluentBindings_ContainerFluentExtensions_StartFluentBinding_
+  commentId: Overload:AlchemyBow.Core.Extras.FluentBindings.ContainerFluentExtensions.StartFluentBinding
+  isSpec: "True"
+  fullName: AlchemyBow.Core.Extras.FluentBindings.ContainerFluentExtensions.StartFluentBinding
+  nameWithType: ContainerFluentExtensions.StartFluentBinding
+- uid: AlchemyBow.Core.Extras.FluentBindings.FluentBinding
+  name: FluentBinding
+  href: api/AlchemyBow.Core.Extras.FluentBindings.FluentBinding.html
+  commentId: T:AlchemyBow.Core.Extras.FluentBindings.FluentBinding
+  fullName: AlchemyBow.Core.Extras.FluentBindings.FluentBinding
+  nameWithType: FluentBinding
+- uid: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.#ctor(AlchemyBow.Core.IoC.IBindOnlyContainer,System.Object)
+  name: FluentBinding(IBindOnlyContainer, object)
+  href: api/AlchemyBow.Core.Extras.FluentBindings.FluentBinding.html#AlchemyBow_Core_Extras_FluentBindings_FluentBinding__ctor_AlchemyBow_Core_IoC_IBindOnlyContainer_System_Object_
+  commentId: M:AlchemyBow.Core.Extras.FluentBindings.FluentBinding.#ctor(AlchemyBow.Core.IoC.IBindOnlyContainer,System.Object)
+  name.vb: New(IBindOnlyContainer, Object)
+  fullName: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.FluentBinding(AlchemyBow.Core.IoC.IBindOnlyContainer, object)
+  fullName.vb: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.New(AlchemyBow.Core.IoC.IBindOnlyContainer, Object)
+  nameWithType: FluentBinding.FluentBinding(IBindOnlyContainer, object)
+  nameWithType.vb: FluentBinding.New(IBindOnlyContainer, Object)
+- uid: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.#ctor*
+  name: FluentBinding
+  href: api/AlchemyBow.Core.Extras.FluentBindings.FluentBinding.html#AlchemyBow_Core_Extras_FluentBindings_FluentBinding__ctor_
+  commentId: Overload:AlchemyBow.Core.Extras.FluentBindings.FluentBinding.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.FluentBinding
+  fullName.vb: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.New
+  nameWithType: FluentBinding.FluentBinding
+  nameWithType.vb: FluentBinding.New
+- uid: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.AddToCoreLoadingCallbacksHandlers
+  name: AddToCoreLoadingCallbacksHandlers()
+  href: api/AlchemyBow.Core.Extras.FluentBindings.FluentBinding.html#AlchemyBow_Core_Extras_FluentBindings_FluentBinding_AddToCoreLoadingCallbacksHandlers
+  commentId: M:AlchemyBow.Core.Extras.FluentBindings.FluentBinding.AddToCoreLoadingCallbacksHandlers
+  fullName: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.AddToCoreLoadingCallbacksHandlers()
+  nameWithType: FluentBinding.AddToCoreLoadingCallbacksHandlers()
+- uid: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.AddToCoreLoadingCallbacksHandlers*
+  name: AddToCoreLoadingCallbacksHandlers
+  href: api/AlchemyBow.Core.Extras.FluentBindings.FluentBinding.html#AlchemyBow_Core_Extras_FluentBindings_FluentBinding_AddToCoreLoadingCallbacksHandlers_
+  commentId: Overload:AlchemyBow.Core.Extras.FluentBindings.FluentBinding.AddToCoreLoadingCallbacksHandlers
+  isSpec: "True"
+  fullName: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.AddToCoreLoadingCallbacksHandlers
+  nameWithType: FluentBinding.AddToCoreLoadingCallbacksHandlers
+- uid: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.AddToDynamicCollectionBinding*
+  name: AddToDynamicCollectionBinding
+  href: api/AlchemyBow.Core.Extras.FluentBindings.FluentBinding.html#AlchemyBow_Core_Extras_FluentBindings_FluentBinding_AddToDynamicCollectionBinding_
+  commentId: Overload:AlchemyBow.Core.Extras.FluentBindings.FluentBinding.AddToDynamicCollectionBinding
+  isSpec: "True"
+  fullName: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.AddToDynamicCollectionBinding
+  nameWithType: FluentBinding.AddToDynamicCollectionBinding
+- uid: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.AddToDynamicCollectionBinding``2
+  name: AddToDynamicCollectionBinding<TCollection, TItem>()
+  href: api/AlchemyBow.Core.Extras.FluentBindings.FluentBinding.html#AlchemyBow_Core_Extras_FluentBindings_FluentBinding_AddToDynamicCollectionBinding__2
+  commentId: M:AlchemyBow.Core.Extras.FluentBindings.FluentBinding.AddToDynamicCollectionBinding``2
+  name.vb: AddToDynamicCollectionBinding(Of TCollection, TItem)()
+  fullName: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.AddToDynamicCollectionBinding<TCollection, TItem>()
+  fullName.vb: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.AddToDynamicCollectionBinding(Of TCollection, TItem)()
+  nameWithType: FluentBinding.AddToDynamicCollectionBinding<TCollection, TItem>()
+  nameWithType.vb: FluentBinding.AddToDynamicCollectionBinding(Of TCollection, TItem)()
+- uid: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.BindInaccessible
+  name: BindInaccessible()
+  href: api/AlchemyBow.Core.Extras.FluentBindings.FluentBinding.html#AlchemyBow_Core_Extras_FluentBindings_FluentBinding_BindInaccessible
+  commentId: M:AlchemyBow.Core.Extras.FluentBindings.FluentBinding.BindInaccessible
+  fullName: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.BindInaccessible()
+  nameWithType: FluentBinding.BindInaccessible()
+- uid: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.BindInaccessible*
+  name: BindInaccessible
+  href: api/AlchemyBow.Core.Extras.FluentBindings.FluentBinding.html#AlchemyBow_Core_Extras_FluentBindings_FluentBinding_BindInaccessible_
+  commentId: Overload:AlchemyBow.Core.Extras.FluentBindings.FluentBinding.BindInaccessible
+  isSpec: "True"
+  fullName: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.BindInaccessible
+  nameWithType: FluentBinding.BindInaccessible
+- uid: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.BindTo(System.Type)
+  name: BindTo(Type)
+  href: api/AlchemyBow.Core.Extras.FluentBindings.FluentBinding.html#AlchemyBow_Core_Extras_FluentBindings_FluentBinding_BindTo_System_Type_
+  commentId: M:AlchemyBow.Core.Extras.FluentBindings.FluentBinding.BindTo(System.Type)
+  fullName: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.BindTo(System.Type)
+  nameWithType: FluentBinding.BindTo(Type)
+- uid: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.BindTo*
+  name: BindTo
+  href: api/AlchemyBow.Core.Extras.FluentBindings.FluentBinding.html#AlchemyBow_Core_Extras_FluentBindings_FluentBinding_BindTo_
+  commentId: Overload:AlchemyBow.Core.Extras.FluentBindings.FluentBinding.BindTo
+  isSpec: "True"
+  fullName: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.BindTo
+  nameWithType: FluentBinding.BindTo
+- uid: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.BindToSelf
+  name: BindToSelf()
+  href: api/AlchemyBow.Core.Extras.FluentBindings.FluentBinding.html#AlchemyBow_Core_Extras_FluentBindings_FluentBinding_BindToSelf
+  commentId: M:AlchemyBow.Core.Extras.FluentBindings.FluentBinding.BindToSelf
+  fullName: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.BindToSelf()
+  nameWithType: FluentBinding.BindToSelf()
+- uid: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.BindToSelf*
+  name: BindToSelf
+  href: api/AlchemyBow.Core.Extras.FluentBindings.FluentBinding.html#AlchemyBow_Core_Extras_FluentBindings_FluentBinding_BindToSelf_
+  commentId: Overload:AlchemyBow.Core.Extras.FluentBindings.FluentBinding.BindToSelf
+  isSpec: "True"
+  fullName: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.BindToSelf
+  nameWithType: FluentBinding.BindToSelf
+- uid: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.BindTo``1
+  name: BindTo<TKey>()
+  href: api/AlchemyBow.Core.Extras.FluentBindings.FluentBinding.html#AlchemyBow_Core_Extras_FluentBindings_FluentBinding_BindTo__1
+  commentId: M:AlchemyBow.Core.Extras.FluentBindings.FluentBinding.BindTo``1
+  name.vb: BindTo(Of TKey)()
+  fullName: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.BindTo<TKey>()
+  fullName.vb: AlchemyBow.Core.Extras.FluentBindings.FluentBinding.BindTo(Of TKey)()
+  nameWithType: FluentBinding.BindTo<TKey>()
+  nameWithType.vb: FluentBinding.BindTo(Of TKey)()
+- uid: AlchemyBow.Core.Extras.Installers
+  name: AlchemyBow.Core.Extras.Installers
+  href: api/AlchemyBow.Core.Extras.Installers.html
+  commentId: N:AlchemyBow.Core.Extras.Installers
+  fullName: AlchemyBow.Core.Extras.Installers
+  nameWithType: AlchemyBow.Core.Extras.Installers
+- uid: AlchemyBow.Core.Extras.Installers.ChildrenCompositeMonoInstaller
+  name: ChildrenCompositeMonoInstaller
+  href: api/AlchemyBow.Core.Extras.Installers.ChildrenCompositeMonoInstaller.html
+  commentId: T:AlchemyBow.Core.Extras.Installers.ChildrenCompositeMonoInstaller
+  fullName: AlchemyBow.Core.Extras.Installers.ChildrenCompositeMonoInstaller
+  nameWithType: ChildrenCompositeMonoInstaller
+- uid: AlchemyBow.Core.Extras.Installers.ChildrenCompositeMonoInstaller.InstallBindings(AlchemyBow.Core.IoC.IBindOnlyContainer)
+  name: InstallBindings(IBindOnlyContainer)
+  href: api/AlchemyBow.Core.Extras.Installers.ChildrenCompositeMonoInstaller.html#AlchemyBow_Core_Extras_Installers_ChildrenCompositeMonoInstaller_InstallBindings_AlchemyBow_Core_IoC_IBindOnlyContainer_
+  commentId: M:AlchemyBow.Core.Extras.Installers.ChildrenCompositeMonoInstaller.InstallBindings(AlchemyBow.Core.IoC.IBindOnlyContainer)
+  fullName: AlchemyBow.Core.Extras.Installers.ChildrenCompositeMonoInstaller.InstallBindings(AlchemyBow.Core.IoC.IBindOnlyContainer)
+  nameWithType: ChildrenCompositeMonoInstaller.InstallBindings(IBindOnlyContainer)
+- uid: AlchemyBow.Core.Extras.Installers.ChildrenCompositeMonoInstaller.InstallBindings*
+  name: InstallBindings
+  href: api/AlchemyBow.Core.Extras.Installers.ChildrenCompositeMonoInstaller.html#AlchemyBow_Core_Extras_Installers_ChildrenCompositeMonoInstaller_InstallBindings_
+  commentId: Overload:AlchemyBow.Core.Extras.Installers.ChildrenCompositeMonoInstaller.InstallBindings
+  isSpec: "True"
+  fullName: AlchemyBow.Core.Extras.Installers.ChildrenCompositeMonoInstaller.InstallBindings
+  nameWithType: ChildrenCompositeMonoInstaller.InstallBindings
+- uid: AlchemyBow.Core.Extras.Installers.UnityObjectMonoInstaller
+  name: UnityObjectMonoInstaller
+  href: api/AlchemyBow.Core.Extras.Installers.UnityObjectMonoInstaller.html
+  commentId: T:AlchemyBow.Core.Extras.Installers.UnityObjectMonoInstaller
+  fullName: AlchemyBow.Core.Extras.Installers.UnityObjectMonoInstaller
+  nameWithType: UnityObjectMonoInstaller
+- uid: AlchemyBow.Core.Extras.Installers.UnityObjectMonoInstaller.InstallBindings(AlchemyBow.Core.IoC.IBindOnlyContainer)
+  name: InstallBindings(IBindOnlyContainer)
+  href: api/AlchemyBow.Core.Extras.Installers.UnityObjectMonoInstaller.html#AlchemyBow_Core_Extras_Installers_UnityObjectMonoInstaller_InstallBindings_AlchemyBow_Core_IoC_IBindOnlyContainer_
+  commentId: M:AlchemyBow.Core.Extras.Installers.UnityObjectMonoInstaller.InstallBindings(AlchemyBow.Core.IoC.IBindOnlyContainer)
+  fullName: AlchemyBow.Core.Extras.Installers.UnityObjectMonoInstaller.InstallBindings(AlchemyBow.Core.IoC.IBindOnlyContainer)
+  nameWithType: UnityObjectMonoInstaller.InstallBindings(IBindOnlyContainer)
+- uid: AlchemyBow.Core.Extras.Installers.UnityObjectMonoInstaller.InstallBindings*
+  name: InstallBindings
+  href: api/AlchemyBow.Core.Extras.Installers.UnityObjectMonoInstaller.html#AlchemyBow_Core_Extras_Installers_UnityObjectMonoInstaller_InstallBindings_
+  commentId: Overload:AlchemyBow.Core.Extras.Installers.UnityObjectMonoInstaller.InstallBindings
+  isSpec: "True"
+  fullName: AlchemyBow.Core.Extras.Installers.UnityObjectMonoInstaller.InstallBindings
+  nameWithType: UnityObjectMonoInstaller.InstallBindings
 - uid: AlchemyBow.Core.ICoreLoadable
   name: ICoreLoadable
   href: api/AlchemyBow.Core.ICoreLoadable.html
@@ -1267,15 +1616,21 @@ references:
   name: Container()
   href: api/AlchemyBow.Core.IoC.Container.html#AlchemyBow_Core_IoC_Container__ctor
   commentId: M:AlchemyBow.Core.IoC.Container.#ctor
+  name.vb: New()
   fullName: AlchemyBow.Core.IoC.Container.Container()
+  fullName.vb: AlchemyBow.Core.IoC.Container.New()
   nameWithType: Container.Container()
+  nameWithType.vb: Container.New()
 - uid: AlchemyBow.Core.IoC.Container.#ctor*
   name: Container
   href: api/AlchemyBow.Core.IoC.Container.html#AlchemyBow_Core_IoC_Container__ctor_
   commentId: Overload:AlchemyBow.Core.IoC.Container.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: AlchemyBow.Core.IoC.Container.Container
+  fullName.vb: AlchemyBow.Core.IoC.Container.New
   nameWithType: Container.Container
+  nameWithType.vb: Container.New
 - uid: AlchemyBow.Core.IoC.Container.AddRangeToDynamicCollectionBinding*
   name: AddRangeToDynamicCollectionBinding
   href: api/AlchemyBow.Core.IoC.Container.html#AlchemyBow_Core_IoC_Container_AddRangeToDynamicCollectionBinding_
@@ -1309,11 +1664,14 @@ references:
   nameWithType: Container.AddToDynamicCollectionBinding<TCollection, TItem>(TItem)
   nameWithType.vb: Container.AddToDynamicCollectionBinding(Of TCollection, TItem)(TItem)
 - uid: AlchemyBow.Core.IoC.Container.Bind(System.Type,System.Object)
-  name: Bind(Type, Object)
+  name: Bind(Type, object)
   href: api/AlchemyBow.Core.IoC.Container.html#AlchemyBow_Core_IoC_Container_Bind_System_Type_System_Object_
   commentId: M:AlchemyBow.Core.IoC.Container.Bind(System.Type,System.Object)
-  fullName: AlchemyBow.Core.IoC.Container.Bind(System.Type, System.Object)
-  nameWithType: Container.Bind(Type, Object)
+  name.vb: Bind(Type, Object)
+  fullName: AlchemyBow.Core.IoC.Container.Bind(System.Type, object)
+  fullName.vb: AlchemyBow.Core.IoC.Container.Bind(System.Type, Object)
+  nameWithType: Container.Bind(Type, object)
+  nameWithType.vb: Container.Bind(Type, Object)
 - uid: AlchemyBow.Core.IoC.Container.Bind*
   name: Bind
   href: api/AlchemyBow.Core.IoC.Container.html#AlchemyBow_Core_IoC_Container_Bind_
@@ -1321,6 +1679,22 @@ references:
   isSpec: "True"
   fullName: AlchemyBow.Core.IoC.Container.Bind
   nameWithType: Container.Bind
+- uid: AlchemyBow.Core.IoC.Container.BindInaccessible(System.Object)
+  name: BindInaccessible(object)
+  href: api/AlchemyBow.Core.IoC.Container.html#AlchemyBow_Core_IoC_Container_BindInaccessible_System_Object_
+  commentId: M:AlchemyBow.Core.IoC.Container.BindInaccessible(System.Object)
+  name.vb: BindInaccessible(Object)
+  fullName: AlchemyBow.Core.IoC.Container.BindInaccessible(object)
+  fullName.vb: AlchemyBow.Core.IoC.Container.BindInaccessible(Object)
+  nameWithType: Container.BindInaccessible(object)
+  nameWithType.vb: Container.BindInaccessible(Object)
+- uid: AlchemyBow.Core.IoC.Container.BindInaccessible*
+  name: BindInaccessible
+  href: api/AlchemyBow.Core.IoC.Container.html#AlchemyBow_Core_IoC_Container_BindInaccessible_
+  commentId: Overload:AlchemyBow.Core.IoC.Container.BindInaccessible
+  isSpec: "True"
+  fullName: AlchemyBow.Core.IoC.Container.BindInaccessible
+  nameWithType: Container.BindInaccessible
 - uid: AlchemyBow.Core.IoC.Container.Bind``1(``0)
   name: Bind<TKey>(TKey)
   href: api/AlchemyBow.Core.IoC.Container.html#AlchemyBow_Core_IoC_Container_Bind__1___0_
@@ -1330,25 +1704,15 @@ references:
   fullName.vb: AlchemyBow.Core.IoC.Container.Bind(Of TKey)(TKey)
   nameWithType: Container.Bind<TKey>(TKey)
   nameWithType.vb: Container.Bind(Of TKey)(TKey)
-- uid: AlchemyBow.Core.IoC.Container.BindInaccessible(System.Object)
-  name: BindInaccessible(Object)
-  href: api/AlchemyBow.Core.IoC.Container.html#AlchemyBow_Core_IoC_Container_BindInaccessible_System_Object_
-  commentId: M:AlchemyBow.Core.IoC.Container.BindInaccessible(System.Object)
-  fullName: AlchemyBow.Core.IoC.Container.BindInaccessible(System.Object)
-  nameWithType: Container.BindInaccessible(Object)
-- uid: AlchemyBow.Core.IoC.Container.BindInaccessible*
-  name: BindInaccessible
-  href: api/AlchemyBow.Core.IoC.Container.html#AlchemyBow_Core_IoC_Container_BindInaccessible_
-  commentId: Overload:AlchemyBow.Core.IoC.Container.BindInaccessible
-  isSpec: "True"
-  fullName: AlchemyBow.Core.IoC.Container.BindInaccessible
-  nameWithType: Container.BindInaccessible
 - uid: AlchemyBow.Core.IoC.Container.CopyContent(AlchemyBow.Core.IoC.Container,AlchemyBow.Core.IoC.Container,System.Boolean)
-  name: CopyContent(Container, Container, Boolean)
+  name: CopyContent(Container, Container, bool)
   href: api/AlchemyBow.Core.IoC.Container.html#AlchemyBow_Core_IoC_Container_CopyContent_AlchemyBow_Core_IoC_Container_AlchemyBow_Core_IoC_Container_System_Boolean_
   commentId: M:AlchemyBow.Core.IoC.Container.CopyContent(AlchemyBow.Core.IoC.Container,AlchemyBow.Core.IoC.Container,System.Boolean)
-  fullName: AlchemyBow.Core.IoC.Container.CopyContent(AlchemyBow.Core.IoC.Container, AlchemyBow.Core.IoC.Container, System.Boolean)
-  nameWithType: Container.CopyContent(Container, Container, Boolean)
+  name.vb: CopyContent(Container, Container, Boolean)
+  fullName: AlchemyBow.Core.IoC.Container.CopyContent(AlchemyBow.Core.IoC.Container, AlchemyBow.Core.IoC.Container, bool)
+  fullName.vb: AlchemyBow.Core.IoC.Container.CopyContent(AlchemyBow.Core.IoC.Container, AlchemyBow.Core.IoC.Container, Boolean)
+  nameWithType: Container.CopyContent(Container, Container, bool)
+  nameWithType.vb: Container.CopyContent(Container, Container, Boolean)
 - uid: AlchemyBow.Core.IoC.Container.CopyContent*
   name: CopyContent
   href: api/AlchemyBow.Core.IoC.Container.html#AlchemyBow_Core_IoC_Container_CopyContent_
@@ -1379,15 +1743,6 @@ references:
   isSpec: "True"
   fullName: AlchemyBow.Core.IoC.Container.Resolve
   nameWithType: Container.Resolve
-- uid: AlchemyBow.Core.IoC.Container.Resolve``1
-  name: Resolve<T>()
-  href: api/AlchemyBow.Core.IoC.Container.html#AlchemyBow_Core_IoC_Container_Resolve__1
-  commentId: M:AlchemyBow.Core.IoC.Container.Resolve``1
-  name.vb: Resolve(Of T)()
-  fullName: AlchemyBow.Core.IoC.Container.Resolve<T>()
-  fullName.vb: AlchemyBow.Core.IoC.Container.Resolve(Of T)()
-  nameWithType: Container.Resolve<T>()
-  nameWithType.vb: Container.Resolve(Of T)()
 - uid: AlchemyBow.Core.IoC.Container.ResolveAllBindings
   name: ResolveAllBindings()
   href: api/AlchemyBow.Core.IoC.Container.html#AlchemyBow_Core_IoC_Container_ResolveAllBindings
@@ -1401,6 +1756,15 @@ references:
   isSpec: "True"
   fullName: AlchemyBow.Core.IoC.Container.ResolveAllBindings
   nameWithType: Container.ResolveAllBindings
+- uid: AlchemyBow.Core.IoC.Container.Resolve``1
+  name: Resolve<T>()
+  href: api/AlchemyBow.Core.IoC.Container.html#AlchemyBow_Core_IoC_Container_Resolve__1
+  commentId: M:AlchemyBow.Core.IoC.Container.Resolve``1
+  name.vb: Resolve(Of T)()
+  fullName: AlchemyBow.Core.IoC.Container.Resolve<T>()
+  fullName.vb: AlchemyBow.Core.IoC.Container.Resolve(Of T)()
+  nameWithType: Container.Resolve<T>()
+  nameWithType.vb: Container.Resolve(Of T)()
 - uid: AlchemyBow.Core.IoC.DynamicCollectionBindingUtility
   name: DynamicCollectionBindingUtility
   href: api/AlchemyBow.Core.IoC.DynamicCollectionBindingUtility.html
@@ -1462,15 +1826,6 @@ references:
   isSpec: "True"
   fullName: AlchemyBow.Core.IoC.DynamicCollectionBindingUtility.AddToDynamicDictionaryBinding
   nameWithType: DynamicCollectionBindingUtility.AddToDynamicDictionaryBinding
-- uid: AlchemyBow.Core.IoC.DynamicCollectionBindingUtility.AddToDynamicDictionaryBinding``2(AlchemyBow.Core.IoC.IBindOnlyContainer,``0,``1)
-  name: AddToDynamicDictionaryBinding<TKey, TValue>(IBindOnlyContainer, TKey, TValue)
-  href: api/AlchemyBow.Core.IoC.DynamicCollectionBindingUtility.html#AlchemyBow_Core_IoC_DynamicCollectionBindingUtility_AddToDynamicDictionaryBinding__2_AlchemyBow_Core_IoC_IBindOnlyContainer___0___1_
-  commentId: M:AlchemyBow.Core.IoC.DynamicCollectionBindingUtility.AddToDynamicDictionaryBinding``2(AlchemyBow.Core.IoC.IBindOnlyContainer,``0,``1)
-  name.vb: AddToDynamicDictionaryBinding(Of TKey, TValue)(IBindOnlyContainer, TKey, TValue)
-  fullName: AlchemyBow.Core.IoC.DynamicCollectionBindingUtility.AddToDynamicDictionaryBinding<TKey, TValue>(AlchemyBow.Core.IoC.IBindOnlyContainer, TKey, TValue)
-  fullName.vb: AlchemyBow.Core.IoC.DynamicCollectionBindingUtility.AddToDynamicDictionaryBinding(Of TKey, TValue)(AlchemyBow.Core.IoC.IBindOnlyContainer, TKey, TValue)
-  nameWithType: DynamicCollectionBindingUtility.AddToDynamicDictionaryBinding<TKey, TValue>(IBindOnlyContainer, TKey, TValue)
-  nameWithType.vb: DynamicCollectionBindingUtility.AddToDynamicDictionaryBinding(Of TKey, TValue)(IBindOnlyContainer, TKey, TValue)
 - uid: AlchemyBow.Core.IoC.DynamicCollectionBindingUtility.AddToDynamicDictionaryBinding``2(AlchemyBow.Core.IoC.IBindOnlyContainer,System.Collections.Generic.KeyValuePair{``0,``1})
   name: AddToDynamicDictionaryBinding<TKey, TValue>(IBindOnlyContainer, KeyValuePair<TKey, TValue>)
   href: api/AlchemyBow.Core.IoC.DynamicCollectionBindingUtility.html#AlchemyBow_Core_IoC_DynamicCollectionBindingUtility_AddToDynamicDictionaryBinding__2_AlchemyBow_Core_IoC_IBindOnlyContainer_System_Collections_Generic_KeyValuePair___0___1__
@@ -1480,6 +1835,15 @@ references:
   fullName.vb: AlchemyBow.Core.IoC.DynamicCollectionBindingUtility.AddToDynamicDictionaryBinding(Of TKey, TValue)(AlchemyBow.Core.IoC.IBindOnlyContainer, System.Collections.Generic.KeyValuePair(Of TKey, TValue))
   nameWithType: DynamicCollectionBindingUtility.AddToDynamicDictionaryBinding<TKey, TValue>(IBindOnlyContainer, KeyValuePair<TKey, TValue>)
   nameWithType.vb: DynamicCollectionBindingUtility.AddToDynamicDictionaryBinding(Of TKey, TValue)(IBindOnlyContainer, KeyValuePair(Of TKey, TValue))
+- uid: AlchemyBow.Core.IoC.DynamicCollectionBindingUtility.AddToDynamicDictionaryBinding``2(AlchemyBow.Core.IoC.IBindOnlyContainer,``0,``1)
+  name: AddToDynamicDictionaryBinding<TKey, TValue>(IBindOnlyContainer, TKey, TValue)
+  href: api/AlchemyBow.Core.IoC.DynamicCollectionBindingUtility.html#AlchemyBow_Core_IoC_DynamicCollectionBindingUtility_AddToDynamicDictionaryBinding__2_AlchemyBow_Core_IoC_IBindOnlyContainer___0___1_
+  commentId: M:AlchemyBow.Core.IoC.DynamicCollectionBindingUtility.AddToDynamicDictionaryBinding``2(AlchemyBow.Core.IoC.IBindOnlyContainer,``0,``1)
+  name.vb: AddToDynamicDictionaryBinding(Of TKey, TValue)(IBindOnlyContainer, TKey, TValue)
+  fullName: AlchemyBow.Core.IoC.DynamicCollectionBindingUtility.AddToDynamicDictionaryBinding<TKey, TValue>(AlchemyBow.Core.IoC.IBindOnlyContainer, TKey, TValue)
+  fullName.vb: AlchemyBow.Core.IoC.DynamicCollectionBindingUtility.AddToDynamicDictionaryBinding(Of TKey, TValue)(AlchemyBow.Core.IoC.IBindOnlyContainer, TKey, TValue)
+  nameWithType: DynamicCollectionBindingUtility.AddToDynamicDictionaryBinding<TKey, TValue>(IBindOnlyContainer, TKey, TValue)
+  nameWithType.vb: DynamicCollectionBindingUtility.AddToDynamicDictionaryBinding(Of TKey, TValue)(IBindOnlyContainer, TKey, TValue)
 - uid: AlchemyBow.Core.IoC.DynamicCollectionBindingUtility.AddToDynamicHashSetBinding*
   name: AddToDynamicHashSetBinding
   href: api/AlchemyBow.Core.IoC.DynamicCollectionBindingUtility.html#AlchemyBow_Core_IoC_DynamicCollectionBindingUtility_AddToDynamicHashSetBinding_
@@ -1525,19 +1889,21 @@ references:
   name: DynamicInjector()
   href: api/AlchemyBow.Core.IoC.DynamicInjector-1.html#AlchemyBow_Core_IoC_DynamicInjector_1__ctor
   commentId: M:AlchemyBow.Core.IoC.DynamicInjector`1.#ctor
+  name.vb: New()
   fullName: AlchemyBow.Core.IoC.DynamicInjector<T>.DynamicInjector()
-  fullName.vb: AlchemyBow.Core.IoC.DynamicInjector(Of T).DynamicInjector()
+  fullName.vb: AlchemyBow.Core.IoC.DynamicInjector(Of T).New()
   nameWithType: DynamicInjector<T>.DynamicInjector()
-  nameWithType.vb: DynamicInjector(Of T).DynamicInjector()
+  nameWithType.vb: DynamicInjector(Of T).New()
 - uid: AlchemyBow.Core.IoC.DynamicInjector`1.#ctor*
   name: DynamicInjector
   href: api/AlchemyBow.Core.IoC.DynamicInjector-1.html#AlchemyBow_Core_IoC_DynamicInjector_1__ctor_
   commentId: Overload:AlchemyBow.Core.IoC.DynamicInjector`1.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: AlchemyBow.Core.IoC.DynamicInjector<T>.DynamicInjector
-  fullName.vb: AlchemyBow.Core.IoC.DynamicInjector(Of T).DynamicInjector
+  fullName.vb: AlchemyBow.Core.IoC.DynamicInjector(Of T).New
   nameWithType: DynamicInjector<T>.DynamicInjector
-  nameWithType.vb: DynamicInjector(Of T).DynamicInjector
+  nameWithType.vb: DynamicInjector(Of T).New
 - uid: AlchemyBow.Core.IoC.DynamicInjector`1.Inject(`0)
   name: Inject(T)
   href: api/AlchemyBow.Core.IoC.DynamicInjector-1.html#AlchemyBow_Core_IoC_DynamicInjector_1_Inject__0_
@@ -1571,15 +1937,21 @@ references:
   name: DynamicInjectorBase(Type)
   href: api/AlchemyBow.Core.IoC.Elements.DynamicInjectorBase.html#AlchemyBow_Core_IoC_Elements_DynamicInjectorBase__ctor_System_Type_
   commentId: M:AlchemyBow.Core.IoC.Elements.DynamicInjectorBase.#ctor(System.Type)
+  name.vb: New(Type)
   fullName: AlchemyBow.Core.IoC.Elements.DynamicInjectorBase.DynamicInjectorBase(System.Type)
+  fullName.vb: AlchemyBow.Core.IoC.Elements.DynamicInjectorBase.New(System.Type)
   nameWithType: DynamicInjectorBase.DynamicInjectorBase(Type)
+  nameWithType.vb: DynamicInjectorBase.New(Type)
 - uid: AlchemyBow.Core.IoC.Elements.DynamicInjectorBase.#ctor*
   name: DynamicInjectorBase
   href: api/AlchemyBow.Core.IoC.Elements.DynamicInjectorBase.html#AlchemyBow_Core_IoC_Elements_DynamicInjectorBase__ctor_
   commentId: Overload:AlchemyBow.Core.IoC.Elements.DynamicInjectorBase.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: AlchemyBow.Core.IoC.Elements.DynamicInjectorBase.DynamicInjectorBase
+  fullName.vb: AlchemyBow.Core.IoC.Elements.DynamicInjectorBase.New
   nameWithType: DynamicInjectorBase.DynamicInjectorBase
+  nameWithType.vb: DynamicInjectorBase.New
 - uid: AlchemyBow.Core.IoC.Elements.DynamicInjectorBase.FieldSetter
   name: FieldSetter
   href: api/AlchemyBow.Core.IoC.Elements.DynamicInjectorBase.html#AlchemyBow_Core_IoC_Elements_DynamicInjectorBase_FieldSetter
@@ -1605,12 +1977,6 @@ references:
   commentId: T:AlchemyBow.Core.IoC.Elements.InjectionInfo
   fullName: AlchemyBow.Core.IoC.Elements.InjectionInfo
   nameWithType: InjectionInfo
-- uid: AlchemyBow.Core.IoC.Elements.InjectionInfo.declaredInjectFields
-  name: declaredInjectFields
-  href: api/AlchemyBow.Core.IoC.Elements.InjectionInfo.html#AlchemyBow_Core_IoC_Elements_InjectionInfo_declaredInjectFields
-  commentId: F:AlchemyBow.Core.IoC.Elements.InjectionInfo.declaredInjectFields
-  fullName: AlchemyBow.Core.IoC.Elements.InjectionInfo.declaredInjectFields
-  nameWithType: InjectionInfo.declaredInjectFields
 - uid: AlchemyBow.Core.IoC.Elements.InjectionInfo.GetInjectionInfo(System.Type)
   name: GetInjectionInfo(Type)
   href: api/AlchemyBow.Core.IoC.Elements.InjectionInfo.html#AlchemyBow_Core_IoC_Elements_InjectionInfo_GetInjectionInfo_System_Type_
@@ -1624,6 +1990,12 @@ references:
   isSpec: "True"
   fullName: AlchemyBow.Core.IoC.Elements.InjectionInfo.GetInjectionInfo
   nameWithType: InjectionInfo.GetInjectionInfo
+- uid: AlchemyBow.Core.IoC.Elements.InjectionInfo.declaredInjectFields
+  name: declaredInjectFields
+  href: api/AlchemyBow.Core.IoC.Elements.InjectionInfo.html#AlchemyBow_Core_IoC_Elements_InjectionInfo_declaredInjectFields
+  commentId: F:AlchemyBow.Core.IoC.Elements.InjectionInfo.declaredInjectFields
+  fullName: AlchemyBow.Core.IoC.Elements.InjectionInfo.declaredInjectFields
+  nameWithType: InjectionInfo.declaredInjectFields
 - uid: AlchemyBow.Core.IoC.Elements.InjectionInfo.parentInfo
   name: parentInfo
   href: api/AlchemyBow.Core.IoC.Elements.InjectionInfo.html#AlchemyBow_Core_IoC_Elements_InjectionInfo_parentInfo
@@ -1637,27 +2009,33 @@ references:
   fullName: AlchemyBow.Core.IoC.Elements.ReflectionFieldsSetter
   nameWithType: ReflectionFieldsSetter
 - uid: AlchemyBow.Core.IoC.Elements.ReflectionFieldsSetter.#ctor(System.ValueTuple{System.Reflection.FieldInfo,System.Object}[])
-  name: ReflectionFieldsSetter((FieldInfo, Object)[])
+  name: ReflectionFieldsSetter((FieldInfo, object)[])
   href: api/AlchemyBow.Core.IoC.Elements.ReflectionFieldsSetter.html#AlchemyBow_Core_IoC_Elements_ReflectionFieldsSetter__ctor_System_ValueTuple_System_Reflection_FieldInfo_System_Object____
   commentId: M:AlchemyBow.Core.IoC.Elements.ReflectionFieldsSetter.#ctor(System.ValueTuple{System.Reflection.FieldInfo,System.Object}[])
-  name.vb: ReflectionFieldsSetter((FieldInfo, Object)(Of FieldInfo, Object)())
-  fullName: AlchemyBow.Core.IoC.Elements.ReflectionFieldsSetter.ReflectionFieldsSetter(System.ValueTuple<System.Reflection.FieldInfo, System.Object>[])
-  fullName.vb: AlchemyBow.Core.IoC.Elements.ReflectionFieldsSetter.ReflectionFieldsSetter(System.ValueTuple(Of System.Reflection.FieldInfo, System.Object)())
-  nameWithType: ReflectionFieldsSetter.ReflectionFieldsSetter((FieldInfo, Object)[])
-  nameWithType.vb: ReflectionFieldsSetter.ReflectionFieldsSetter((FieldInfo, Object)(Of FieldInfo, Object)())
+  name.vb: New((FieldInfo, Object)())
+  fullName: AlchemyBow.Core.IoC.Elements.ReflectionFieldsSetter.ReflectionFieldsSetter((System.Reflection.FieldInfo, object)[])
+  fullName.vb: AlchemyBow.Core.IoC.Elements.ReflectionFieldsSetter.New((System.Reflection.FieldInfo, Object)())
+  nameWithType: ReflectionFieldsSetter.ReflectionFieldsSetter((FieldInfo, object)[])
+  nameWithType.vb: ReflectionFieldsSetter.New((FieldInfo, Object)())
 - uid: AlchemyBow.Core.IoC.Elements.ReflectionFieldsSetter.#ctor*
   name: ReflectionFieldsSetter
   href: api/AlchemyBow.Core.IoC.Elements.ReflectionFieldsSetter.html#AlchemyBow_Core_IoC_Elements_ReflectionFieldsSetter__ctor_
   commentId: Overload:AlchemyBow.Core.IoC.Elements.ReflectionFieldsSetter.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: AlchemyBow.Core.IoC.Elements.ReflectionFieldsSetter.ReflectionFieldsSetter
+  fullName.vb: AlchemyBow.Core.IoC.Elements.ReflectionFieldsSetter.New
   nameWithType: ReflectionFieldsSetter.ReflectionFieldsSetter
+  nameWithType.vb: ReflectionFieldsSetter.New
 - uid: AlchemyBow.Core.IoC.Elements.ReflectionFieldsSetter.SetFields(System.Object)
-  name: SetFields(Object)
+  name: SetFields(object)
   href: api/AlchemyBow.Core.IoC.Elements.ReflectionFieldsSetter.html#AlchemyBow_Core_IoC_Elements_ReflectionFieldsSetter_SetFields_System_Object_
   commentId: M:AlchemyBow.Core.IoC.Elements.ReflectionFieldsSetter.SetFields(System.Object)
-  fullName: AlchemyBow.Core.IoC.Elements.ReflectionFieldsSetter.SetFields(System.Object)
-  nameWithType: ReflectionFieldsSetter.SetFields(Object)
+  name.vb: SetFields(Object)
+  fullName: AlchemyBow.Core.IoC.Elements.ReflectionFieldsSetter.SetFields(object)
+  fullName.vb: AlchemyBow.Core.IoC.Elements.ReflectionFieldsSetter.SetFields(Object)
+  nameWithType: ReflectionFieldsSetter.SetFields(object)
+  nameWithType.vb: ReflectionFieldsSetter.SetFields(Object)
 - uid: AlchemyBow.Core.IoC.Elements.ReflectionFieldsSetter.SetFields*
   name: SetFields
   href: api/AlchemyBow.Core.IoC.Elements.ReflectionFieldsSetter.html#AlchemyBow_Core_IoC_Elements_ReflectionFieldsSetter_SetFields_
@@ -1704,11 +2082,14 @@ references:
   nameWithType: IBindOnlyContainer.AddToDynamicCollectionBinding<TCollection, TItem>(TItem)
   nameWithType.vb: IBindOnlyContainer.AddToDynamicCollectionBinding(Of TCollection, TItem)(TItem)
 - uid: AlchemyBow.Core.IoC.IBindOnlyContainer.Bind(System.Type,System.Object)
-  name: Bind(Type, Object)
+  name: Bind(Type, object)
   href: api/AlchemyBow.Core.IoC.IBindOnlyContainer.html#AlchemyBow_Core_IoC_IBindOnlyContainer_Bind_System_Type_System_Object_
   commentId: M:AlchemyBow.Core.IoC.IBindOnlyContainer.Bind(System.Type,System.Object)
-  fullName: AlchemyBow.Core.IoC.IBindOnlyContainer.Bind(System.Type, System.Object)
-  nameWithType: IBindOnlyContainer.Bind(Type, Object)
+  name.vb: Bind(Type, Object)
+  fullName: AlchemyBow.Core.IoC.IBindOnlyContainer.Bind(System.Type, object)
+  fullName.vb: AlchemyBow.Core.IoC.IBindOnlyContainer.Bind(System.Type, Object)
+  nameWithType: IBindOnlyContainer.Bind(Type, object)
+  nameWithType.vb: IBindOnlyContainer.Bind(Type, Object)
 - uid: AlchemyBow.Core.IoC.IBindOnlyContainer.Bind*
   name: Bind
   href: api/AlchemyBow.Core.IoC.IBindOnlyContainer.html#AlchemyBow_Core_IoC_IBindOnlyContainer_Bind_
@@ -1716,6 +2097,22 @@ references:
   isSpec: "True"
   fullName: AlchemyBow.Core.IoC.IBindOnlyContainer.Bind
   nameWithType: IBindOnlyContainer.Bind
+- uid: AlchemyBow.Core.IoC.IBindOnlyContainer.BindInaccessible(System.Object)
+  name: BindInaccessible(object)
+  href: api/AlchemyBow.Core.IoC.IBindOnlyContainer.html#AlchemyBow_Core_IoC_IBindOnlyContainer_BindInaccessible_System_Object_
+  commentId: M:AlchemyBow.Core.IoC.IBindOnlyContainer.BindInaccessible(System.Object)
+  name.vb: BindInaccessible(Object)
+  fullName: AlchemyBow.Core.IoC.IBindOnlyContainer.BindInaccessible(object)
+  fullName.vb: AlchemyBow.Core.IoC.IBindOnlyContainer.BindInaccessible(Object)
+  nameWithType: IBindOnlyContainer.BindInaccessible(object)
+  nameWithType.vb: IBindOnlyContainer.BindInaccessible(Object)
+- uid: AlchemyBow.Core.IoC.IBindOnlyContainer.BindInaccessible*
+  name: BindInaccessible
+  href: api/AlchemyBow.Core.IoC.IBindOnlyContainer.html#AlchemyBow_Core_IoC_IBindOnlyContainer_BindInaccessible_
+  commentId: Overload:AlchemyBow.Core.IoC.IBindOnlyContainer.BindInaccessible
+  isSpec: "True"
+  fullName: AlchemyBow.Core.IoC.IBindOnlyContainer.BindInaccessible
+  nameWithType: IBindOnlyContainer.BindInaccessible
 - uid: AlchemyBow.Core.IoC.IBindOnlyContainer.Bind``1(``0)
   name: Bind<T>(T)
   href: api/AlchemyBow.Core.IoC.IBindOnlyContainer.html#AlchemyBow_Core_IoC_IBindOnlyContainer_Bind__1___0_
@@ -1725,19 +2122,6 @@ references:
   fullName.vb: AlchemyBow.Core.IoC.IBindOnlyContainer.Bind(Of T)(T)
   nameWithType: IBindOnlyContainer.Bind<T>(T)
   nameWithType.vb: IBindOnlyContainer.Bind(Of T)(T)
-- uid: AlchemyBow.Core.IoC.IBindOnlyContainer.BindInaccessible(System.Object)
-  name: BindInaccessible(Object)
-  href: api/AlchemyBow.Core.IoC.IBindOnlyContainer.html#AlchemyBow_Core_IoC_IBindOnlyContainer_BindInaccessible_System_Object_
-  commentId: M:AlchemyBow.Core.IoC.IBindOnlyContainer.BindInaccessible(System.Object)
-  fullName: AlchemyBow.Core.IoC.IBindOnlyContainer.BindInaccessible(System.Object)
-  nameWithType: IBindOnlyContainer.BindInaccessible(Object)
-- uid: AlchemyBow.Core.IoC.IBindOnlyContainer.BindInaccessible*
-  name: BindInaccessible
-  href: api/AlchemyBow.Core.IoC.IBindOnlyContainer.html#AlchemyBow_Core_IoC_IBindOnlyContainer_BindInaccessible_
-  commentId: Overload:AlchemyBow.Core.IoC.IBindOnlyContainer.BindInaccessible
-  isSpec: "True"
-  fullName: AlchemyBow.Core.IoC.IBindOnlyContainer.BindInaccessible
-  nameWithType: IBindOnlyContainer.BindInaccessible
 - uid: AlchemyBow.Core.IoC.IBindOnlyContainer.EnsureDynamicCollectionBinding*
   name: EnsureDynamicCollectionBinding
   href: api/AlchemyBow.Core.IoC.IBindOnlyContainer.html#AlchemyBow_Core_IoC_IBindOnlyContainer_EnsureDynamicCollectionBinding_
@@ -1792,18 +2176,24 @@ references:
   fullName: AlchemyBow.Core.LoadablesProgress
   nameWithType: LoadablesProgress
 - uid: AlchemyBow.Core.LoadablesProgress.#ctor(AlchemyBow.Core.ICoreLoadable,System.Int32,System.Boolean,System.Int32)
-  name: LoadablesProgress(ICoreLoadable, Int32, Boolean, Int32)
+  name: LoadablesProgress(ICoreLoadable, int, bool, int)
   href: api/AlchemyBow.Core.LoadablesProgress.html#AlchemyBow_Core_LoadablesProgress__ctor_AlchemyBow_Core_ICoreLoadable_System_Int32_System_Boolean_System_Int32_
   commentId: M:AlchemyBow.Core.LoadablesProgress.#ctor(AlchemyBow.Core.ICoreLoadable,System.Int32,System.Boolean,System.Int32)
-  fullName: AlchemyBow.Core.LoadablesProgress.LoadablesProgress(AlchemyBow.Core.ICoreLoadable, System.Int32, System.Boolean, System.Int32)
-  nameWithType: LoadablesProgress.LoadablesProgress(ICoreLoadable, Int32, Boolean, Int32)
+  name.vb: New(ICoreLoadable, Integer, Boolean, Integer)
+  fullName: AlchemyBow.Core.LoadablesProgress.LoadablesProgress(AlchemyBow.Core.ICoreLoadable, int, bool, int)
+  fullName.vb: AlchemyBow.Core.LoadablesProgress.New(AlchemyBow.Core.ICoreLoadable, Integer, Boolean, Integer)
+  nameWithType: LoadablesProgress.LoadablesProgress(ICoreLoadable, int, bool, int)
+  nameWithType.vb: LoadablesProgress.New(ICoreLoadable, Integer, Boolean, Integer)
 - uid: AlchemyBow.Core.LoadablesProgress.#ctor*
   name: LoadablesProgress
   href: api/AlchemyBow.Core.LoadablesProgress.html#AlchemyBow_Core_LoadablesProgress__ctor_
   commentId: Overload:AlchemyBow.Core.LoadablesProgress.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: AlchemyBow.Core.LoadablesProgress.LoadablesProgress
+  fullName.vb: AlchemyBow.Core.LoadablesProgress.New
   nameWithType: LoadablesProgress.LoadablesProgress
+  nameWithType.vb: LoadablesProgress.New
 - uid: AlchemyBow.Core.LoadablesProgress.loadable
   name: loadable
   href: api/AlchemyBow.Core.LoadablesProgress.html#AlchemyBow_Core_LoadablesProgress_loadable
@@ -1879,18 +2269,24 @@ references:
   fullName: AlchemyBow.Core.States.Elements.StateGraphLink
   nameWithType: StateGraphLink
 - uid: AlchemyBow.Core.States.Elements.StateGraphLink.#ctor(System.Int32,System.Int32,AlchemyBow.Core.States.ICondition)
-  name: StateGraphLink(Int32, Int32, ICondition)
+  name: StateGraphLink(int, int, ICondition)
   href: api/AlchemyBow.Core.States.Elements.StateGraphLink.html#AlchemyBow_Core_States_Elements_StateGraphLink__ctor_System_Int32_System_Int32_AlchemyBow_Core_States_ICondition_
   commentId: M:AlchemyBow.Core.States.Elements.StateGraphLink.#ctor(System.Int32,System.Int32,AlchemyBow.Core.States.ICondition)
-  fullName: AlchemyBow.Core.States.Elements.StateGraphLink.StateGraphLink(System.Int32, System.Int32, AlchemyBow.Core.States.ICondition)
-  nameWithType: StateGraphLink.StateGraphLink(Int32, Int32, ICondition)
+  name.vb: New(Integer, Integer, ICondition)
+  fullName: AlchemyBow.Core.States.Elements.StateGraphLink.StateGraphLink(int, int, AlchemyBow.Core.States.ICondition)
+  fullName.vb: AlchemyBow.Core.States.Elements.StateGraphLink.New(Integer, Integer, AlchemyBow.Core.States.ICondition)
+  nameWithType: StateGraphLink.StateGraphLink(int, int, ICondition)
+  nameWithType.vb: StateGraphLink.New(Integer, Integer, ICondition)
 - uid: AlchemyBow.Core.States.Elements.StateGraphLink.#ctor*
   name: StateGraphLink
   href: api/AlchemyBow.Core.States.Elements.StateGraphLink.html#AlchemyBow_Core_States_Elements_StateGraphLink__ctor_
   commentId: Overload:AlchemyBow.Core.States.Elements.StateGraphLink.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: AlchemyBow.Core.States.Elements.StateGraphLink.StateGraphLink
+  fullName.vb: AlchemyBow.Core.States.Elements.StateGraphLink.New
   nameWithType: StateGraphLink.StateGraphLink
+  nameWithType.vb: StateGraphLink.New
 - uid: AlchemyBow.Core.States.Elements.StateGraphLink.condition
   name: condition
   href: api/AlchemyBow.Core.States.Elements.StateGraphLink.html#AlchemyBow_Core_States_Elements_StateGraphLink_condition
@@ -1929,11 +2325,14 @@ references:
   fullName: AlchemyBow.Core.States.ICondition.CheckCondition
   nameWithType: ICondition.CheckCondition
 - uid: AlchemyBow.Core.States.ICondition.SetActive(System.Boolean)
-  name: SetActive(Boolean)
+  name: SetActive(bool)
   href: api/AlchemyBow.Core.States.ICondition.html#AlchemyBow_Core_States_ICondition_SetActive_System_Boolean_
   commentId: M:AlchemyBow.Core.States.ICondition.SetActive(System.Boolean)
-  fullName: AlchemyBow.Core.States.ICondition.SetActive(System.Boolean)
-  nameWithType: ICondition.SetActive(Boolean)
+  name.vb: SetActive(Boolean)
+  fullName: AlchemyBow.Core.States.ICondition.SetActive(bool)
+  fullName.vb: AlchemyBow.Core.States.ICondition.SetActive(Boolean)
+  nameWithType: ICondition.SetActive(bool)
+  nameWithType.vb: ICondition.SetActive(Boolean)
 - uid: AlchemyBow.Core.States.ICondition.SetActive*
   name: SetActive
   href: api/AlchemyBow.Core.States.ICondition.html#AlchemyBow_Core_States_ICondition_SetActive_
@@ -2005,11 +2404,14 @@ references:
   fullName: AlchemyBow.Core.States.Prototyping.PrototypeCondition.CheckCondition
   nameWithType: PrototypeCondition.CheckCondition
 - uid: AlchemyBow.Core.States.Prototyping.PrototypeCondition.SetActive(System.Boolean)
-  name: SetActive(Boolean)
+  name: SetActive(bool)
   href: api/AlchemyBow.Core.States.Prototyping.PrototypeCondition.html#AlchemyBow_Core_States_Prototyping_PrototypeCondition_SetActive_System_Boolean_
   commentId: M:AlchemyBow.Core.States.Prototyping.PrototypeCondition.SetActive(System.Boolean)
-  fullName: AlchemyBow.Core.States.Prototyping.PrototypeCondition.SetActive(System.Boolean)
-  nameWithType: PrototypeCondition.SetActive(Boolean)
+  name.vb: SetActive(Boolean)
+  fullName: AlchemyBow.Core.States.Prototyping.PrototypeCondition.SetActive(bool)
+  fullName.vb: AlchemyBow.Core.States.Prototyping.PrototypeCondition.SetActive(Boolean)
+  nameWithType: PrototypeCondition.SetActive(bool)
+  nameWithType.vb: PrototypeCondition.SetActive(Boolean)
 - uid: AlchemyBow.Core.States.Prototyping.PrototypeCondition.SetActive*
   name: SetActive
   href: api/AlchemyBow.Core.States.Prototyping.PrototypeCondition.html#AlchemyBow_Core_States_Prototyping_PrototypeCondition_SetActive_
@@ -2046,15 +2448,21 @@ references:
   name: PrototypeState(Action, Action)
   href: api/AlchemyBow.Core.States.Prototyping.PrototypeState.html#AlchemyBow_Core_States_Prototyping_PrototypeState__ctor_System_Action_System_Action_
   commentId: M:AlchemyBow.Core.States.Prototyping.PrototypeState.#ctor(System.Action,System.Action)
+  name.vb: New(Action, Action)
   fullName: AlchemyBow.Core.States.Prototyping.PrototypeState.PrototypeState(System.Action, System.Action)
+  fullName.vb: AlchemyBow.Core.States.Prototyping.PrototypeState.New(System.Action, System.Action)
   nameWithType: PrototypeState.PrototypeState(Action, Action)
+  nameWithType.vb: PrototypeState.New(Action, Action)
 - uid: AlchemyBow.Core.States.Prototyping.PrototypeState.#ctor*
   name: PrototypeState
   href: api/AlchemyBow.Core.States.Prototyping.PrototypeState.html#AlchemyBow_Core_States_Prototyping_PrototypeState__ctor_
   commentId: Overload:AlchemyBow.Core.States.Prototyping.PrototypeState.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: AlchemyBow.Core.States.Prototyping.PrototypeState.PrototypeState
+  fullName.vb: AlchemyBow.Core.States.Prototyping.PrototypeState.New
   nameWithType: PrototypeState.PrototypeState
+  nameWithType.vb: PrototypeState.New
 - uid: AlchemyBow.Core.States.Prototyping.PrototypeState.Enter
   name: Enter()
   href: api/AlchemyBow.Core.States.Prototyping.PrototypeState.html#AlchemyBow_Core_States_Prototyping_PrototypeState_Enter
@@ -2114,13 +2522,13 @@ references:
   fullName: AlchemyBow.Core.States.StateGraph.Enter
   nameWithType: StateGraph.Enter
 - uid: AlchemyBow.Core.States.StateGraph.EnumerateDown(System.Action{AlchemyBow.Core.States.IState},System.Boolean)
-  name: EnumerateDown(Action<IState>, Boolean)
+  name: EnumerateDown(Action<IState>, bool)
   href: api/AlchemyBow.Core.States.StateGraph.html#AlchemyBow_Core_States_StateGraph_EnumerateDown_System_Action_AlchemyBow_Core_States_IState__System_Boolean_
   commentId: M:AlchemyBow.Core.States.StateGraph.EnumerateDown(System.Action{AlchemyBow.Core.States.IState},System.Boolean)
   name.vb: EnumerateDown(Action(Of IState), Boolean)
-  fullName: AlchemyBow.Core.States.StateGraph.EnumerateDown(System.Action<AlchemyBow.Core.States.IState>, System.Boolean)
-  fullName.vb: AlchemyBow.Core.States.StateGraph.EnumerateDown(System.Action(Of AlchemyBow.Core.States.IState), System.Boolean)
-  nameWithType: StateGraph.EnumerateDown(Action<IState>, Boolean)
+  fullName: AlchemyBow.Core.States.StateGraph.EnumerateDown(System.Action<AlchemyBow.Core.States.IState>, bool)
+  fullName.vb: AlchemyBow.Core.States.StateGraph.EnumerateDown(System.Action(Of AlchemyBow.Core.States.IState), Boolean)
+  nameWithType: StateGraph.EnumerateDown(Action<IState>, bool)
   nameWithType.vb: StateGraph.EnumerateDown(Action(Of IState), Boolean)
 - uid: AlchemyBow.Core.States.StateGraph.EnumerateDown*
   name: EnumerateDown
@@ -2152,15 +2560,21 @@ references:
   name: StateGraphComposer(IState)
   href: api/AlchemyBow.Core.States.StateGraphComposer.html#AlchemyBow_Core_States_StateGraphComposer__ctor_AlchemyBow_Core_States_IState_
   commentId: M:AlchemyBow.Core.States.StateGraphComposer.#ctor(AlchemyBow.Core.States.IState)
+  name.vb: New(IState)
   fullName: AlchemyBow.Core.States.StateGraphComposer.StateGraphComposer(AlchemyBow.Core.States.IState)
+  fullName.vb: AlchemyBow.Core.States.StateGraphComposer.New(AlchemyBow.Core.States.IState)
   nameWithType: StateGraphComposer.StateGraphComposer(IState)
+  nameWithType.vb: StateGraphComposer.New(IState)
 - uid: AlchemyBow.Core.States.StateGraphComposer.#ctor*
   name: StateGraphComposer
   href: api/AlchemyBow.Core.States.StateGraphComposer.html#AlchemyBow_Core_States_StateGraphComposer__ctor_
   commentId: Overload:AlchemyBow.Core.States.StateGraphComposer.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: AlchemyBow.Core.States.StateGraphComposer.StateGraphComposer
+  fullName.vb: AlchemyBow.Core.States.StateGraphComposer.New
   nameWithType: StateGraphComposer.StateGraphComposer
+  nameWithType.vb: StateGraphComposer.New
 - uid: AlchemyBow.Core.States.StateGraphComposer.AddLink(AlchemyBow.Core.States.StateGraphComposer,AlchemyBow.Core.States.StateGraphComposer,AlchemyBow.Core.States.ICondition)
   name: AddLink(StateGraphComposer, StateGraphComposer, ICondition)
   href: api/AlchemyBow.Core.States.StateGraphComposer.html#AlchemyBow_Core_States_StateGraphComposer_AddLink_AlchemyBow_Core_States_StateGraphComposer_AlchemyBow_Core_States_StateGraphComposer_AlchemyBow_Core_States_ICondition_
@@ -2256,7 +2670,7 @@ references:
   name: AlchemyBow.Core Api Documentation
   href: api/index.html
 - uid: dependency_injection
-  name: Dependency injection
+  name: Dependency Injection
   href: articles/guides/dependency_injection.html
 - uid: loading
   name: Loading
@@ -2265,5 +2679,5 @@ references:
   name: Guides
   href: articles/guides.html
 - uid: stateful_behaviour
-  name: Stateful behaviour
+  name: Stateful Behaviour
   href: articles/guides/stateful_behaviour.html

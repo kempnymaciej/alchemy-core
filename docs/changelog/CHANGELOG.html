@@ -1,21 +1,21 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Changelog </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Changelog ">
-    <meta name="generator" content="docfx 2.59.3.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Changelog </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Changelog ">
     
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc">
-    <meta property="docfx:tocrel" content="toc">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.json">
+      <meta property="docfx:tocrel" content="toc.json">
     
     
     
@@ -23,7 +23,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -33,7 +33,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../index.html">
                 <img id="logo" class="svg" src="../logo.svg" alt="">
               </a>
@@ -44,7 +44,7 @@
                   <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
                 </div>
               </form>
-                
+
                 <ul class="nav level1 navbar-nav">
                       <li>
                           <a href="../articles/guides.html" title="Manual">Manual</a>
@@ -58,10 +58,11 @@
                       <li>
                           <a href="../license/LICENSE.html" title="License">License</a>
                       </li>
-                </ul>    </div>
+                </ul>
+            </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -83,12 +84,13 @@
               </div>
               <div class="sidetoc">
                 <div class="toc" id="toc">
-                  
+
                   <ul class="nav level1">
                     <li class="active">
                       <a href="CHANGELOG.html" title="Changelog" class="active">Changelog</a>
                     </li>
-                  </ul>        </div>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -98,6 +100,14 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="changelog">Changelog</h1>
 
+<h2 id="230---2024-11-26">[2.3.0] - 2024-11-26</h2>
+<p>Added Extras folder with additional tools and utilities:</p>
+<ul>
+<li><code>FluentBinding</code> and <code>ContainerFluentExtensions</code> - Provides fluent binding syntax for easier configuration.</li>
+<li><code>UnityObjectMonoInstaller</code> - A variant of MonoInstaller that supports binding a single Unity object (e.g., a MonoBehaviour or ScriptableObject) assigned through the inspector.</li>
+<li><code>ChildrenCompositeMonoInstaller</code> - A variant of MonoInstaller that finds and installs other MonoInstallers within the same GameObject and its children.</li>
+<li><code>CoreBehaviour</code> - A base class for objects that can be enabled or disabled, and integrate with the core loading callbacks for initialization or cleanup.</li>
+</ul>
 <h2 id="220---2022-10-25">[2.2.0] - 2022-10-25</h2>
 <ul>
 <li>Added editor tools (the quick start core wizard and the core management window)</li>
@@ -135,9 +145,10 @@
 <li>Added documentation comments for all public and protected members.</li>
 <li>Added <a href="https://kempnymaciej.github.io/alchemy-core/">the documentation page</a>.</li>
 </ul>
+
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
@@ -145,14 +156,14 @@
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -160,14 +171,14 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            <span>Copyright © 2023 <a href="https://www.alchemybow.com/"><b>AlchemyBow</b></a></span> | <span>Generated by <b>DocFX</b></span>
-            
+      <span>Copyright © 2022-2024 <a href="https://www.alchemybow.com/"><b>AlchemyBow</b></a></span> | <span>Generated by <b>DocFX</b></span>
+      
           </div>
         </div>
       </footer>
     </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

@@ -1,21 +1,21 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Scene changes </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Scene changes ">
-    <meta name="generator" content="docfx 2.59.3.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Scene changes </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Scene changes ">
     
-    <link rel="shortcut icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../styles/docfx.css">
-    <link rel="stylesheet" href="../../styles/main.css">
-    <meta property="docfx:navrel" content="../../toc">
-    <meta property="docfx:tocrel" content="../toc">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.json">
+      <meta property="docfx:tocrel" content="../toc.json">
     
     
     
@@ -23,7 +23,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -33,7 +33,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../../index.html">
                 <img id="logo" class="svg" src="../../logo.svg" alt="">
               </a>
@@ -44,7 +44,7 @@
                   <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
                 </div>
               </form>
-                
+
                 <ul class="nav level1 navbar-nav">
                       <li>
                           <a href="../../articles/guides.html" title="Manual">Manual</a>
@@ -58,10 +58,11 @@
                       <li>
                           <a href="../../license/LICENSE.html" title="License">License</a>
                       </li>
-                </ul>    </div>
+                </ul>
+            </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -83,12 +84,12 @@
               </div>
               <div class="sidetoc">
                 <div class="toc" id="toc">
-                  
+
                   <ul class="nav level1">
                     <li class="">
                       <span class="expand-stub"></span>
                       <a href="../guides.html" title="Guides" class="">Guides</a>
-                        
+
                         <ul class="nav level2">
                           <li class="">
                             <a href="../guides/installation.html" title="Installation" class="">Installation</a>
@@ -108,8 +109,10 @@
                           <li class="">
                             <a href="../guides/stateful_behaviour.html" title="Stateful Behaviour" class="">Stateful Behaviour</a>
                           </li>
-                        </ul>  </li>
-                  </ul>        </div>
+                        </ul>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -119,10 +122,9 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="scene-changes">Scene changes</h1>
 
-<p>In this section, you will find details on changing scenes in the <strong>AlchemyBow.Core</strong> framework.</p>
-<p>You probably already know that to change the scene you should use the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html#AlchemyBow_Core_CoreController_1_ChangeScene_System_Int32_">ChangeScene(int)</a> method.
-Have you noticed that it is <code>protected</code>? The reason is to discourage you from referring to instances of the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> because it creates inconspicuous circular dependecies (the controller uses modules that directly or indirectly use the controller).</p>
-<p>An easy way to trigger scene changes is to create a mediator object. For example:</p>
+<p>In this section, you will find details on how to change scenes in the <strong>AlchemyBow.Core</strong> framework.</p>
+<p>To change a scene, you should use the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html#AlchemyBow_Core_CoreController_1_ChangeScene_System_Int32_">ChangeScene(int)</a> method. Have you noticed that this method is <code>protected</code>? The reason for this is to discourage direct references to instances of the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a>, as doing so can create subtle circular dependencies (the controller uses modules, which in turn directly or indirectly reference the controller).</p>
+<p>A simple and effective way to trigger scene changes is by using a mediator object. For example:</p>
 <pre><code>public class GameSceneTrigger
 {
     public event System.Action Triggered;
@@ -133,7 +135,7 @@ Have you noticed that it is <code>protected</code>? The reason is to discourage 
     }
 }
 </code></pre>
-<p>You can bind it, and then inject it wherever you need to trigger the scene change. The controller only needs to subscribe to the event:</p>
+<p>You can bind your mediator and then inject it wherever you need to trigger the scene change. The controller only needs to subscribe to the event:</p>
 <pre><code>using AlchemyBow.Core;
 using AlchemyBow.Core.IoC;
 using System.Collections.Generic;
@@ -148,40 +150,39 @@ public class MyCoreController : CoreController&lt;MyCoreProjectContext&gt;
 
     protected override void OnLoadingFinished()
     {
-        gameSceneTrigger.Triggered += OnGameSceneTrigger;
+        gameSceneTrigger.Triggered += OnGameSceneTriggered;
         base.OnLoadingFinished();
     }
 
     protected override void OnSceneChangeStarted()
     {
-        gameSceneTrigger.Triggered -= OnGameSceneTrigger;
+        gameSceneTrigger.Triggered -= OnGameSceneTriggered;
         base.OnSceneChangeStarted();
     }
 
-    private void OnGameSceneTrigger()
+    private void OnGameSceneTriggered()
     {
         ChangeScene(GameSceneBuildIndex);
     }
-
-    // ...
 }
 </code></pre>
-<p>How is it better then using a reference to the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a>? Your modules are tightly coupled with the mediator instead of the controller, so it is much easier to implement them in scenes with different controllers.</p>
+<p>How is this approach better than directly referencing the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a>? By using the mediator, your modules are decoupled from the controller and instead become tightly coupled with the mediator. This makes it much easier to implement these modules in scenes that use different controllers.</p>
 <div class="NOTE">
 <h5>Note</h5>
 <p>The method described in this article is very similar to how state conditions work (see: <a class="xref" href="stateful_behaviour.html">Stateful Behaviour</a>).</p>
 </div>
 <div class="NOTE">
 <h5>Note</h5>
-<p>You can create <code>public</code> methods in your implementations of the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a>. However, it is strongly recommended that you only use them for prototyping purposes.</p>
+<p>You can create <code>public</code> methods in your implementations of <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a>, but it is recommended to only use them for prototyping purposes.</p>
 </div>
 <div class="TIP">
 <h5>Tip</h5>
-<p>You can use the <a href="https://github.com/kempnymaciej/alchemy-loadingscenes">AlchemyBow.LoadingScenes</a> package to easily manage loading screens.</p>
+<p>You can use the <a href="https://github.com/kempnymaciej/alchemy-loadingscenes">AlchemyBow.LoadingScenes</a> package to efficiently manage loading screens.</p>
 </div>
+
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
@@ -189,14 +190,14 @@ public class MyCoreController : CoreController&lt;MyCoreProjectContext&gt;
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -204,14 +205,14 @@ public class MyCoreController : CoreController&lt;MyCoreProjectContext&gt;
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            <span>Copyright © 2023 <a href="https://www.alchemybow.com/"><b>AlchemyBow</b></a></span> | <span>Generated by <b>DocFX</b></span>
-            
+      <span>Copyright © 2022-2024 <a href="https://www.alchemybow.com/"><b>AlchemyBow</b></a></span> | <span>Generated by <b>DocFX</b></span>
+      
           </div>
         </div>
       </footer>
     </div>
-    
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
   </body>

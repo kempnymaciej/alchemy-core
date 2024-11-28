@@ -1,21 +1,21 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Loading </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Loading ">
-    <meta name="generator" content="docfx 2.59.3.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Loading </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Loading ">
     
-    <link rel="shortcut icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../styles/docfx.css">
-    <link rel="stylesheet" href="../../styles/main.css">
-    <meta property="docfx:navrel" content="../../toc">
-    <meta property="docfx:tocrel" content="../toc">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.json">
+      <meta property="docfx:tocrel" content="../toc.json">
     
     
     
@@ -23,7 +23,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -33,7 +33,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../../index.html">
                 <img id="logo" class="svg" src="../../logo.svg" alt="">
               </a>
@@ -44,7 +44,7 @@
                   <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
                 </div>
               </form>
-                
+
                 <ul class="nav level1 navbar-nav">
                       <li>
                           <a href="../../articles/guides.html" title="Manual">Manual</a>
@@ -58,10 +58,11 @@
                       <li>
                           <a href="../../license/LICENSE.html" title="License">License</a>
                       </li>
-                </ul>    </div>
+                </ul>
+            </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -83,12 +84,12 @@
               </div>
               <div class="sidetoc">
                 <div class="toc" id="toc">
-                  
+
                   <ul class="nav level1">
                     <li class="">
                       <span class="expand-stub"></span>
                       <a href="../guides.html" title="Guides" class="">Guides</a>
-                        
+
                         <ul class="nav level2">
                           <li class="">
                             <a href="../guides/installation.html" title="Installation" class="">Installation</a>
@@ -108,8 +109,10 @@
                           <li class="">
                             <a href="../guides/stateful_behaviour.html" title="Stateful Behaviour" class="">Stateful Behaviour</a>
                           </li>
-                        </ul>  </li>
-                  </ul>        </div>
+                        </ul>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -119,35 +122,39 @@
             <article class="content wrap" id="_content" data-uid="loading">
 <h1 id="loading">Loading</h1>
 
-<p>One of the most important aspects of the <strong>AlchemyBow.Core</strong> is to provide an easy and organized way to handle loading processes.</p>
+<p>One of the key features of <strong>AlchemyBow.Core</strong> is its ability to provide an easy, organized, and efficient way to handle loading processes, as well as designated places for initialization and deinitialization.</p>
 <h2 id="icoreloadable">ICoreLoadable</h2>
-<p><a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadable.html">ICoreLoadable</a> is an interface for objects that require a time-consuming loading process. It provides one method - <code>Load(OperationHandle)</code> that takes the <a class="xref" href="../../api/AlchemyBow.Core.OperationHandle.html">OperationHandle</a> as a parameter.
-The loading process is considered complete when you call <code>OperationHandle.MarkDone()</code>.</p>
+<p><a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadable.html">ICoreLoadable</a> is an interface for objects that require a time-consuming loading process. It defines a single method, <code>Load(OperationHandle)</code>, which takes an <a class="xref" href="../../api/AlchemyBow.Core.OperationHandle.html">OperationHandle</a> as a parameter. The loading process is considered complete once you call <code>OperationHandle.MarkDone()</code>.</p>
 <pre><code>using AlchemyBow.Core;
 using System.Collections;
 using UnityEngine;
 
 public class SampleCoreLoadable : MonoBehaviour, ICoreLoadable
 {
-    public void Load(OperationHandle handle)
+    void ICoreLoadable.Load(OperationHandle handle)
     {
         StartCoroutine(CreateLoadCoroutine(handle));
     }
 
     private IEnumerator CreateLoadCoroutine(OperationHandle handle)
     {
-        yield return new WaitForSeconds(1); // some time-consuming operation
+        // Simulate a time-consuming operation (e.g., loading resources, initializing data)
+        yield return new WaitForSeconds(1);
         handle.MarkDone();
     }
 }
 </code></pre>
-<h3 id="geting-loadables">Geting loadables</h3>
-<p>To specify <strong>what to load</strong> and <strong>in what order</strong>, override <code>GetLoadables()</code> in <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> or <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> depending on the scope to which the loadable belongs.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>It often makes sense to use explicit interface implementation to hide the <code>Load()</code> method from the public interface of your class as it is only used by the framework.</p>
+</div>
+<h3 id="getting-loadables">Getting Loadables</h3>
+<p>To specify <strong>what to load</strong> and <strong>in what order</strong>, override the <code>GetLoadables()</code> method in either <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> or <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a>, depending on the scope to which the loadable belongs.</p>
 <div class="NOTE">
 <h5>Note</h5>
 <p>Loadables returned by the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> are loaded each time you change the scene, but loadables returned by the <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> are only loaded once.</p>
 </div>
-<p>There are a lot of ways you can get your loadables. The fast method is to use injection directly.</p>
+<p>There are several ways to get your loadables. One efficient method is to use dependency injection directly, as shown in the example below:</p>
 <pre><code>using AlchemyBow.Core;
 using AlchemyBow.Core.IoC;
 using System.Collections.Generic;
@@ -165,10 +172,14 @@ public class MyCoreProjectContext : CoreProjectContext
     }
 }
 </code></pre>
-<p>Most of the time this solution is fine (especially for <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a>), but you should also consider delegating the task to other objects to prevent controllers from becoming tightly coupled with loadables.<br>
-Another interesting concept is to use the dynamic collection binding feature - you can add your loadables to some collection by installers and then use the collection in the <code>GetLoadables()</code> method (this approach can be even better with some kind of sorted / priority collection).</p>
-<h3 id="loading-progress">Loading progress</h3>
-<p>You can react to the loading process progress (for example, update your loading screen). To do this, override the <code>CoreController.OnLoadablesProgressed(LoadablesProgress)</code> method:</p>
+<p>This solution is very convenient as it allows you explicitly define the loadables and their order.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>As your project grows, you may want to consider delegating the task of managing loadables to other objects to prevent controllers from becoming overly large and tightly coupled with specific loadables, which can reduce maintainability.</p>
+</div>
+<p>Another interesting approach is to leverage the dynamic collection binding feature. You can add your loadables to a collection using installers and then use that collection in the <code>GetLoadables()</code> method. This approach can be even more effective if combined with a sorted or prioritized collection, still allowing you to control the loading order.</p>
+<h3 id="loading-progress">Loading Progress</h3>
+<p>You can track the progress of the loading process and react to it (e.g., by updating your loading screen). To do this, override the <code>CoreController.OnLoadablesProgressed(LoadablesProgress)</code> method:</p>
 <pre><code>using AlchemyBow.Core;
 using AlchemyBow.Core.IoC;
 using System.Collections.Generic;
@@ -178,7 +189,7 @@ public class MyCoreController : CoreController&lt;CoreProjectContext&gt;
 {
     protected override IEnumerable&lt;ICoreLoadable&gt; GetLoadables()
     {
-        // ...
+        // Return your loadables here
     }
 
     protected override void OnLoadablesProgressed(LoadablesProgress progress)
@@ -187,9 +198,16 @@ public class MyCoreController : CoreController&lt;CoreProjectContext&gt;
     }
 }
 </code></pre>
-<p>Note that this method is called twice for each loadable (not once if there are none). Project context loadables are included if they haven't been loaded previously.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This method is called twice for each loadable — once when the loading starts, and again when it's completed.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If project context loadables haven’t been loaded previously, they will also be included in the progress.</p>
+</div>
 <h2 id="icoreloadingcallbackshandler">ICoreLoadingCallbacksHandler</h2>
-<p><a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadingCallbacksHandler.html">ICoreLoadingCallbacksHandler</a> provides a mechanism for notifying objects when <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> finishes loading or starts unloading.</p>
+<p>The <a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadingCallbacksHandler.html">ICoreLoadingCallbacksHandler</a> provides a mechanism for notifying objects when the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> has finished loading or started unloading.</p>
 <pre><code>using AlchemyBow.Core;
 
 public class SampleCoreLoadingCallbacksHandler : ICoreLoadingCallbacksHandler
@@ -197,19 +215,20 @@ public class SampleCoreLoadingCallbacksHandler : ICoreLoadingCallbacksHandler
     public void OnCoreLoadingFinished()
     {
         // For example:
-        // - load some data
-        // - subscribe events
+        // - Load some data
+        // - Subscribe to events
     }
 
     public void OnCoreSceneChangeStarted()
     {
         // For example:
-        // - unsubscribe events
+        // - Unsubscribe from events
     }
 }
 </code></pre>
-<p>To receive callbacks, add subscribers to the dynamic <code>List&lt;ICoreLoadingCallbacksHandler&gt;</code> binding:</p>
+<p>To receive the callbacks, add subscribers to the dynamic <code>List&lt;ICoreLoadingCallbacksHandler&gt;</code> binding:</p>
 <pre><code>using AlchemyBow.Core;
+using AlchemyBow.Core.Extras.FluentBindings;
 using AlchemyBow.Core.IoC;
 using System.Collections.Generic;
 
@@ -219,10 +238,17 @@ public class SampleMonoInstaller : MonoInstaller
     {
         var sample = new SampleCoreLoadingCallbacksHandler();
         container.Bind(sample);
-        container.AddToDynamicCollectionBinding
-            &lt;List&lt;ICoreLoadingCallbacksHandler&gt;, ICoreLoadingCallbacksHandler&gt;(sample);
-        // Or with a shortcut:
+        
+        // Add to the dynamic collection binding
+        container.AddToDynamicCollectionBinding&lt;List&lt;ICoreLoadingCallbacksHandler&gt;, ICoreLoadingCallbacksHandler&gt;(sample);
+        
+        // Or use the shortcut:
         // container.AddToDynamicListBinding&lt;ICoreLoadingCallbacksHandler&gt;(sample);
+        
+        // Alternatively, with fluent syntax:
+        // container.StartFluentBinding(new SampleCoreLoadingCallbacksHandler())
+        //     .BindToSelf()
+        //     .AddToCoreLoadingCallbacksHandlers();
     }
 }
 </code></pre>
@@ -230,9 +256,63 @@ public class SampleMonoInstaller : MonoInstaller
 <h5>Warning</h5>
 <p><a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadingCallbacksHandler.html">ICoreLoadingCallbacksHandler</a> cannot be used in the project context.</p>
 </div>
+<h2 id="corebehaviour">CoreBehaviour</h2>
+<p><a class="xref" href="../../api/AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.html">CoreBehaviour</a> serves as a base class for plain C# objects that can be enabled or disabled  based on the <a class="xref" href="../../api/AlchemyBow.Core.Extras.Behaviours.CoreBehaviourEnablingStrategy.html">CoreBehaviourEnablingStrategy</a> you select. It's built on top of core loading callbacks allowing easy initialization or cleanup.</p>
+<pre><code>using AlchemyBow.Core.Extras.Behaviours;
+using AlchemyBow.Core.IoC;
+using UnityEngine;
+
+public class MyCoreBehaviour : CoreBehaviour
+{
+    // The strategy is set via the constructor
+    public MyCoreBehaviour() 
+        : base(CoreBehaviourEnablingStrategy.SimpleAutoEnableDisable)
+    {
+    }
+    
+    // You can safely override any of these methods:
+    
+    protected override void OnCoreLoadingFinished()
+    {
+        // Initialization logic
+    }
+    
+    protected override void OnCoreSceneChangeStarted()
+    {
+        // Cleanup logic
+    }
+
+    protected override void OnEnabled()
+    {
+        // Logic executed when enabled
+    }
+    
+    protected override void OnDisabled()
+    {
+        // Logic executed when disabled
+    }
+}
+</code></pre>
+<p>Since <a class="xref" href="../../api/AlchemyBow.Core.Extras.Behaviours.CoreBehaviour.html">CoreBehaviour</a> implements <a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadingCallbacksHandler.html">ICoreLoadingCallbacksHandler</a>, it also must be added to the dynamic list binding of <a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadingCallbacksHandler.html">ICoreLoadingCallbacksHandler</a> to receive callbacks.</p>
+<pre><code>using AlchemyBow.Core;
+using AlchemyBow.Core.Extras.FluentBindings;
+using AlchemyBow.Core.IoC;
+using System.Collections.Generic;
+
+public class MyCoreBehaviourMonoInstaller : MonoInstaller
+{
+    public override void InstallBindings(IBindOnlyContainer container)
+    {
+        container.StartFluentBinding(new MyCoreBehaviour())
+            .BindToSelf()
+            .AddToCoreLoadingCallbacksHandlers();
+    }
+}
+</code></pre>
+
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
@@ -240,14 +320,14 @@ public class SampleMonoInstaller : MonoInstaller
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -255,14 +335,14 @@ public class SampleMonoInstaller : MonoInstaller
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            <span>Copyright © 2023 <a href="https://www.alchemybow.com/"><b>AlchemyBow</b></a></span> | <span>Generated by <b>DocFX</b></span>
-            
+      <span>Copyright © 2022-2024 <a href="https://www.alchemybow.com/"><b>AlchemyBow</b></a></span> | <span>Generated by <b>DocFX</b></span>
+      
           </div>
         </div>
       </footer>
     </div>
-    
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
   </body>

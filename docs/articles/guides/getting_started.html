@@ -1,21 +1,21 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Getting started </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Getting started ">
-    <meta name="generator" content="docfx 2.59.3.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Getting Started </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Getting Started ">
     
-    <link rel="shortcut icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../styles/docfx.css">
-    <link rel="stylesheet" href="../../styles/main.css">
-    <meta property="docfx:navrel" content="../../toc">
-    <meta property="docfx:tocrel" content="../toc">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.json">
+      <meta property="docfx:tocrel" content="../toc.json">
     
     
     
@@ -23,7 +23,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -33,7 +33,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../../index.html">
                 <img id="logo" class="svg" src="../../logo.svg" alt="">
               </a>
@@ -44,7 +44,7 @@
                   <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
                 </div>
               </form>
-                
+
                 <ul class="nav level1 navbar-nav">
                       <li>
                           <a href="../../articles/guides.html" title="Manual">Manual</a>
@@ -58,10 +58,11 @@
                       <li>
                           <a href="../../license/LICENSE.html" title="License">License</a>
                       </li>
-                </ul>    </div>
+                </ul>
+            </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -83,12 +84,12 @@
               </div>
               <div class="sidetoc">
                 <div class="toc" id="toc">
-                  
+
                   <ul class="nav level1">
                     <li class="">
                       <span class="expand-stub"></span>
                       <a href="../guides.html" title="Guides" class="">Guides</a>
-                        
+
                         <ul class="nav level2">
                           <li class="">
                             <a href="../guides/installation.html" title="Installation" class="">Installation</a>
@@ -108,8 +109,10 @@
                           <li class="">
                             <a href="../guides/stateful_behaviour.html" title="Stateful Behaviour" class="">Stateful Behaviour</a>
                           </li>
-                        </ul>  </li>
-                  </ul>        </div>
+                        </ul>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -117,31 +120,44 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="getting-started">Getting started</h1>
+<h1 id="getting-started">Getting Started</h1>
 
-<p>Before you start working with <strong>AlchemyBow.Core</strong>, you need to get to know 2 classes:</p>
+<p>Before you begin working with <strong>AlchemyBow.Core</strong>, it’s essential to learn about two key classes:</p>
 <ul>
-<li><a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html"><strong>CoreProjectContext</strong></a> - that is used to store shared dependencies within the global (project) scope. Most often, you should have one class that is derived from it and a prefab that stores its instance (at <code>Assets/*/Resources/Core/YourCoreProjectContextClassName.prefab</code>).</li>
-<li><a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html"><strong>CoreController</strong></a> -  that is used as a scene scope handle of the framework. You need to have at least one class that is derived from it and a game object that stores its instance on the starting scene.</li>
+<li><a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html"><strong>CoreProjectContext</strong></a>: A base class that is used to store shared dependencies at the global (project) scope. Typically, you’ll define a single class derived from it and create a prefab to store its instance in your project’s <code>Resources folder</code> (at <code>Assets/*/Resources/Core/YourCoreProjectContextClassName.prefab</code>).</li>
+<li><a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html"><strong>CoreController</strong></a>: A base class that serves as a scene-level handler for the framework. At a minimum, you need to define one class derived from it and attach it to a GameObject in your starting scene.</li>
 </ul>
-<h3 id="starting-with-the-editor-tools">Starting with the editor tools</h3>
-<p>The <strong>quick start core wizard</strong> is a tool that allows you to quickly create a basic configuration.</p>
-<p>Click <strong>Window</strong> &gt; <strong>AlchemyBow</strong> &gt; <strong>Core</strong> &gt; <strong>Quick Start Core</strong>.
-<img src="../../images/CoreQuickStartWizard.png" alt="Core Quick Start Wizard"></p>
-<p>Then select the destination folder, enter an optional namespace name, enter class names and decide whether to create a <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> prefab and a <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> instance.</p>
-<p>For more advanced editing you can use the <strong>core management window</strong>.<br>
-Click <strong>Window</strong> &gt; <strong>AlchemyBow</strong> &gt; <strong>Core</strong> &gt; <strong>Core Management</strong> to open it.</p>
-<p>The window can operate in two modes:</p>
+<h3 id="basic-configuration-with-quick-start-core-window">Basic Configuration with Quick Start Core Window</h3>
+<p>The Quick Start Core Window is a convenient tool that helps you quickly set up a basic configuration for your project.</p>
+<p><img src="../../images/CoreQuickStartWizard.png" alt="Core Quick Start Wizard"></p>
+<ol>
+<li>Open the window by navigating to: <code>Window &gt; AlchemyBow &gt; Core &gt; Quick Start Core</code></li>
+<li>In the Core Quick Start Window, follow these steps:
 <ul>
-<li><p>Core Project Contexts - where you can review, select and quickly create <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> scripts and prefabs.<br>
-<img src="../../images/CoreManagementProjectContexts.png" alt="Core Management Project Contexts"></p>
-</li>
-<li><p>Core Controllers - where you can review, select and quickly create <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> scripts and scene instances.<br>
-<img src="../../images/CoreManagementControllers.png" alt="Core Management Controllers"></p>
+<li>Select the destination folder for the generated files.</li>
+<li>Enter an optional namespace name (if applicable).</li>
+<li>Specify the desired class names for your <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> and <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a>.</li>
+<li>Choose whether to:
+<ul>
+<li>Create a CoreProjectContext prefab.</li>
+<li>Create a CoreController instance.</li>
+</ul>
 </li>
 </ul>
-<h3 id="starting-manually">Starting manually</h3>
-<p>Create a class that inherits from <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a>.</p>
+</li>
+</ol>
+<h3 id="advanced-editing-with-the-core-management-window">Advanced Editing with the Core Management Window</h3>
+<p>For more advanced editing options, you can use the Core Management Window. This tool provides a centralized interface for managing key components of your project.</p>
+<p><img src="../../images/CoreManagementProjectContexts.png" alt="Core Management Project Contexts"></p>
+<p><img src="../../images/CoreManagementControllers.png" alt="Core Management Controllers"></p>
+<p>Navigate to: <code>Window &gt; AlchemyBow &gt; Core &gt; Core Management</code>.<br>
+The window is divided into two tabs:</p>
+<ul>
+<li><strong>Core Project Contexts</strong>: Review, select, and quickly create <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> scripts and prefabs.</li>
+<li><strong>Core Controllers</strong>: Review, select, and quickly create <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> scripts and scene instances.</li>
+</ul>
+<h3 id="starting-manually">Starting Manually</h3>
+<p>Create a class inheriting from <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a>.</p>
 <pre><code>using AlchemyBow.Core;
 using System.Collections.Generic;
 
@@ -153,8 +169,9 @@ public class MyCoreProjectContext : CoreProjectContext
     }
 }
 </code></pre>
-<p>Then, create a prefab and put it in the <code>Resources</code> folder under the path <code>Core/NameOfYourCoreProjectContextClass</code>, e.g. <code>Assets/Resources/Core/MyCoreProjectContext.prefab</code>.</p>
-<p>Then, create a class that inherits from <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> (use your project context type as a generic parameter).</p>
+<p>Then, create a prefab and place it in the <code>Resources</code> folder under the path: <code>Core/NameOfYourCoreProjectContextClass</code>.<br>
+Example: <code>Assets/Resources/Core/MyCoreProjectContext.prefab</code>.</p>
+<p>Next, create a class that inherits from <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a>, using your custom <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> type as the generic parameter.</p>
 <pre><code>using AlchemyBow.Core;
 using System.Collections.Generic;
 
@@ -166,53 +183,61 @@ public class MyCoreController : CoreController&lt;MyCoreProjectContext&gt;
     }
 }
 </code></pre>
-<p>Finally, create a new game object on the starting scene and attach your <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> to it.</p>
+<p>At the end, create a new GameObject in your starting scene and attach your custom <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> to it.</p>
 <h2 id="life-circle">Life circle</h2>
-<p>If you followed the instructions in the previous section, you can press the play button. Nothing special will happen, but the framework is already working. The next steps are mostly about overriding abstract and virtual members of <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> and <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a>. The best way to understand what they are responsible for is to analyze the life cycle of the framework.
-<img src="../../images/LifeCircle.svg" alt="Life circle"></p>
-<h4 id="1-starting-stage">1. Starting stage</h4>
-<p>At the <code>Awake</code> message the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> starts. <code>CoreController.OnStarted(OperationHandle)</code> is called. You can override this method to implement some early logic, for example to enable a loading screen. However, note that dependencies are not injected at this stage.</p>
+<p>If you followed the instructions in the previous sections, you can press the <strong>Play</strong> button. While nothing visually special will happen, the framework is already up and running. The next steps primarily involve overriding abstract and virtual methods in the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> and <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> classes. To understand their responsibilities and how to customize them, it's helpful to analyze the framework's life cycle.</p>
+<p><img src="../../images/LifeCircle.svg" alt="Life circle"></p>
+<h4 id="1-starting-stage">1. Starting Stage</h4>
+<p>At the <code>Awake</code> message, the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> starts, and the <code>CoreController.OnStarted(OperationHandle)</code> method is called. You can override this method to implement early logic, such as enabling a loading screen. However, keep in mind that dependencies are <strong>not injected</strong> at this stage.</p>
 <div class="TIP">
 <h5>Tip</h5>
-<p>The <a class="xref" href="../../api/AlchemyBow.Core.OperationHandle.html">OperationHandle</a> parameter is used for methods that are expected to perform multi-frame operations. For example, in the <code>OnStarted</code> method you can start a coroutine or a task in another thread. The <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> will hold until <code>OperationHandle.MarkDone()</code> is called.</p>
+<p>The <a class="xref" href="../../api/AlchemyBow.Core.OperationHandle.html">OperationHandle</a> parameter is used for methods that are expected to perform multi-frame operations. For example, in the <code>OnStarted()</code> method, you can initiate a coroutine or run a task in another thread. The <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> will wait until <code>OperationHandle.MarkDone()</code> is called before proceeding.</p>
 </div>
-<h4 id="2-binding-stage">2. Binding stage</h4>
-<p>This stage handles dependency injection.</p>
-<p>At first, the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> ensures that the <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> exists. If it doesn't, the following three steps are performed:</p>
-<ul>
-<li>The project context prefab is instantiated and moved to <code>DontDestroyOnLoad</code>.</li>
-<li>The project context installs bindings from its <a class="xref" href="../../api/AlchemyBow.Core.IoC.MonoInstaller.html">MonoInstallers</a> list and calls <code>CoreProjectContext.InstallAdditionalBindings</code> (you can override this method to add some custom binding logic).</li>
+<h4 id="2-binding-stage">2. Binding Stage</h4>
+<p>The <strong>Binding Stage</strong> is responsible for handling dependency injection.</p>
+<p>First, the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> ensures that the <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a> exists. If it doesn’t, the following three steps are performed:</p>
+<ol>
+<li>The project context prefab is instantiated and moved to <strong>DontDestroyOnLoad</strong>.</li>
+<li>The project context installs bindings from its <a class="xref" href="../../api/AlchemyBow.Core.IoC.MonoInstaller.html">MonoInstallers</a> list and calls <code>CoreProjectContext.InstallAdditionalBindings()</code>. You can override this method to add custom binding logic.</li>
 <li>All project context dependencies are resolved in its container.</li>
-</ul>
-<p>Then, the contents of the <code>CoreProjectContext.Container</code> are copied to the <code>CoreController.Container</code> (dynamic collection bindings are sealed during the process).</p>
-<p>Then, the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> installs bindings from its <a class="xref" href="../../api/AlchemyBow.Core.IoC.MonoInstaller.html">MonoInstallers</a> list and calls <code>CoreController.InstallAdditionalBindings</code> (you can override this method to add some custom binding logic).</p>
+</ol>
+<p>Next, the contents of the <code>CoreProjectContext.Container</code> are copied to the <code>CoreController.Container</code> (note that dynamic collection bindings are sealed during this process).</p>
+<p>Afterward, the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> installs bindings from its own <a class="xref" href="../../api/AlchemyBow.Core.IoC.MonoInstaller.html">MonoInstallers</a> list and calls <code>CoreController.InstallAdditionalBindings()</code>. You can override this method to include custom binding logic specific to the controller.</p>
 <p>Finally, the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> resolves all dependencies and calls <code>CoreController.OnBindingFinished()</code>.</p>
-<h4 id="3-loading-stage">3. Loading stage</h4>
-<p>This stage is dedicated to performing operations that are potentially time consuming. It consists of the following steps:</p>
+<h4 id="3-loading-stage">3. Loading Stage</h4>
+<p>The <strong>Loading Stage</strong> is dedicated to performing time-consuming operations, such as loading assets or resources, while also providing designated places for initialization and cleanup. It consists of the following steps:</p>
+<ol>
+<li>Wait for the realtime seconds delay specified by <code>CoreController.PreLoadingDelay</code>.</li>
+<li>Retrieve the loadables (<a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadable.html">ICoreLoadable</a>) returned by:
 <ul>
-<li>Wait for realtime seconds defined by <code>CoreController.PreLoadingDelay</code>.</li>
-<li>Get loadables (<a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadable.html">ICoreLoadable</a>) returned by <code>CoreProjectContext.GetLoadables()</code> (only during the first loading) and <code>CoreController.GetLoadables()</code> (during each loading).</li>
-<li>Load each loadable sequentially. (You can override <code>CoreController.OnLoadablesProgressed(LoadablesProgress)</code> to respond to the loading process progress. For example, to update your loading screen.)</li>
-<li>Wait for realtime seconds defined by <code>CoreController.PostLoadingDelay</code>.</li>
-<li>Wait for the previous scene to finish unloading (if any).</li>
+<li><code>CoreProjectContext.GetLoadables()</code> (only during the first loading)</li>
+<li><code>CoreController.GetLoadables()</code> (during each subsequent loading)</li>
 </ul>
-<p>At the end, <code>CoreController.OnLoadingFinished()</code> is called. The default implementation of this method triggers related callbacks from the <a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadingCallbacksHandler.html">ICoreLoadingCallbacksHandler</a>.</p>
-<p>(For details on <a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadable.html">ICoreLoadable</a> and <a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadingCallbacksHandler.html">ICoreLoadingCallbacksHandler</a> see <a class="xref" href="loading.html">Loading</a>.)</p>
-<h4 id="4-working-stage">4. Working stage</h4>
-<p>This stage defines what happens between loading and unloading. The recommended solution is to use a state machine (see: <a class="xref" href="stateful_behaviour.html">stateful behaviour</a>). However, it is not mandatory, so you can use any method you like.</p>
-<h4 id="5-unloading-stage">5. Unloading stage</h4>
-<p>This stage is the last phase of the scene scope life cycle (for <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a>). It starts when you call <code>CoreController.ChangeScene(int)</code> and consists of the following steps:</p>
+</li>
+<li>Load each loadable sequentially. You can override <code>CoreController.OnLoadablesProgressed(LoadablesProgress)</code> to track the loading progress. This allows you to, for example, update your loading screen.</li>
+<li>Wait for the realtime seconds delay specified by <code>CoreController.PostLoadingDelay</code>.</li>
+<li>Wait for the previous scene to finish unloading (if applicable).</li>
+</ol>
+<p>Finally, once all loading operations are completed, <code>CoreController.OnLoadingFinished()</code> is called. The default implementation of this method triggers related callbacks from the <a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadingCallbacksHandler.html">ICoreLoadingCallbacksHandler</a>.<br>
+For more details on <a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadable.html">ICoreLoadable</a> and <a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadingCallbacksHandler.html">ICoreLoadingCallbacksHandler</a>, see the <a class="xref" href="loading.html">Loading</a> section.</p>
+<h4 id="4-working-stage">4. Working Stage</h4>
+<p>The <strong>Working Stage</strong> defines the operations that occur between the loading and unloading phases. While it is recommended to use a state machine for managing transitions and states (see: <a class="xref" href="stateful_behaviour.html">stateful behaviour</a>), it is not mandatory. You are free to use any method or approach that suits your project needs.</p>
+<h4 id="5-unloading-stage">5. Unloading Stage</h4>
+<p>The <strong>Unloading Stage</strong> is the final phase in the scene scope life cycle - for <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a>. It begins when you call <code>CoreController.ChangeScene(int)</code> and consists of the following steps:</p>
+<ol>
+<li><code>CoreController.OnSceneChangeStarted()</code>: The default implementation of this method triggers related callbacks from the <a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadingCallbacksHandler.html">ICoreLoadingCallbacksHandler</a>. For more details, refer to the <a class="xref" href="loading.html">Loading</a> section.</li>
+</ol>
 <ul>
-<li><code>CoreController.OnSceneChangeStarted()</code> - the default implementation of this method triggers related callbacks from the <a class="xref" href="../../api/AlchemyBow.Core.ICoreLoadingCallbacksHandler.html">ICoreLoadingCallbacksHandler</a> (see <a class="xref" href="loading.html">Loading</a> for more details).</li>
-<li><code>CoreController.OnKeepUnloading(OperationHandle)</code> - you can override this method to smoothly clean up external resources (such as additional scenes).</li>
+<li><code>CoreController.OnKeepUnloading(OperationHandle)</code>: You can override this method to smoothly clean up external resources, such as additional scenes or assets that are no longer needed.</li>
 </ul>
 <div class="WARNING">
 <h5>Warning</h5>
-<p>If you use the <code>UnityEngine.UI</code> package, add <code>UnityEngine.EventSystems.EventSystem.current.enabled = false;</code> to the <code>CoreController.OnSceneChangeStarted()</code> method. Otherwise, the event system may crash during the scene change process.</p>
+<p>If you are using the <code>UnityEngine.UI</code> package, make sure to add the following line to the <code>CoreController.OnSceneChangeStarted()</code> method: <code>UnityEngine.EventSystems.EventSystem.current.enabled = false;</code>. Failing to do so may cause the event system to crash during the scene change process.</p>
 </div>
+
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
@@ -220,14 +245,14 @@ public class MyCoreController : CoreController&lt;MyCoreProjectContext&gt;
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -235,14 +260,14 @@ public class MyCoreController : CoreController&lt;MyCoreProjectContext&gt;
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            <span>Copyright © 2023 <a href="https://www.alchemybow.com/"><b>AlchemyBow</b></a></span> | <span>Generated by <b>DocFX</b></span>
-            
+      <span>Copyright © 2022-2024 <a href="https://www.alchemybow.com/"><b>AlchemyBow</b></a></span> | <span>Generated by <b>DocFX</b></span>
+      
           </div>
         </div>
       </footer>
     </div>
-    
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
   </body>

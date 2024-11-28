@@ -1,21 +1,21 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Dependency injection </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Dependency injection ">
-    <meta name="generator" content="docfx 2.59.3.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Dependency Injection </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Dependency Injection ">
     
-    <link rel="shortcut icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../styles/docfx.css">
-    <link rel="stylesheet" href="../../styles/main.css">
-    <meta property="docfx:navrel" content="../../toc">
-    <meta property="docfx:tocrel" content="../toc">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.json">
+      <meta property="docfx:tocrel" content="../toc.json">
     
     
     
@@ -23,7 +23,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -33,7 +33,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../../index.html">
                 <img id="logo" class="svg" src="../../logo.svg" alt="">
               </a>
@@ -44,7 +44,7 @@
                   <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
                 </div>
               </form>
-                
+
                 <ul class="nav level1 navbar-nav">
                       <li>
                           <a href="../../articles/guides.html" title="Manual">Manual</a>
@@ -58,10 +58,11 @@
                       <li>
                           <a href="../../license/LICENSE.html" title="License">License</a>
                       </li>
-                </ul>    </div>
+                </ul>
+            </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -83,12 +84,12 @@
               </div>
               <div class="sidetoc">
                 <div class="toc" id="toc">
-                  
+
                   <ul class="nav level1">
                     <li class="">
                       <span class="expand-stub"></span>
                       <a href="../guides.html" title="Guides" class="">Guides</a>
-                        
+
                         <ul class="nav level2">
                           <li class="">
                             <a href="../guides/installation.html" title="Installation" class="">Installation</a>
@@ -108,8 +109,10 @@
                           <li class="">
                             <a href="../guides/stateful_behaviour.html" title="Stateful Behaviour" class="">Stateful Behaviour</a>
                           </li>
-                        </ul>  </li>
-                  </ul>        </div>
+                        </ul>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -117,26 +120,26 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="dependency_injection">
-<h1 id="dependency-injection">Dependency injection</h1>
+<h1 id="dependency-injection">Dependency Injection</h1>
 
-<p>The <strong>AlchemyBow.Core</strong> uses dependency injection (DI) to automatically associate the elements of your game.</p>
-<p>In this article, we use the following naming:</p>
+<p><strong>AlchemyBow.Core</strong> uses dependency injection (DI) to automatically associate the various components of your game.</p>
+<p>In this article, we use the following terminology:</p>
 <ul>
-<li>Client - is an object that receives other objects that it depends on.</li>
-<li>Service - is an object that can be injected into other objects.</li>
-<li>Key - is an exposed type of a service that clients may require.</li>
-<li>Value - is an object accociated with a key - a concrete service.</li>
-<li>Container - is a unit that is responsible for dependency injection.</li>
-<li>Installer - is a unit that creates values, associates them with keys and adds them to the container.</li>
+<li><strong>Client</strong>: An object that receives other objects(services) it depends on.</li>
+<li><strong>Service</strong>: An object that can be injected into other objects(clients).</li>
+<li><strong>Key</strong>: An exposed type of service that clients may require.</li>
+<li><strong>Value</strong>: A concrete service associated with a key.</li>
+<li><strong>Container</strong>: A unit responsible for managing and resolving dependencies.</li>
+<li><strong>Installer</strong>: A unit that creates values, associates them with keys, and adds them to the container</li>
 </ul>
 <h1 id="introduction">Introduction</h1>
-<p>To help you understand how it works, let's cover it with simple examples.
-At first, we have two classes:</p>
+<p>To help you understand how dependency injection works, let’s walk through a simple example.<br>
+In the following, we have two classes:</p>
 <pre><code>using UnityEngine;
 
 public class SampleService : MonoBehaviour
 {
-    // It can do something on its own.
+    // The service does something on its own.
     public void DoServiceJob() { }
 }
 
@@ -145,7 +148,7 @@ public class SampleClient : MonoBehaviour
     [SerializeField]
     private SampleService sampleService;
 
-    // It can do something, but needs some dependencies. 
+    // The client needs the service to perform its job.
     public void DoClientJob() 
     {
         sampleService.DoServiceJob();
@@ -153,8 +156,9 @@ public class SampleClient : MonoBehaviour
     }
 }
 </code></pre>
-<p>The <code>SampleClient</code> depends on the <code>SampleService</code>, so all we need to do is drag the reference to the appropriate slot in the editor, and it's ok. However, now imagine if there are 100 different clients that also depend on the same <code>SampleService</code>. Dragging in the editor is no longer an easy way - it's error prone. A better solution is to write scripts that will get dependencies for us, but there is a problem again. It takes time to create a good dependency architecture, esspecialy for large scale projects.</p>
-<p>In <strong>AlchemyBow.Core</strong>, those problems are solved with dependency injection. At first, let's update the scripts.</p>
+<p>The <code>SampleClient</code> class depends on the <code>SampleService</code>, so in a simple case, you can drag the <code>SampleService</code> reference into the appropriate slot in the Unity editor, and everything works fine. However, when there are a large number of dependencies, especially when they are scattered throughout the scene, dragging references in the editor becomes cumbersome, error-prone, and inefficient.</p>
+<p>In this case, a better solution is to write scripts that automatically resolve the dependencies for us. However, the challenge remains: creating an efficient and scalable dependency architecture can be time-consuming and complex.</p>
+<p>In <strong>AlchemyBow.Core</strong>, these problems are solved with dependency injection. Let’s start by updating the scripts.</p>
 <pre><code>using AlchemyBow.Core.IoC;
 using UnityEngine;
 
@@ -177,10 +181,38 @@ public class SampleClient : MonoBehaviour
     }
 }
 </code></pre>
-<p>The first change is the <a class="xref" href="../../api/AlchemyBow.Core.IoC.InjectionTargetAttribute.html">[InjectionTarget]</a> attribute in the <code>SampleClient</code> class declaration. In this way we notify the framework that this type should be analized for fields decorated with the <code>[Inject]</code> attribute.<br>
-The <a class="xref" href="../../api/AlchemyBow.Core.IoC.InjectAttribute.html">[Inject]</a> attribute informs the framework that it should inject the value of the key <code>SampleService</code> to the decorated field.<br>
-Finally, we added the keyword <code>readonly</code> to the field declaration, this is a good practice as it almost never makes sense to change it manually.</p>
-<p>After these changes, nothing will happen yet. This is because we need to install our objects. To do that we can use <a class="xref" href="../../api/AlchemyBow.Core.IoC.MonoInstaller.html">MonoInstallers</a>, let's create them.</p>
+<p>Explanation of changes:</p>
+<ul>
+<li>The <a class="xref" href="../../api/AlchemyBow.Core.IoC.InjectionTargetAttribute.html">[InjectionTarget]</a> attribute is applied to the <code>SampleClient</code> class. This tells the framework that this class should be analyzed for fields decorated with the <a class="xref" href="../../api/AlchemyBow.Core.IoC.InjectAttribute.html">[Inject]</a> attribute.</li>
+<li>The <a class="xref" href="../../api/AlchemyBow.Core.IoC.InjectAttribute.html">[Inject]</a> attribute is added to the <code>sampleService</code> field. This instructs the framework to automatically inject the value associated with the <code>SampleService</code> key into this field.</li>
+<li>The <code>readonly</code> keyword is added to the <code>sampleService</code> field. This is a best practice because the value of <code>sampleService</code> should generally not change after injection, ensuring immutability and improving code clarity.</li>
+</ul>
+<p>To test it out, for both <code>SampleService</code> and <code>SampleClient</code>:</p>
+<ol>
+<li>Create a GameObject in the scene.</li>
+<li>Attach the respective script to the GameObject.</li>
+<li>Add a <a class="xref" href="../../api/AlchemyBow.Core.Extras.Installers.UnityObjectMonoInstaller.html">UnityObjectMonoInstaller</a> component to the GameObject and assign the script to it.</li>
+<li>Drag the installer into the <a class="xref" href="../../api/AlchemyBow.Core.IoC.MonoInstaller.html">MonoInstallers</a> list in the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a>.</li>
+<li>Run the scene.</li>
+</ol>
+<p>To streamline the process, instead of dragging the installers one by one, you can add an instance of <a class="xref" href="../../api/AlchemyBow.Core.Extras.Installers.ChildrenCompositeMonoInstaller.html">ChildrenCompositeMonoInstaller</a> to the list and ensure that the <code>SampleService</code> and <code>SampleClient</code> game objects are children of the game object containing the <code>ChildrenCompositeMonoInstaller</code>.</p>
+<p>In short, you can create objects that require dependencies to work (clients), objects which are dependencies to other objects (services), and objects that perform both functions. Using installers and attributes, you define these roles, and the framework takes care of the rest, offering extreme performance and safety benefits compared to methods like <code>FindObjectOfType</code>.</p>
+<h1 id="binding">Binding</h1>
+<p>The easiest way to understand the binding process is to think of a DI container as a collection of keys and values. Each added value can request dependencies associated with the added keys. In other words, keys represent services, and values represent clients.</p>
+<p>Bindings can be defined in several places:</p>
+<ul>
+<li>The serialized list of <a class="xref" href="../../api/AlchemyBow.Core.IoC.MonoInstaller.html">MonoInstallers</a> in the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a>.</li>
+<li>The CoreController.InstallAdditionalBindings method.</li>
+<li>The serialized list of <a class="xref" href="../../api/AlchemyBow.Core.IoC.MonoInstaller.html">MonoInstallers</a> in the <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a>.</li>
+<li>The CoreProjectContext.InstallAdditionalBindings method.</li>
+</ul>
+<p>(All methods take an <a class="xref" href="../../api/AlchemyBow.Core.IoC.IBindOnlyContainer.html">IBindOnlyContainer</a> as a parameter.)</p>
+<h3 id="bind">Bind</h3>
+<p><code>Bind&lt;TKey&gt;(TKey value)</code> is the most common operation performed on the container. It creates a key-value pair where:</p>
+<ul>
+<li><code>TKey</code> becomes a potential service that can be requested by clients.</li>
+<li><code>value</code> becomes a potential client that can request services.</li>
+</ul>
 <pre><code>using AlchemyBow.Core.IoC;
 using UnityEngine;
 
@@ -191,44 +223,12 @@ public class SampleServiceInstaller : MonoInstaller
 
     public override void InstallBindings(IBindOnlyContainer container)
     {
-        container.Bind(sampleService);
+        container.Bind(sampleService); // container.Bind&lt;SampleService&gt;(sampleService);
     }
 }
 </code></pre>
-<pre><code>using AlchemyBow.Core.IoC;
-using UnityEngine;
-
-public class SampleClientInstaller : MonoInstaller
-{
-    [SerializeField]
-    private SampleClient sampleClient;
-
-    public override void InstallBindings(IBindOnlyContainer container)
-    {
-        container.Bind(sampleClient);
-    }
-}
-</code></pre>
-<p>Now, if you create those objects, and add the installers to the list in your <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a>, it will work.
-At such a small scale, it might look a bit tedious, but as your dependency tree grows, you'll notice that it's just a matter of creating a little script that will make your new module work immediately. Moreover, later in this article, you'll learn about binding methods so you can reduce the number of installers.</p>
-<p>So in short, you can create: objects that require dependencies to work (clients), objects that are used by other objects (services), and objects that perform both of these functions. Installers and attributes are used to define what is what and the framework does the rest.</p>
-<h1 id="binding">Binding</h1>
-<p>The easy way to understand the binding process is to think about a DI container as a collection of keys and values. Each added value can request depndencies that are the added keys. In other words, the keys are services and the values are clients.</p>
-<p>There are several places dedicated to binding:</p>
-<ul>
-<li>The serialized list of <a class="xref" href="../../api/AlchemyBow.Core.IoC.MonoInstaller.html">MonoInstallers</a> in the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a>.</li>
-<li>The <code>CoreController.InstallAdditionalBindings</code> method.</li>
-<li>The serialized list of <a class="xref" href="../../api/AlchemyBow.Core.IoC.MonoInstaller.html">MonoInstallers</a> in the <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a>.</li>
-<li>The <code>CoreProjectContext.InstallAdditionalBindings</code> method.</li>
-</ul>
-<p>(All methods takes the <a class="xref" href="../../api/AlchemyBow.Core.IoC.IBindOnlyContainer.html">IBindOnlyContainer</a> as a parameter.)</p>
-<h3 id="bind">Bind</h3>
-<p><code>Bind&lt;TKey&gt;(TKey value)</code> is the most common operation performed on the container. It creates a key/value pair where:</p>
-<ul>
-<li><code>TKey</code> - becomes a potential service and can be requested by clients.</li>
-<li><code>value</code>- becomes a potential client and can request services.</li>
-</ul>
-<p><code>Bind(Type key, object value)</code> is a non-generic alternative of the <code>Bind&lt;TKey&gt;(TKey value)</code>. It can be used to create more advanced logic. For example, suppose you have several classes that inherit from one parent class. Instead of creating an installer for each instance, you can use a list to bind them all at once.</p>
+<p><code>Bind(Type key, object value)</code> is a non-generic alternative to <code>Bind&lt;TKey&gt;(TKey value)</code>. This method allows for more advanced binding logic.<br>
+For example, suppose you have several classes that inherit from a common parent class. Instead of creating a separate field/installer for each instance, you can use a collection to bind them all at once:</p>
 <pre><code>using AlchemyBow.Core.IoC;
 using UnityEngine;
 
@@ -241,8 +241,8 @@ public class MonoBehavioursInstaller : MonoInstaller
     {
         foreach (var item in items)
         {
-            // The actual item types (key) must be different, 
-            // otherwise it will fail.
+            // The actual item types (key) must be unique,
+            // otherwise, the binding will fail.
             container.Bind(item.GetType(), item);  
         }
     }
@@ -250,17 +250,17 @@ public class MonoBehavioursInstaller : MonoInstaller
 </code></pre>
 <div class="TIP">
 <h5>Tip</h5>
-<p>One of the biggest advantages of using DI is the ability to swap between different service implementations. For example, you can create an interface and use it as a key. Then, for different scenes, you can create and bind different values to that key.</p>
+<p>One of the greatest advantages of using dependency injection (DI) is the ability to swap between different service implementations easily. For example, you can define an interface and use it as a key. Then, for different scenes, you can create and bind different values to that key.</p>
 </div>
 <h3 id="bindinaccesible">BindInaccesible</h3>
-<p><code>BindInaccesible(object instance)</code> informs the container that the instance is a client but not a service. Or that the fields of the instance should be injected but there is no need to create a key for it.<br>
-It can be helpful:</p>
+<p><code>BindInaccesible(object instance)</code> informs the container that the instance is a client but not a service. This means the instance's fields will be injected, but it won’t be exposed as a service or associated with a key.
+This method is particularly useful in the following scenarios:</p>
 <ul>
-<li>If you want an object to have its fields injected but don't want to expose it.</li>
-<li>If you want multiple objects of the same type to have their fields injected.</li>
-<li>If you want elements of a dynamic collection binding to have their fields injected.</li>
+<li>When you want an object to have its fields injected but do not need to expose it as a service.</li>
+<li>When you need multiple objects of the same type to have their fields injected.</li>
+<li>When you want elements of a dynamic collection binding to have their fields injected.</li>
 </ul>
-<p>Try to analyze the example below to better understand the most common use of this method.</p>
+<p>To better understand the common use of this method, consider the example below:</p>
 <pre><code>using AlchemyBow.Core.IoC;
 
 public class SomeSystemInstaller : MonoInstaller
@@ -271,14 +271,14 @@ public class SomeSystemInstaller : MonoInstaller
         var subsystemB = new SomeSubsystemB();
         var system = new SomeSystem(subsystemA, subsystemB);
 
-        container.BindInaccessible(subsystemA); // has fields injected
-        container.BindInaccessible(subsystemB); // has fields injected
-        container.Bind(system); // has fields injected and can be injected
+        container.BindInaccessible(subsystemA); // Fields are injected
+        container.BindInaccessible(subsystemB); // Fields are injected
+        container.Bind(system); // Fields are injected and it can be injected as a service
     }
 }
 </code></pre>
 <h3 id="addtodynamiccollectionbinding">AddToDynamicCollectionBinding</h3>
-<p>The dynamic collection binding is a feature that allows you to create and extend collections during the binding stage. This is very useful if you want an injectable collection to be built by multiple installers.</p>
+<p>The <strong>dynamic collection binding</strong> feature allows you to create and extend collections during the binding stage. This is particularly useful when you want an injectable collection to be constructed collaboratively by multiple independent installers.</p>
 <pre><code>using AlchemyBow.Core.IoC;
 using UnityEngine;
 using System.Collections.Generic;
@@ -315,37 +315,56 @@ public class SampleClient
     private readonly Dictionary&lt;string, string&gt; sampleDictionaryBinding;
 }
 </code></pre>
-<p>There are 3 default methods that you can use to create dynamic collection bindings:</p>
+<p>There are three default methods you can use to create dynamic collection bindings:</p>
 <ul>
-<li><code>EnsureDynamicCollectionBinding&lt;TCollection&gt;()</code> - ensures that there is a key-value pair for the dynamic collection.</li>
-<li><code>AddToDynamicCollectionBinding&lt;TCollection, TItem&gt;(TItem item)</code> - ensures that there is a key-value pair for the dynamic collection and adds the specified item.</li>
-<li><code>AddRangeToDynamicCollectionBinding&lt;TCollection, TItem&gt;(IEnumerable&lt;TItem&gt; items)</code> - ensures that there is a key-value pair for the dynamic collection and adds specified items.</li>
+<li><code>EnsureDynamicCollectionBinding&lt;TCollection&gt;()</code>: Ensures that the dynamic collection binding exists.</li>
+<li><code>AddToDynamicCollectionBinding&lt;TCollection, TItem&gt;(TItem item)</code>: Ensures that the dynamic collection binding exists and adds an item.</li>
+<li><code>AddRangeToDynamicCollectionBinding&lt;TCollection, TItem&gt;(IEnumerable&lt;TItem&gt; items)</code>: Ensures that the dynamic collection binding exists and adds a range of items.</li>
 </ul>
 <div class="TIP">
 <h5>Tip</h5>
-<p>Sometimes the default methods can become too long. A good way to keep them short is to use extension methods. There are already several shortcuts for the most used collections - see <a class="xref" href="../../api/AlchemyBow.Core.IoC.DynamicCollectionBindingUtility.html">DynamicCollectionBindingUtility</a>.</p>
+<p>Sometimes the default methods can become too lengthy. A good way to simplify them is by using extension methods. There are already several shortcuts available for the most commonly used collections - see <a class="xref" href="../../api/AlchemyBow.Core.IoC.DynamicCollectionBindingUtility.html">DynamicCollectionBindingUtility</a>.</p>
 </div>
 <div class="NOTE">
 <h5>Note</h5>
-<p>You can use any collection that implements <code>IEnumerable&lt;T&gt;</code> and <code>ICollection&lt;T&gt;</code>.</p>
+<p>You can use any collection that implements both IEnumerable<t> and ICollection<t>.</t></t></p>
 </div>
 <div class="NOTE">
 <h5>Note</h5>
-<p>The elements added to the dynamic collection binding are not marked as clients or services automatically.</p>
+<p>The items added to the dynamic collection binding are not automatically bound. If you need them to become services or clients, you must explicitly use the bind methods on them.</p>
 </div>
 <div class="WARNING">
 <h5>Warning</h5>
 <p>The dynamic collection binding cannot be shared between <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a> and <a class="xref" href="../../api/AlchemyBow.Core.CoreProjectContext.html">CoreProjectContext</a>.</p>
 </div>
-<h1 id="dynamic-injection">Dynamic injection</h1>
-<p>At some point, you may need to inject dependencies into objects created after loading. To do that you can use dynamic injectors - objects that have all the necessary dependencies (injected during loading) and are able to inject them into objects of a specific type. To create one:</p>
+<h1 id="fluent-binding">Fluent Binding</h1>
+<p><strong>AlchemyBow.Core</strong> also provides a fluent binding syntax, which is particularly useful when you need to perform multiple binding operations on a single instance. Check out <a class="xref" href="../../api/AlchemyBow.Core.Extras.FluentBindings.FluentBinding.html">FluentBinding</a> for more details.</p>
+<pre><code>using AlchemyBow.Core.IoC;
+using AlchemyBow.Core.Extras.FluentBindings;
+
+public class SomeSystemInstaller : MonoInstaller
+{
+    public override void InstallBindings(IBindOnlyContainer container)
+    {
+        container.StartFluentBinding(new SomeSystem())
+            .BindInaccessible()
+            .AddToCoreLoadingCallbacksHandlers();
+    }
+}
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p>You can introduce your own fluent methods by adding extension methods to the <a class="xref" href="../../api/AlchemyBow.Core.Extras.FluentBindings.FluentBinding.html">FluentBinding</a> class.</p>
+</div>
+<h1 id="dynamic-injection">Dynamic Injection</h1>
+<p>At some point, you may need to inject dependencies into objects created after the binding phase. To achieve this, you can use <strong>dynamic injectors</strong> - objects that hold the necessary dependencies (injected during binding) and can inject them into objects of a specific type. Here's how to create one:</p>
 <ul>
-<li>Create an instance of the <a class="xref" href="../../api/AlchemyBow.Core.IoC.DynamicInjector-1.html"><code>DynamicInjector&lt;T&gt;</code></a> class where <code>T</code> is the injection target.</li>
+<li>Create an instance of the <a class="xref" href="../../api/AlchemyBow.Core.IoC.DynamicInjector-1.html">DynamicInjector<t></t></a> class using the target class as a generic parameter.</li>
 <li>Bind the injector.</li>
-<li>After loading, use the <code>DynamicInjector&lt;T&gt;.Inject(T)</code> method to inject.</li>
+<li>Later, use the <code>DynamicInjector&lt;T&gt;.Inject(T)</code> method to inject the dependencies into objects of the target class.</li>
 </ul>
-<p>A very similar approach is to create factories that are also responsible for creating objects. It is worth noting that in <strong>AlchemyBow.Core</strong>, it is common to build factories using injectors.
-Let's see a complete example:</p>
+<p>A similar approach to using dynamic injectors is to create factories—objects that store the required dependencies during the binding stage and can later be used for object creation. Notably, in <strong>AlchemyBow.Core</strong>, factories are frequently constructed using injectors.<br>
+Let's walk through a complete example:</p>
 <pre><code>using AlchemyBow.Core.IoC;
 
 [InjectionTarget]
@@ -353,6 +372,7 @@ public class SampleClient // We want to dynamically create instances of this cla
 {
     [Inject]
     private readonly SampleService someService;
+    
     private readonly int someCreationParameter;
 
     public SampleClient(int someCreationParameter)
@@ -361,12 +381,12 @@ public class SampleClient // We want to dynamically create instances of this cla
     }
 
     [InjectionTarget]
-    public class Factory // The factory class is nested for clear code formatting.
+    public class Factory // The factory class is nested for clarity.
     {
         [Inject]
         private readonly DynamicInjector&lt;SampleClient&gt; injector;
 
-        // With this method we can create instances of the `SampleClient` class.
+        // This method allows us to create instances of the `SampleClient` class.
         public SampleClient Create(int someCreationParameter)
         {
             return injector.Inject(new SampleClient(someCreationParameter));
@@ -387,11 +407,12 @@ public class SampleClientFactoryInstaller : MonoInstaller
 </code></pre>
 <div class="NOTE">
 <h5>Note</h5>
-<p>Injectors and factories can be created manually. However, the mechanism provided with the <a class="xref" href="../../api/AlchemyBow.Core.IoC.DynamicInjector-1.html"><code>DynamicInjector&lt;T&gt;</code></a> class makes your code more scalable, more consistent and less boiler-plate.</p>
+<p>Injectors and factories can also be created manually. However, using the mechanism provided by the <a class="xref" href="../../api/AlchemyBow.Core.IoC.DynamicInjector-1.html">DynamicInjector<t></t></a> class helps make your code more scalable, consistent, and reduces boilerplate.</p>
 </div>
+
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
@@ -399,14 +420,14 @@ public class SampleClientFactoryInstaller : MonoInstaller
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -414,14 +435,14 @@ public class SampleClientFactoryInstaller : MonoInstaller
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            <span>Copyright © 2023 <a href="https://www.alchemybow.com/"><b>AlchemyBow</b></a></span> | <span>Generated by <b>DocFX</b></span>
-            
+      <span>Copyright © 2022-2024 <a href="https://www.alchemybow.com/"><b>AlchemyBow</b></a></span> | <span>Generated by <b>DocFX</b></span>
+      
           </div>
         </div>
       </footer>
     </div>
-    
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
   </body>

@@ -1,21 +1,21 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Stateful behaviour </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Stateful behaviour ">
-    <meta name="generator" content="docfx 2.59.3.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Stateful Behaviour </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Stateful Behaviour ">
     
-    <link rel="shortcut icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../styles/docfx.css">
-    <link rel="stylesheet" href="../../styles/main.css">
-    <meta property="docfx:navrel" content="../../toc">
-    <meta property="docfx:tocrel" content="../toc">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.json">
+      <meta property="docfx:tocrel" content="../toc.json">
     
     
     
@@ -23,7 +23,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -33,7 +33,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../../index.html">
                 <img id="logo" class="svg" src="../../logo.svg" alt="">
               </a>
@@ -44,7 +44,7 @@
                   <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
                 </div>
               </form>
-                
+
                 <ul class="nav level1 navbar-nav">
                       <li>
                           <a href="../../articles/guides.html" title="Manual">Manual</a>
@@ -58,10 +58,11 @@
                       <li>
                           <a href="../../license/LICENSE.html" title="License">License</a>
                       </li>
-                </ul>    </div>
+                </ul>
+            </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -83,12 +84,12 @@
               </div>
               <div class="sidetoc">
                 <div class="toc" id="toc">
-                  
+
                   <ul class="nav level1">
                     <li class="">
                       <span class="expand-stub"></span>
                       <a href="../guides.html" title="Guides" class="">Guides</a>
-                        
+
                         <ul class="nav level2">
                           <li class="">
                             <a href="../guides/installation.html" title="Installation" class="">Installation</a>
@@ -108,8 +109,10 @@
                           <li class="active">
                             <a href="../guides/stateful_behaviour.html" title="Stateful Behaviour" class="active">Stateful Behaviour</a>
                           </li>
-                        </ul>  </li>
-                  </ul>        </div>
+                        </ul>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -117,37 +120,42 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="stateful_behaviour">
-<h1 id="stateful-behaviour">Stateful behaviour</h1>
+<h1 id="stateful-behaviour">Stateful Behaviour</h1>
 
-<p>In this section, we will discuss an optional tool provided by <strong>AlchemyBow.Core</strong> that helps you manage the state of your app / game.</p>
+<p>In this section, we will explore an optional tool provided by AlchemyBow.Core that helps you manage the state of your app or game.</p>
 <h2 id="introduction">Introduction</h2>
-<p>Before we get into the implementation, we will introduce you to what we consider the stateful behavior through a series of examples.</p>
-<p>First, imagine a simple PC game where the player can click the &quot;Escape&quot; button to toggle the pause menu.
-Obviously, the game can be in 2 states: the play state - where the player is playing, and the pause state - where the player does other things.
-It is easy to see that there are some relationships between these states - the play state can transition into the pause state and vice versa, but only when the player clicks the &quot;Escape&quot; button.<br>
-With that in mind, we can conclude that there are at least 3 elements: <strong>states</strong>, <strong>transitions</strong> connecting states, and <strong>conditions</strong> that trigger transitions.
+<p>Before we dive into the implementation, let’s introduce the concept of stateful behavior through a series of examples.</p>
+<p>Imagine a simple PC game where the player can press the &quot;Escape&quot; button to toggle the pause menu.
+In this case, the game can exist in two states: the play state, where the player is actively playing, and the pause state, where the player is interacting with the menu.<br>
+It's clear that there are relationships between these states: the game can transition from play to pause, and vice versa, but only when the player clicks the &quot;Escape&quot; button.<br>
+From this, we can identify three key elements: states, transitions that connect them, and conditions that trigger the transitions.
 <img src="../../images/States1.png" alt="Play State and Pause State"></p>
-<p>For the next part, let's make two assumptions about the imaginary game:</p>
+<p>For the next part, let’s make two assumptions about the imaginary game:</p>
 <ol>
-<li>The states are used to toggle the game modules, for example enable/disable the player avatar.</li>
-<li>The pause menu doesn't cover the entire screen, the remaining elements are slightly dimmed.</li>
+<li>States are used to toggle game modules, for example, enabling or disabling the player avatar.</li>
+<li>The pause menu doesn’t cover the entire screen—the remaining elements are slightly dimmed.</li>
 </ol>
-<p>Now, we should be able to spot a new problem. Since the player avatar is visible in both states, any transition would cause this module to toggle unnecessarily. This is bad for both the computer (more to compute) and the developer (more code to write and sustain). To address this issue, we can introduce another state to handle the shared modules - the game state, which is a parent for the play state and pause state.<br>
-The conclusion is that we can nest states to avoid redundant operations.
+<p>With these assumptions in mind, we can identify a new problem. Since the player avatar is visible in both the play and pause states, any transition between these states would cause the avatar module to toggle unnecessarily. This introduces two issues:</p>
+<ul>
+<li><strong>Performance overhead</strong>: Extra computations for toggling the avatar, even though it doesn’t need to change.</li>
+<li><strong>Developer overhead</strong>: More code to maintain.</li>
+</ul>
+<p>To solve this, we can introduce an additional <strong>game state</strong>, which acts as a parent for both the play and pause states. This way, the shared modules, like the player avatar, can be handled by the parent, avoiding redundant toggling when transitioning between play and pause.</p>
+<p>In essence, by nesting states, we can better manage common modules and eliminate unnecessary operations, resulting in a cleaner and more efficient system.
 <img src="../../images/States2.png" alt="Game State"></p>
-<p>For the final thought, let's make some more assumptions:</p>
+<p>Let’s make a few more assumptions to finalize our example:</p>
 <ol>
-<li>The game is very simple so it runs on one scene.</li>
+<li>The game is very simple and runs on a single scene.</li>
 <li>There is a main menu that covers the entire screen.</li>
 </ol>
-<p>Now, imagine that you launch this game. The first thing you see is the main menu. If you click the play button, the actual game will start. Then, you can pause it and exit to the main menu. If you click the play button again, the game will start and won't be paused.<br>
-So, we should note that there is a default state at each nesting level which is entered every time a parent state is entered.
+<p>Now, imagine launching the game. The first thing you see is the main menu. When you click the play button, the actual game starts. Then, you can pause the game and exit to the main menu. If you click the play button again, the game will start, but it won’t be paused.
+So, we should note that there is a default state at each nesting level, which is entered every time a parent state is entered.
 <img src="../../images/States3.png" alt="Game State, Menu State and defaults"></p>
 <h2 id="implementation">Implementation</h2>
-<p>In this section, we recreate the concept of stateful behavior from the introduction. To make it more complete, let's add one more state - the credits state. It should look like this:
+<p>In this section, we will recreate the concept of stateful behavior from the introduction. To make it more complete, let's add one more state - the credits state. It should look like this:
 <img src="../../images/States4.png" alt="All states"></p>
-<h3 id="creating-a-state">Creating a state</h3>
-<p>The most important part are states. A state can be entered and exited. To create it, you need to implement the <a class="xref" href="../../api/AlchemyBow.Core.States.IState.html">IState</a> interface.
+<h3 id="creating-a-state">Creating a State</h3>
+<p>The core component of stateful behavior is the state itself. A state can be entered and exited, and to create one, you need to implement the <a class="xref" href="../../api/AlchemyBow.Core.States.IState.html">IState</a> interface.
 For example, let's create the pause state:</p>
 <pre><code>using AlchemyBow.Core.IoC;
 using AlchemyBow.Core.States;
@@ -155,9 +163,9 @@ using AlchemyBow.Core.States;
 [InjectionTarget]
 public class GamePauseState : IState
 {
-    [Inject] // suppose such a module exists
+    [Inject] // Suppose such a module exists
     private readonly PauseMenuViewController pauseMenuViewController;
-    [Inject] // suppose such a module exists
+    [Inject] // Suppose such a module exists
     private readonly GameTimeController gameTimeController;
 
     public void Enter()
@@ -173,20 +181,17 @@ public class GamePauseState : IState
     }
 }
 </code></pre>
-<p>Since the <a class="xref" href="../../api/AlchemyBow.Core.States.IState.html">IState</a> is an interface, it can be anything - a plain c# class (as in the example) or a class inheriting from <code>MonoBehaviour</code>, <code>ScriptableObject</code>, ... . In order to have its fields injected, you must bind it (just like anything else).</p>
-<div class="TIP">
-<h5>Tip</h5>
-<p>The <a class="xref" href="../../api/AlchemyBow.Core.States.Prototyping.PrototypeState.html">PrototypeState</a> is a general implementation of the <a class="xref" href="../../api/AlchemyBow.Core.States.IState.html">IState</a> that uses actions and can be handy for prototyping.</p>
-</div>
-<h3 id="creating-a-condition">Creating a condition</h3>
-<p>Similar to states, conditions are also created by implementing an interface (<a class="xref" href="../../api/AlchemyBow.Core.States.ICondition.html">ICondition</a>). There is no one perfect implementation for a condition. Depending on the situation, they can act as mediators between the state machine and the rest of the scripts, or they can be fully independent entities such as <code>MonoBehaviour</code> with <code>Update()</code>, and so on.<br>
-The important part is to understand how the state machine uses them.</p>
+<p>Since the <a class="xref" href="../../api/AlchemyBow.Core.States.IState.html">IState</a> is an interface, it can be implemented by any class — whether a plain C# class (like the example), or a class that inherits from <code>MonoBehaviour</code>, <code>ScriptableObject</code>, or any other Unity-specific class.<br>
+In order for the state to have its fields injected, you must bind it, just like you would with any other class.</p>
+<h3 id="creating-a-condition">Creating a Condition</h3>
+<p>Similar to states, conditions are created by implementing the <a class="xref" href="../../api/AlchemyBow.Core.States.ICondition.html">ICondition</a> interface. There is no single &quot;perfect&quot; way to implement a condition. Depending on the situation, conditions can act as mediators between the state machine and other scripts, or they can function as fully independent entities. For example, they could be <code>MonoBehaviour</code> instances with an <code>Update()</code> method or other implementations based on your needs.</p>
+<p>The important part to understand is how the state machine uses conditions:</p>
 <ul>
-<li>When a state is entered, all its conditions are activated and the state machine subscribes to their <code>Triggered</code> events.</li>
-<li>When the <code>Triggered</code> event is raised, the state machine checks the active state transitions with <code>ICondition.CheckCondition()</code> and starts the first fulfilled transition.</li>
-<li>When a state is exited, all its conditions are deactivated and the state machine unsubscribes to their <code>Triggered</code> events.</li>
+<li>When a state is entered, all its conditions are activated, and the state machine subscribes to their <code>Triggered</code> events.</li>
+<li>When the <code>Triggered</code> event is raised, the state machine checks the active state transitions with <code>ICondition.CheckCondition()</code> and starts the first transition that is fulfilled.</li>
+<li>When a state is exited, all its conditions are deactivated, and the state machine unsubscribes from their <code>Triggered</code> events.</li>
 </ul>
-<p>Let's create the pause condition.</p>
+<p>Let’s now create the <code>PauseCondition</code>:</p>
 <pre><code>using AlchemyBow.Core.States;
 
 public class PauseCondition : ICondition
@@ -213,8 +218,8 @@ public class PauseCondition : ICondition
     }
 }
 </code></pre>
-<p>The condition above acts like a trigger button. The <code>Trigger()</code> method raises the event, and the <code>SetActive(bool value)</code> method resets its internal state. You can bind it, and then inject it wherever you need it, so that you can call the <code>Trigger()</code> method as a consequence of clicking the <code>Escape</code> button.</p>
-<p>The same effect as above can be achieved with the <a class="xref" href="../../api/AlchemyBow.Core.States.Prototyping.PrototypeCondition.html">PrototypeCondition</a>.</p>
+<p>The condition above acts like a trigger button. The <code>Trigger()</code> method raises the event, and the <code>SetActive(bool value)</code> method resets its internal state. You can bind it and then inject it wherever you need it, allowing you to call the <code>Trigger()</code> method as a consequence of clicking the &quot;Escape&quot; button.</p>
+<p>The same effect as described above can also be achieved using the <a class="xref" href="../../api/AlchemyBow.Core.States.Prototyping.PrototypeCondition.html">PrototypeCondition</a>.</p>
 <pre><code>using AlchemyBow.Core.States.Prototyping;
 
 public class PauseCondition : PrototypeCondition 
@@ -224,44 +229,44 @@ public class PauseCondition : PrototypeCondition
 </code></pre>
 <div class="TIP">
 <h5>Tip</h5>
-<p>The condition can inherit from <code>MonoBehaviour</code> to receive Unity messages or from <code>ScriptableObject</code> to be convenient for the editor drag-and-drop.</p>
+<p>The condition can inherit from <code>MonoBehaviour</code> to receive Unity messages, or from <code>ScriptableObject</code> to be more convenient for editor drag-and-drop functionality.</p>
 </div>
-<h3 id="creating-a-state-machine">Creating a state machine</h3>
-<p>Since we know how to create states and conditions, it's time to create the state machine itself. The framework provides an implementation of a predefined hierarchical finite state machine. Before we continue, let's make the name less scary and learn about its components:</p>
+<h3 id="creating-a-state-machine">Creating a State Machine</h3>
+<p>Now that we know how to create states and conditions, it's time to build the state machine itself. The framework provides a predefined hierarchical finite state machine. Let's break down these terms:</p>
 <ul>
-<li>Predefined - means that all states, transitions and conditions are created during initialization, which is great because we can clearly plan and see the entire structure in one place.</li>
-<li>Hierarchical - means that we can nest states.</li>
-<li>Finite - means that there are a finite number of states.</li>
+<li><strong>Predefined</strong> means that all states, transitions, and conditions are created during initialization, allowing us to clearly plan and view the entire structure in one place.</li>
+<li><strong>Hierarchical</strong> means that states can be nested.</li>
+<li><strong>Finite</strong> means that there is a finite number of states.</li>
 </ul>
-<p>The state machine is represented by <a class="xref" href="../../api/AlchemyBow.Core.States.StateGraph.html">StateGraph</a>. To build it, we use <a class="xref" href="../../api/AlchemyBow.Core.States.StateGraphComposer.html">StateGraphComposer</a> which represents a single node (state).
-For now, let's assume that we have all the states and conditions created (we'll come back to them later).</p>
+<p>The state machine is represented by the <a class="xref" href="../../api/AlchemyBow.Core.States.StateGraph.html">StateGraph</a> class, which we build using the <a class="xref" href="../../api/AlchemyBow.Core.States.StateGraphComposer.html">StateGraphComposer</a> class, representing a single node (state).<br>
+For now, let's assume that we have all the states and conditions set up (we’ll revisit these concepts in more detail later).</p>
 <pre><code>private StateGraph CreateStateGraph()
 {
-    // Similar to the case where gameState is a parent of 
+    // Similar to the scenario where gameState is a parent of 
     // gamePlayState and gamePauseState, we need to create 
-    // a parent for menuState, creditsState and gameState.
-    // However, they don't have any shared elements so we can 
-    // quickly create an empty state with null.
+    // a parent for menuState, creditsState, and gameState.
+    // Since they don't have any shared elements, we can create 
+    // a simple root state with null.
     var rootComposer = new StateGraphComposer(null);
 
-    // Create composers for states. 
+    // Create composers for each state.
     var menuComposer = new StateGraphComposer(menuState);
     var creditsComposer = new StateGraphComposer(creditsState);
     var gameComposer = new StateGraphComposer(gameState);
     var gamePlayComposer = new StateGraphComposer(gamePlayState);
     var gamePauseComposer = new StateGraphComposer(gamePauseState);
 
-    // Mark gamePlayState and gamePauseState as children
-    // of gameState and link them accordingly.
-    // Note that the first added child is the default one!
+    // Mark gamePlayState and gamePauseState as children of gameState
+    // and link them accordingly. 
+    // The first child added is the default one!
     gameComposer.AddNode(gamePlayComposer); 
     gameComposer.AddNode(gamePauseComposer);
     gameComposer.AddLink(gamePlayComposer, gamePauseComposer, pauseCondition);
     gameComposer.AddLink(gamePauseComposer, gamePlayComposer, pauseCondition);
 
-    // Mark menuState, creditsState and gameState as children
-    // of the root and link them accordingly.
-    // Note that the first added child is the default one!
+    // Mark menuState, creditsState, and gameState as children of the root
+    // and link them accordingly. 
+    // The first child added is the default one!
     rootComposer.AddNode(menuComposer);
     rootComposer.AddNode(creditsComposer);
     rootComposer.AddNode(gameComposer);
@@ -270,9 +275,7 @@ For now, let's assume that we have all the states and conditions created (we'll 
     rootComposer.AddLink(menuComposer, gameComposer, gameCondition);
     rootComposer.AddLink(gameComposer, menuComposer, menuCondition);
 
-    // You can validate the graph before building it.
-    // However, consider wrapping the validation code
-    // with the #if UNITY_EDITOR directive.
+    // Validate the graph, but only in the Unity editor.
 #if UNITY_EDITOR
     rootComposer.Validate();
     string paths = &quot;Graph paths:\n&quot;;
@@ -283,7 +286,7 @@ For now, let's assume that we have all the states and conditions created (we'll 
     Debug.Log(paths); 
 #endif
 
-    // Build the actual `StateGraph`.
+    // Build and return the actual StateGraph.
     return StateGraph.Build(rootComposer);
 }
 </code></pre>
@@ -295,8 +298,8 @@ For now, let's assume that we have all the states and conditions created (we'll 
 <h5>Tip</h5>
 <p>The validation methods use the <code>ToString()</code> method to determine the names of the states (<a class="xref" href="../../api/AlchemyBow.Core.States.IState.html">IState</a>). You can override the <code>ToString()</code> method in your <a class="xref" href="../../api/AlchemyBow.Core.States.IState.html">IState</a> implementations for more readable output.</p>
 </div>
-<h3 id="connecting-a-state-machine">Connecting a state machine</h3>
-<p>Now how to connect the state machine to the framework? As always, it's a good idea to delegate the job to a different class, but for clarity, let's do it directly in the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a>.</p>
+<h3 id="connecting-the-state-machine">Connecting the State Machine</h3>
+<p>Now, let's see how to connect the state machine to the framework. It's typically a good idea to delegate this task to a separate class for better organization, but for clarity, we'll implement it directly in the <a class="xref" href="../../api/AlchemyBow.Core.CoreController-1.html">CoreController</a>.</p>
 <pre><code>using AlchemyBow.Core;
 using AlchemyBow.Core.IoC;
 using AlchemyBow.Core.States;
@@ -305,8 +308,8 @@ using UnityEngine;
 
 public class MyCoreController : CoreController&lt;MyCoreProjectContext&gt;
 {
-    // We assume that the classes for states and conditions exist
-    // and work similar to the previous examples.
+    // Assuming that the state and condition classes are defined 
+    // and work like the previous examples.
     private readonly MenuState menuState = new MenuState();
     private readonly CreditsState creditsState = new CreditsState();
     private readonly GameState gameState = new GameState();
@@ -323,13 +326,13 @@ public class MyCoreController : CoreController&lt;MyCoreProjectContext&gt;
 
     protected override void InstallAdditionalBindings(IBindOnlyContainer container)
     {
-        // Bind the conditions to keys so that they can be requested as dependencies.
+        // Bind the conditions to keys so that they can be injected as dependencies.
         container.Bind(menuCondition);
         container.Bind(creditsCondition);
         container.Bind(gameCondition);
         container.Bind(pauseCondition);
 
-        // The states need dependencies, but should not be used externally.
+        // Bind the states (they need dependencies, but should not be accessible externally).
         container.BindInaccessible(menuState);
         container.BindInaccessible(creditsState);
         container.BindInaccessible(gameState);
@@ -342,16 +345,14 @@ public class MyCoreController : CoreController&lt;MyCoreProjectContext&gt;
     protected override void OnLoadingFinished()
     {
         base.OnLoadingFinished();
-        // Create and activate the state machine when the loading 
-        // is finished.
+        // Create and activate the state machine once loading is complete.
         stateGraph = CreateStateGraph();
         stateGraph.Enter(); 
     }
 
     protected override void OnSceneChangeStarted()
     {
-        // Deactivate the state machine when the unloading 
-        // is started.
+        // Deactivate the state machine when unloading begins.
         stateGraph.Exit();
         base.OnSceneChangeStarted();
     }
@@ -369,12 +370,12 @@ public class MyCoreController : CoreController&lt;MyCoreProjectContext&gt;
 </code></pre>
 <h2 id="remarks">Remarks</h2>
 <p>In this section, you will find some interesting details on this topic.</p>
-<h3 id="unity-messages-in-states">Unity messages in states</h3>
-<p>You may be wondering how to get Unity messages (<code>Update</code>, <code>OnGUI</code>, ...) inside states. The most common options are:</p>
+<h3 id="unity-messages-in-states">Unity Messages in States</h3>
+<p>You may be wondering how to get Unity messages (<code>Update()</code>, <code>OnGUI()</code>, etc.) inside states. The most common options are:</p>
 <ol>
-<li>Delegate these tasks to other classes and just toggle them in state. (You should almost always pick this option.)</li>
-<li>States can inherit from the <code>MonoBehaviour</code> class.</li>
-<li>You can combine the <code>StateGraph.EnumerateDown(...)</code> method with interfaces to invoke a message in order.</li>
+<li>You can delegate Unity-specific tasks to other classes and simply toggle their activity in the state. This keeps state classes focused on handling state transitions and avoids cluttering them with Unity-specific behavior.</li>
+<li>States can inherit from the <code>MonoBehaviour</code> class if you need to directly handle Unity messages within them.</li>
+<li>You can combine the <code>StateGraph.EnumerateDown(...)</code> method with interfaces to invoke a message in order. For example:</li>
 </ol>
 <pre><code>public class MyCoreController : CoreController&lt;MyCoreProjectContext&gt;
 {
@@ -383,6 +384,7 @@ public class MyCoreController : CoreController&lt;MyCoreProjectContext&gt;
     // ...
     private void Update()
     {
+        // Iterate through states and call Update if they implement IUpdatable
         stateGraph.EnumerateDown(state =&gt;
         {
             if (state is IUpdatable updatable)
@@ -393,19 +395,21 @@ public class MyCoreController : CoreController&lt;MyCoreProjectContext&gt;
     }
 }
 
+// A custom interface for states that need to be updated.
 public interface IUpdatable
 {
     void Update();
 }
 </code></pre>
-<h3 id="conditions-gotchas">Conditions gotchas</h3>
+<h3 id="conditions-gotchas">Conditions Gotchas</h3>
 <ul>
-<li>If multiple conditions are true when the state is activated, the order in which the links were added determines the transition.</li>
+<li>If multiple conditions are true when the state is activated, the order in which the links were added determines which transition is triggered.</li>
 <li>Raising the <code>ICondition.Triggered</code> event in the <code>ICondition.SetActive(bool value)</code> method does not affect the state machine. In case the state is activated, all conditions are checked when activation is complete. In case the state is deactivated, the event is completely ignored.</li>
 </ul>
+
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
@@ -413,14 +417,14 @@ public interface IUpdatable
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -428,14 +432,14 @@ public interface IUpdatable
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            <span>Copyright © 2023 <a href="https://www.alchemybow.com/"><b>AlchemyBow</b></a></span> | <span>Generated by <b>DocFX</b></span>
-            
+      <span>Copyright © 2022-2024 <a href="https://www.alchemybow.com/"><b>AlchemyBow</b></a></span> | <span>Generated by <b>DocFX</b></span>
+      
           </div>
         </div>
       </footer>
     </div>
-    
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
   </body>
