@@ -122,33 +122,29 @@
             <article class="content wrap" id="_content" data-uid="stateful_behaviour">
 <h1 id="stateful-behaviour">Stateful Behaviour</h1>
 
-<p>In this section, we will explore an optional tool provided by AlchemyBow.Core that helps you manage the state of your app or game.</p>
+<p>In this section, we will explore an optional tool provided by <strong>AlchemyBow.Core</strong> that helps you manage the state of your app or game.</p>
 <h2 id="introduction">Introduction</h2>
 <p>Before we dive into the implementation, let’s introduce the concept of stateful behavior through a series of examples.</p>
-<p>Imagine a simple PC game where the player can press the &quot;Escape&quot; button to toggle the pause menu.
+<p>Imagine a simple PC game where the player can press the &quot;Escape&quot; button to toggle the pause menu.<br>
 In this case, the game can exist in two states: the play state, where the player is actively playing, and the pause state, where the player is interacting with the menu.<br>
 It's clear that there are relationships between these states: the game can transition from play to pause, and vice versa, but only when the player clicks the &quot;Escape&quot; button.<br>
 From this, we can identify three key elements: states, transitions that connect them, and conditions that trigger the transitions.
 <img src="../../images/States1.png" alt="Play State and Pause State"></p>
 <p>For the next part, let’s make two assumptions about the imaginary game:</p>
-<ol>
+<ul>
 <li>States are used to toggle game modules, for example, enabling or disabling the player avatar.</li>
 <li>The pause menu doesn’t cover the entire screen—the remaining elements are slightly dimmed.</li>
-</ol>
-<p>With these assumptions in mind, we can identify a new problem. Since the player avatar is visible in both the play and pause states, any transition between these states would cause the avatar module to toggle unnecessarily. This introduces two issues:</p>
-<ul>
-<li><strong>Performance overhead</strong>: Extra computations for toggling the avatar, even though it doesn’t need to change.</li>
-<li><strong>Developer overhead</strong>: More code to maintain.</li>
 </ul>
-<p>To solve this, we can introduce an additional <strong>game state</strong>, which acts as a parent for both the play and pause states. This way, the shared modules, like the player avatar, can be handled by the parent, avoiding redundant toggling when transitioning between play and pause.</p>
+<p>With these assumptions in mind, we can identify a new problem. Since the player avatar is visible in both the play and pause states, any transition between these states would cause the avatar module to toggle unnecessarily.<br>
+To solve this, we can introduce an additional <strong>game state</strong>, which acts as a parent for both the play and pause states. This way, the shared modules, like the player avatar, can be handled by the parent, avoiding redundant toggling when transitioning between play and pause.</p>
 <p>In essence, by nesting states, we can better manage common modules and eliminate unnecessary operations, resulting in a cleaner and more efficient system.
 <img src="../../images/States2.png" alt="Game State"></p>
 <p>Let’s make a few more assumptions to finalize our example:</p>
-<ol>
+<ul>
 <li>The game is very simple and runs on a single scene.</li>
 <li>There is a main menu that covers the entire screen.</li>
-</ol>
-<p>Now, imagine launching the game. The first thing you see is the main menu. When you click the play button, the actual game starts. Then, you can pause the game and exit to the main menu. If you click the play button again, the game will start, but it won’t be paused.
+</ul>
+<p>Now, imagine launching the game. The first thing you see is the main menu. When you click the play button, the actual game starts. Then, you can pause the game and exit to the main menu. If you click the play button again, the game will start, but it won’t be paused.<br>
 So, we should note that there is a default state at each nesting level, which is entered every time a parent state is entered.
 <img src="../../images/States3.png" alt="Game State, Menu State and defaults"></p>
 <h2 id="implementation">Implementation</h2>
@@ -232,7 +228,7 @@ public class PauseCondition : PrototypeCondition
 <p>The condition can inherit from <code>MonoBehaviour</code> to receive Unity messages, or from <code>ScriptableObject</code> to be more convenient for editor drag-and-drop functionality.</p>
 </div>
 <h3 id="creating-a-state-machine">Creating a State Machine</h3>
-<p>Now that we know how to create states and conditions, it's time to build the state machine itself. The framework provides a predefined hierarchical finite state machine. Let's break down these terms:</p>
+<p>Now that we know how to create states and conditions, it's time to build the state machine itself. The framework provides a predefined hierarchical finite state machine implementation. Let's break down these terms:</p>
 <ul>
 <li><strong>Predefined</strong> means that all states, transitions, and conditions are created during initialization, allowing us to clearly plan and view the entire structure in one place.</li>
 <li><strong>Hierarchical</strong> means that states can be nested.</li>
@@ -292,7 +288,7 @@ For now, let's assume that we have all the states and conditions set up (we’ll
 </code></pre>
 <div class="NOTE">
 <h5>Note</h5>
-<p>You can reuse conditions and states (see <code>pauseCondition</code> in the example). However, they cannot be active at the same time. The <code>StateGraphComposer.Validate()</code> method ensures their correct composition.</p>
+<p>You can reuse conditions and states (see <code>pauseCondition</code> in the example). However, they cannot be active at the same time. The <code>StateGraphComposer.Validate()</code> method ensures the correct composition.</p>
 </div>
 <div class="TIP">
 <h5>Tip</h5>
@@ -372,11 +368,11 @@ public class MyCoreController : CoreController&lt;MyCoreProjectContext&gt;
 <p>In this section, you will find some interesting details on this topic.</p>
 <h3 id="unity-messages-in-states">Unity Messages in States</h3>
 <p>You may be wondering how to get Unity messages (<code>Update()</code>, <code>OnGUI()</code>, etc.) inside states. The most common options are:</p>
-<ol>
-<li>You can delegate Unity-specific tasks to other classes and simply toggle their activity in the state. This keeps state classes focused on handling state transitions and avoids cluttering them with Unity-specific behavior.</li>
+<ul>
+<li>Delegating Unity-specific tasks to other classes and simply toggling their activity in the state. This keeps state classes focused on handling state transitions and avoids cluttering them with Unity-specific behavior.</li>
 <li>States can inherit from the <code>MonoBehaviour</code> class if you need to directly handle Unity messages within them.</li>
-<li>You can combine the <code>StateGraph.EnumerateDown(...)</code> method with interfaces to invoke a message in order. For example:</li>
-</ol>
+<li>You can combine the <code>StateGraph.EnumerateDown(...)</code> method with interfaces to invoke a message in order from the parent to the leaf. For example:</li>
+</ul>
 <pre><code>public class MyCoreController : CoreController&lt;MyCoreProjectContext&gt;
 {
     // ...
