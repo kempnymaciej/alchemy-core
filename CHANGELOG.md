@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.3.1] - 2024-11-30
+* Scripts generated via editor tools now use four spaces for indentation instead of tabs.
+* Fixed an issue where the quick start core wizard failed to create a prefab for the core project context in Unity 6.
+
 ## [2.3.0] - 2024-11-26
 Added Extras folder with additional tools and utilities:
 * `FluentBinding` and `ContainerFluentExtensions` - Provides fluent binding syntax for easier configuration.
