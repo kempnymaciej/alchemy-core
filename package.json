@@ -1,6 +1,6 @@
 {
   "name": "com.alchemybow.core",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "displayName": "AlchemyBow.Core",
   "description": "AlchemyBow.Core is a user-friendly framework placing a strong emphasis on dependency injection. It empowers developers to effortlessly manage dependencies, game loading, and application states.",
   "unity": "2018.3",
