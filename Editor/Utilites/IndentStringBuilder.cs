@@ -27,7 +27,7 @@ namespace AlchemyBow.Core.Editor.Utilities
                     throw new System.ArgumentOutOfRangeException(nameof(value), value, "The indentation level cannot be a negative number.");
                 }
                 indentLevel = value;
-                indent = new string('\t', indentLevel);
+                indent = new string(' ', 4 * indentLevel);
             }
         }
 

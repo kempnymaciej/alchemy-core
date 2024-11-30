@@ -159,7 +159,8 @@ namespace AlchemyBow.Core.Editor.Wizards
 
             var creationRequest = new CreationRequest();
             EditorJsonUtility.FromJsonOverwrite(creationRequestJson, creationRequest);
-            creationRequest.Create();
+            
+            EditorApplication.delayCall += creationRequest.Create;
         }
 
         [System.Serializable]
